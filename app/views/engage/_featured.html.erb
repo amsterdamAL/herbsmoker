@@ -1,0 +1,47 @@
+<div id="main-stuff" class="featured_wrapper">
+	
+	<div class="featured_main">
+		
+		<div class="featured_content">	
+		
+			<% @article = Article.order("created_at").last %>
+			
+			<div class= "featured_title">
+				<h2 class="title"><%= @article.title %></h2>
+			</div>
+			
+			<div class="featured_time_stamp">
+				posted on
+				<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
+				
+				<!-- >#{article.created_at.day.ordinalize} -->
+				
+			</div>
+			
+			<div class="featured_pic">
+				<%= image_tag @article.image.url(:featured) %>
+				
+			</div>
+			<div id="content" class="expandDiv">
+				<%=raw @article.text %>
+			</div>
+	
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="side">
+		side class
+	
+		<div class="signup">sign UP
+		</div>
+	
+	
+	
+	
+	</div>
+	
+		
+</div>

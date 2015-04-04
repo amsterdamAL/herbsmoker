@@ -1,0 +1,42 @@
+<div class="skinny_bar">
+	<div class="skinny_bar_content">
+		<span id="tag" class="tag_line"><%= render :partial => 'shared/logo2' %></span>
+	</div>	
+</div>	
+
+<div id="stickit"></div>
+	<div id="sticky-anchor" class="perm_bar">
+		<div id="sticky" class="nav" >	
+			
+			<div id="ghost" class="ellogo"><%= render :partial => 'shared/logo2' %></div>	
+			<ul>
+				<li>
+					
+					<%= link_to 'Home', root_path %>
+					
+				</li>
+				<li>
+					<%= link_to 'News', articles_path %>
+				</li>
+				<li>
+					
+					<%= link_to 'Home', root_path %>
+					
+				</li>
+				<li>
+					<%= link_to 'News', articles_path %>
+				</li>
+				<li>
+					<form>
+						<div class"search_box">
+							<input type='text' class='form-control' value='<%= params[:keyword] %>' 
+							       name='keyword' placeholder='..search' >
+						</div>
+			</form> 
+				</li>
+				<li>
+					//<input type='submit' class='go' value='GO'>
+				</li>
+			</ul>
+		</div>
+	</div>
