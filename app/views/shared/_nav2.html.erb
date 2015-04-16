@@ -20,22 +20,20 @@
 				</li>
 				<li>
 					
-					<%= link_to 'Home', root_path %>
+					<a href ="#">Donate</a>
 					
 				</li>
 				<li>
-					<%= link_to 'News', articles_path %>
+					<a href ="#">About</a>
 				</li>
+			
 				<li>
-					<form>
-						<div class"search_box">
-							<input type='text' class='form-control' value='<%= params[:keyword] %>' 
-							       name='keyword' placeholder='..search' >
-						</div>
-			</form> 
-				</li>
-				<li>
-					//<input type='submit' class='go' value='GO'>
+					<form class="search-bar" role="search">
+  					<input type="search" name='keyword' placeholder="Enter Search" />
+  					<!--<button type="submit">
+    					<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+  					</button>-->
+					</form>
 				</li>
 			</ul>
 		</div>

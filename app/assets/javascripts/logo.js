@@ -17,7 +17,7 @@ $(document).ready(function(){
     $("#ghost").hide();// hide it initially
     
     $('#content').expander({
-    slicePoint: 250, //It is the number of characters at which the contents will be sliced into two parts.
+    slicePoint: 320, //It is the number of characters at which the contents will be sliced into two parts.
     widow: 2,
     expandText: 'read more',
     expandPrefix: '&hellip; ',

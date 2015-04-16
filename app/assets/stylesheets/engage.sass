@@ -60,21 +60,26 @@ h2
     .ellogo
       height: 30px
       float: left
-      margin-left: 5px    
+      margin-left: 5px 
+         
     
   
     ul
       
       float: right
+      
     
       li
         display: inline-block
-        line-height: 30px
+        padding: 0px .75em 0px .75em
+    
+        a
+          
+          
         
         
 #sticky-anchor.perm_bar.stick
   position: fixed
-  width: 100%
   top: 0px
   
   .nav  
@@ -82,52 +87,71 @@ h2
     background: #141311
     +outer-container
     +clearfix
+
     
     .ellogo
       width: 128px     
       float: left
       margin-left: 5px
+      
 
     
   
     ul
       
       float: right
+      line-height: 30px
+      
     
       li
         display: inline-block
-
+        
+        
+        
+        a
+          
 
     
                
           
 
+#main-stuff
+  padding-top: 20px
+  
 #main-stuff.pad
-  margin-top: 24px
+  padding-top: 50px  
 
 
 
 .featured_wrapper
-  background: pink
+  
   +outer-container
   clear: both
   
   
   
   .featured_main
-    background: red
+    
     +span-columns(8)
+    padding-left: 10px
     
     
     .featured_content
       +clearfix
-      
+    
+    
       .featured_pic
         float: left
         padding-right: 20px
         padding-bottom: 0px
+        
       .readmore-js-section
         overflow: visible 
+        
+    .the_rest
+      padding-top: 20px
+      
+      
       
       
       
@@ -137,9 +161,9 @@ h2
     .side
       +span-columns(4)
       
-    .signup
-      background: green
-      +fill-parent
+      .signup
+        background: green
+        
     
     .featured_main
       background: blue
@@ -148,5 +172,106 @@ h2
       
 
 
- 
+
+.the_rest
+  +clearfix  
+  
+  .block
+    +span-columns(2.66666 of 8)
+    +omega(3n) 
+    margin-bottom: 15px
+    background: pink
+   
+    
+    
+    
+    
+    
+    .mini_image
+      background: pink
+      
+      
+      img
+        width: 100%
+        margin: 0px auto
         
+    .mini_info
+      background: pink
+      font-size: 10px
+      overflow: hidden
+      float: right
+      
+      padding: 0px 10px
+      
+      
+    .mini_text
+      word-wrap: break-word
+      background: pink
+      padding: 0px 10px 5px 10px
+      font-size: 1.5em
+      clear: both
+      height: 138px
+      overflow: hidden
+        
+
+
+.signup
+  background: yellow
+  overflow: hidden
+  +background(linear-gradient(red, green) left repeat)
+  height: 300px
+  +border-top-radius(5px)
+  +border-right-radius(5px)
+  +border-bottom-radius(5px)
+  +border-left-radius(5px)
+  
+
+
+form.search-bar
+  /////////////////////////////////////////////////////////////////////////////////// 
+  $base-border-color: gainsboro !default
+  $base-border-radius: 3px !default
+  $base-line-height: 1.5em !default
+  $action-color: #477DCA !default
+  $dark-gray: #333 !default
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $search-bar-border-color: $base-border-color
+  $search-bar-border: 1px solid $search-bar-border-color
+  $search-bar-background: lighten($search-bar-border-color, 10%)
+
+  position: relative
+  text-align:center
+  padding-bottom: 6px
+  input[type=search] 
+    +appearance(none)
+    +box-sizing(border-box)
+    +transition(border-color)
+    background-color: white
+    border-radius: $base-border-radius
+    
+    border: 1px solid $base-border-color
+    display: block
+    font-size: .6em
+    font-style: italic
+    margin: 0
+    padding: ($base-spacing / 4) ($base-spacing / 4)
+    
+    position: relative
+    width: 100%
+  
+
+  button[type=submit] 
+    @include button(flat, $action-color)
+    @include position(absolute, 0em 0em 0em null)
+    border-bottom-left-radius: 0
+    border-top-left-radius: 0
+    outline: none
+    padding: 5px 10px
+
+    img 
+      height: 12px
+      opacity: 0.7
+    
+  
+

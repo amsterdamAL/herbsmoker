@@ -14,7 +14,7 @@
 				posted on
 				<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
 				
-				<!-- >#{article.created_at.day.ordinalize} -->
+				<!-- #{article.created_at.day.ordinalize} -->
 				
 			</div>
 			
@@ -27,15 +27,34 @@
 			</div>
 	
 		</div>
+		
+		<div class="the_rest">
+			
+			<% @articles = Article.last(7).each do |a| %>
+			
+			
+				<li class="block">
+					<div class="mini_image"><%= image_tag a.image.url(:thumb) %></div>
+					<div class="mini_info"><%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %></div>
+					<div class="mini_text"><strong><%= a.title %></strong></div>
+				</li>
+			
+			<% end %>
+			
+			
+		</div>
+		
+		
+		
 	</div>
 	
 	
 	
 	
 	<div class="side">
-		side class
+		
 	
-		<div class="signup">sign UP
+		<div class="signup">sign UP cgxfgzxcvxcvxcv
 		</div>
 	
 	

@@ -19,7 +19,7 @@ end
 
 #READ = index,show
 def index
-  @articles = Article.search(params[:keyword])
+  @articles = Article.search(params[:keyword]).order('created_at DESC')
 end
 
 def show
