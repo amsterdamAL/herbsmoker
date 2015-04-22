@@ -51,16 +51,56 @@
 	
 	
 	
-	<div class="side">
+	<div id="left" class="side.done">
 		
 	
-		<div class="signup">sign UP cgxfgzxcvxcvxcv
+		<div id="subs" class="signup">
+				<%= form_for :engage, :url => engages_path, remote: true do |f| %>
+		  
+		  			<% if @sub.errors.any? %>
+			  			<div id="errors">
+				  			<h2> <%=  @sub.errors.count %> errors </h2>
+				  
+				  			<ul>
+				  	
+					  			<% @sub.errors.full_messages.each do |msg| %>
+					  	
+					  				<li>  <%= msg %></li>
+					  			<% end %>
+				  	
+				  			</ul>
+			  			</div>
+		  			<% end %>
+		  
+	  				<p>
+				    	<%= f.label :email %><br>
+				    	<%= f.text_field :email %>
+			  		</p>
+				 
+			  		<p>
+			    		<%= f.label :zip %><br>
+			    		<%= f.text_field :zip %>
+			  		</p>
+			  		<p>
+			
+			    		<%= f.submit %>
+			  		</p>
+				
+				<% end %>
+				
 		</div>
 	
-	
-	
+		<div id="subs1" class="side.done">
+		<H1> Thank You !!</H1>
+		</div>
 	
 	</div>
+	
+	
+	
+</div>	
+	
+	
 	
 		
 </div>

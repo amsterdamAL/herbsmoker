@@ -15,6 +15,7 @@ document.addEventListener('page:load', function(){
 
 $(document).ready(function(){
     $("#ghost").hide();// hide it initially
+    $("#subs1").hide();// hide it initially
     
     $('#content').expander({
     slicePoint: 320, //It is the number of characters at which the contents will be sliced into two parts.
@@ -28,7 +29,11 @@ $(document).ready(function(){
  
   
     
-    
+//	$( "#subs" ).submit(function( event ) {
+//	$("#subs").hide();
+//	$("#subs1").show();
+	
+//});
     
     
   
