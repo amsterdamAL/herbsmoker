@@ -55,43 +55,43 @@
 		
 	
 		<div id="subs" class="signup">
-				<%= form_for :engage, :url => engages_path, remote: true do |f| %>
+				<%= form_for :engage, url: {action: "create"}, remote: true do |f| %>
 		  
-		  			<% if @sub.errors.any? %>
-			  			<div id="errors">
-				  			<h2> <%=  @sub.errors.count %> errors </h2>
-				  
-				  			<ul>
-				  	
-					  			<% @sub.errors.full_messages.each do |msg| %>
-					  	
-					  				<li>  <%= msg %></li>
-					  			<% end %>
-				  	
-				  			</ul>
-			  			</div>
-		  			<% end %>
+		  			
 		  
-	  				<p>
-				    	<%= f.label :email %><br>
-				    	<%= f.text_field :email %>
-			  		</p>
-				 
-			  		<p>
-			    		<%= f.label :zip %><br>
-			    		<%= f.text_field :zip %>
-			  		</p>
-			  		<p>
-			
-			    		<%= f.submit %>
-			  		</p>
+	  				<table class="subs_form">
+	  					<td>
+	  						<tr colspan="2">
+	  							<%= f.text_field :email, :maxlength => "30", :onblur => "if (this.value == '') {this.value = 'EMAIL';}", :onfocus => "if(this.value == 'EMAIL') {this.value = '';}", :size => "5", :value => "EMAIL" %>
+
+	  						</tr>
+	  						
+	  					</td>
+				    	
+				    	<td>
+				    		<tr>
+				    			<%= f.text_field :zip, :maxlength => "5", :onblur => "if (this.value == '') {this.value = 'ZIP';}", :onfocus => "if(this.value == 'ZIP') {this.value = '';}", :size => "5", :value => "ZIP" %>
+
+				    		</tr>
+				    		<tr>
+				    			<%= f.submit 'Sign Up!', :class => 'subbutton' %>
+
+				    			
+				    		</tr>
+				    		
+				    		
+				    	</td>
+				    	
+				    
+			  		</table>
 				
 				<% end %>
 				
 		</div>
 	
-		<div id="subs1" class="side.done">
-		<H1> Thank You !!</H1>
+			
+		<div id="subs1" class="done">
+		
 		</div>
 	
 	</div>
