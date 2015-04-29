@@ -5,21 +5,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-
-
-
-
 p
   font-family: "Ubuntu"
  
-    
-  
 h2
   font-family: "Ubuntu"
   font-weight: 700  
-
 
 
 .skinny_bar
@@ -29,26 +20,23 @@ h2
   .skinny_bar_content
     +outer-container
     
-    
-   
-    
-    
     .tag_line
       background: #141311
       display: inline-block
       width: 40%
       margin-left: 5px
-         
+/*-----------------------------------------------end of upper nav bar ------------------*/  
 
 
 
 
+
+
+       
 #sticky-anchor.perm_bar
   width: 100%
   positon: relative
   background: #141311
-  
-  
   
   .nav  
     
@@ -56,28 +44,21 @@ h2
     +outer-container
     +clearfix
     
-    
     .ellogo
       height: 30px
       float: left
       margin-left: 5px 
          
-    
-  
     ul
       
       float: right
       
-    
       li
         display: inline-block
         padding: 0px .75em 0px .75em
-    
-        a
-          
-          
+/*-----------------------------------------------end of lower nav bar ------------------*/    
         
-        
+       
 #sticky-anchor.perm_bar.stick
   position: fixed
   top: 0px
@@ -88,57 +69,45 @@ h2
     +outer-container
     +clearfix
 
-    
     .ellogo
       width: 128px     
       float: left
       margin-left: 5px
       
-
-    
-  
     ul
-      
       float: right
       line-height: 30px
       
-    
       li
         display: inline-block
-        
-        
-        
-        a
-          
-
-    
+/*-----------------------------------------------end of lower nav bar sticky ------------------*/      
                
           
+
+
 
 #main-stuff
   padding-top: 20px
   
 #main-stuff.pad
   padding-top: 50px  
+/*-----------------------------------------------js compensating sticky nav bar ------------------*/ 
+
+
+
 
 
 
 .featured_wrapper
-  
   +outer-container
   clear: both
   
-  
-  
   .featured_main
-    
     +span-columns(8)
     padding-left: 10px
     
-    
     .featured_content
       +clearfix
-    
     
       .featured_pic
         float: left
@@ -150,81 +119,55 @@ h2
         
     .the_rest
       padding-top: 20px
+      +clearfix
       
-      
-      
-      
-      
-      
-        
-    
-    .side
-      +span-columns(4)
-      
-      .signup
-        background: green
-        
-    
-    .featured_main
-      background: blue
-      
-      
-
-
-
-.the_rest
-  +clearfix  
-  
-  .block
-    +span-columns(2.66666 of 8)
-    +omega(3n) 
-    margin-bottom: 15px
-    background: pink
+      .block
+        +span-columns(2.66666 of 8)
+        +omega(3n) 
+        margin-bottom: 15px
+        background: pink
    
-    
-    
-    
-    
-    
-    .mini_image
-      background: pink
+        .mini_image
+          background: pink
       
       
-      img
-        width: 100%
-        margin: 0px auto
+          img
+            width: 100%
+            margin: 0px auto
         
-    .mini_info
-      background: pink
-      font-size: 10px
-      overflow: hidden
-      float: right
+        .mini_info
+          background: pink
+          font-size: 10px
+          overflow: hidden
+          float: right
+          padding: 0px 10px
       
-      padding: 0px 10px
+        .mini_text
+          word-wrap: break-word
+          background: pink
+          padding: 0px 10px 5px 10px
+          font-size: 1.5em
+          clear: both
+          height: 138px
+          overflow: hidden
+
+  .side
+    +span-columns(4)
       
-      
-    .mini_text
-      word-wrap: break-word
-      background: pink
-      padding: 0px 10px 5px 10px
-      font-size: 1.5em
-      clear: both
-      height: 138px
-      overflow: hidden
+    .signup
+      background: green
+      padding: 20px
+      +background(linear-gradient(red, green) left repeat)
+      display: inline-block
+      width: 340px
+      +border-top-radius(5px)
+      +border-right-radius(5px)
+      +border-bottom-radius(5px)
+      +border-left-radius(5px)
         
 
 
-.signup
-  
-  padding: 20px
-  +background(linear-gradient(red, green) left repeat)
-  display: inline-block
-  width: 340px
-  +border-top-radius(5px)
-  +border-right-radius(5px)
-  +border-bottom-radius(5px)
-  +border-left-radius(5px)
-  
+
 
 table
   padding-top: 40px
@@ -237,6 +180,7 @@ table
 input.subbutton
   float: right
   height: 36.9px
+  
   
 
   
