@@ -4,7 +4,7 @@
 			
 			<% @article = Article.order("created_at").last %>
 			<div class= "featured_title">
-				<h2 class="title"><%= @article.title %></h2>
+				<h2 class="title"><a href = "test"><%= @article.title %></a></h2>
 			</div>
 			
 			<div class="featured_time_stamp">
@@ -47,7 +47,7 @@
 	<div id="left" class="side">
 		<div id="subs" class="signup">
 				
-		  	<%= form_for :engage, url: {action: "create"}, remote: true do |f| %>
+		  	<%= form_for :engage, :html => {:id => "subform"}, url: {action: "create"}, remote: true do |f| %>
 		  
 	  		<%= f.text_field :email, :maxlength => "30", :onblur => "if (this.value == '') {this.value = 'EMAIL';}", :onfocus => "if(this.value == 'EMAIL') {this.value = '';}", :size => "5", :value => "EMAIL" %>
 
@@ -56,5 +56,6 @@
 			<%= f.submit 'Sign Up!', :class => 'subbutton' %>
 			<% end %>
 		</div>
+		<div id= "results"></div>
 	</div>
 </div>	

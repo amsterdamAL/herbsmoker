@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   
 
 resources :engages
+resources :lookups
   
   root 'engages#now'
 
