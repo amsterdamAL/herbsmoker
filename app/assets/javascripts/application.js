@@ -16,19 +16,3 @@
 //= require readmore.js
 //= require_tree .
 
-$.ajax({
-	
-	dataType: "json", success: function(data){
-		
-	}
-	
-	, error: function(xhr){
-		
-		var errors = $.parseJSON(xhr.responseText).errors
-		$('#subs').remove();
-		
-	}
-	
-	
-	
-})
