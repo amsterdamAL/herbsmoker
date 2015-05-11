@@ -1,21 +1,33 @@
 $(document).ready(function(){
 	
+	
+	
+	//do this when user enters address info
 	var getLookup = function(){
 	
+		
+		//user input stored
 		var addy = $('#lookup_address').val();
+		var city = $('#lookup_city').val();
+		var zip = $('#lookup_zip').val();
 		var lat;
 		var lng;
 		var leg_id0;
 		var leg_id1;
-		if(addy == ''){
+		
+		if(zip == "" && addy == "" && city == ""){
 	
-			//$('#lookup_results').append("<h2 class='loading'>Ha! We haven't forgotten to validate the form! Please enter something.</h2>");
+			//$('#lookup_results').empty().append("<h2 class='loading'>Ha! We haven't forgotten to validate the form! Please enter something</h2>");
 	
 		} else {
 	
-			$('#lookup_results').append("<h2 class='loading'>Your poster is on its way!</h2>");
+			//$('#lookup_results').empty().append("<h2 class='loading'>Retreving info, please wait....</h2>");
 	
-			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + "&components=administrative_area:FL|country:US&key=AIzaSyBf5WygDVM-Ib4sKti8pIvLIBYO1luw-J0", function(json){
+			
+			
+			
+			//get lat and lng info based on user input, then use lat and lng for sunlight foundation api next
+			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + city + zip + "&components=administrative_area:FL|country:US&key=AIzaSyBf5WygDVM-Ib4sKti8pIvLIBYO1luw-J0", function(json){
 	    	              
 				
 				if (json.results.length > 1){
@@ -28,49 +40,77 @@ $(document).ready(function(){
 			 	
 			 	
 			 	
+			 	
+			 	//use lat and lng to lookup reps.
 			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(results) {
-						
-					$("#headshot").attr("src", results[0].photo_url);
-					$("#results_name").empty().append( "Name: " + results[0].full_name);
-					$("#results_party").empty().append( "Party: " + results[0].party);
-					$("#results_email").empty().append( "Email: " + results[0].email);
+					
+					$("#headshot").attr("src", results[0].photo_url);	
 					
 					if (results[0].roles[0].chamber == "lower"){
-						$("#results_chamber").empty().append("Chamber: FL House Member");
+						$("#results_name").empty().append( "Representative " + results[0].full_name);
+						$("#results_party").empty().append( results[0].party + " Party");
+						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
+						$("#results_email").empty().append( results[0].email);
+						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
+					
+					
+					
+					
 					}else if (results[0].roles[0].chamber == "upper"){
-						$("#results_chamber").empty().append("Chamber: FL Senate Member");
+						
+						$("#results_name").empty().append( "Senator " + results[0].full_name);
+						$("#results_party").empty().append( results[0].party + " Party");
+						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
+						$("#results_email").empty().append( results[0].email);
+						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
+					
+					
+										
 					}else{
 						
-						$("#results_chamber").empty().append("Chamber: unknown");
+						$("#results_name").empty().append( results[0].full_name);
+						$("#results_party").empty().append( results[0].party + " Party");
+						$("#results_chamber").empty().append("District " + results[0].roles[0].district);
+						$("#results_email").empty().append( results[0].email);
+						$("#results_term").empty().append("Term: " + results[0].roles[0].term);	
+						
 					}
-					
-					
-					$("#results_district").empty().append("District: " + results[0].roles[0].district);
-					$("#results_term").empty().append("Term: " + results[0].roles[0].term);
+									
 					
 					
 					
 					
-					
-					
-					
-					$("#headshot2").attr("src", results[1].photo_url);
-					$("#results_name2").empty().append( "Name: " + results[1].full_name);
-					$("#results_party2").empty().append( "Party: " + results[1].party);
-					$("#results_email2").empty().append( "Email: " + results[1].email);
+					$("#headshot2").attr("src", results[1].photo_url);	
 					
 					if (results[1].roles[0].chamber == "lower"){
-						$("#results_chamber2").empty().append("Chamber: FL House Member");
+						$("#results_name2").empty().append( "Representative " + results[1].full_name);
+						$("#results_party2").empty().append( results[1].party + " Party");
+						$("#results_chamber2").empty().append("State House, District " + results[1].roles[0].district);
+						$("#results_email2").empty().append( results[1].email);
+						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
+					
+					
+					
+					
 					}else if (results[1].roles[0].chamber == "upper"){
-						$("#results_chamber2").empty().append("Chamber: FL Senate Member");
+						
+						$("#results_name2").empty().append( "Senator " + results[1].full_name);
+						$("#results_party2").empty().append( results[1].party + " Party");
+						$("#results_chamber2").empty().append("State House, District " + results[1].roles[0].district);
+						$("#results_email2").empty().append( results[1].email);
+						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
+					
+					
+										
 					}else{
 						
-						$("#results_chamber2").empty().append("Chamber: unknown");
+						$("#results_name2").empty().append( results[1].full_name);
+						$("#results_party2").empty().append( results[1].party + " Party");
+						$("#results_chamber2").empty().append("District " + results[1].roles[0].district);
+						$("#results_email2").empty().append( results[1].email);
+						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);	
+						
 					}
-					
-					
-					$("#results_district2").empty().append("District: " + results[1].roles[0].district);
-					$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
 					
 					
@@ -79,27 +119,47 @@ $(document).ready(function(){
 					
 					
 					
+						//get additional info based on legislative id 1of2
 						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(data) {
-							$("#results_tn").empty().append("Phone: " + data.offices[0].phone);
 							
-							if (data.offices[1].phone.length > 1) {
-								
-								$("#results_tn").append(" or " + data.offices[1].phone);
-								
-							}
-					
-					
+							
+							$("#results_work").empty().append( data.offices[0].name + ":");
+							$("#results_phone").empty().append( data.offices[0].phone);
+							$("#results_address").empty().append( data.offices[0].address);
+							$("#results_work-b").empty().append( data.offices[1].name + ":");
+							$("#results_phone-b").empty().append( data.offices[1].phone);
+							$("#results_address-b").empty().append( data.offices[1].address);
+													
+							
+						});
 						
 						
-							console.log(data);
+						//get additional info based on legislative id 2of2
+						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(lore) {
+							
+							
+							$("#results_work2").empty().append( lore.offices[0].name + ":");
+							$("#results_phone2").empty().append( lore.offices[0].phone);
+							$("#results_address2").empty().append( lore.offices[0].address);
+							
+							$("#results_work2-b").empty().append( lore.offices[1].name + ":");
+							$("#results_phone2-b").empty().append( lore.offices[1].phone);
+							$("#results_address2-b").empty().append( lore.offices[1].address);
+													
+												
+						});
+					
 					});	
 				});         
-			});			
+						
 				
 		};
 	
 		return false;
 	};
+	
+	
+	
 	
 	$('#lookup_button').click(getLookup);
 	$('#lookup_address').keyup(function(event){
