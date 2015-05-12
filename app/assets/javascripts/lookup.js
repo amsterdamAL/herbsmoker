@@ -17,11 +17,37 @@ $(document).ready(function(){
 		
 		if(zip == "" && addy == "" && city == ""){
 	
-			//$('#lookup_results').empty().append("<h2 class='loading'>Ha! We haven't forgotten to validate the form! Please enter something</h2>");
+			$('#lookup_errors').empty().append("<h3 class='loading'>Please enter an address to locate your Representitives.</h3>");
 	
 		} else {
 	
-			//$('#lookup_results').empty().append("<h2 class='loading'>Retreving info, please wait....</h2>");
+			$('#lookup_errors').empty().append("<h2 class='loading'>Retreving info, please wait....</h2>");
+			
+			$("#results_name").empty();
+			$("#results_party").empty();
+			$("#results_chamber").empty();
+			$("#results_email").empty();
+			$("#results_term").empty();
+					
+			$("#results_name2").empty();
+			$("#results_party2").empty();
+			$("#results_chamber2").empty();
+			$("#results_email2").empty();
+			$("#results_term2").empty();
+					
+			$("#results_work").empty();
+			$("#results_phone").empty();
+			$("#results_address").empty();
+			$("#results_work-b").empty();
+			$("#results_phone-b").empty();
+			$("#results_address-b").empty();
+					
+			$("#results_work2").empty();
+			$("#results_phone2").empty();
+			$("#results_address2").empty();
+			$("#results_work2-b").empty();
+			$("#results_phone2-b").empty();
+			$("#results_address2-b").empty();
 	
 			
 			
@@ -33,7 +59,7 @@ $(document).ready(function(){
 				if (json.results.length > 1){
 					$('#lookup_errors').empty().append("too many results, be more spicific. Ex.. add zipcode or city");
 				} else {
-				 	$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + " | Lng:" + json.results[0].geometry.location.lng);
+				 	$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>");
 				 		lat = json.results[0].geometry.location.lat;
 				 		lng = json.results[0].geometry.location.lng;
 			 	}
@@ -44,13 +70,23 @@ $(document).ready(function(){
 			 	//use lat and lng to lookup reps.
 			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(results) {
 					
+					
+					
 					$("#headshot").attr("src", results[0].photo_url);	
 					
 					if (results[0].roles[0].chamber == "lower"){
 						$("#results_name").empty().append( "Representative " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
+						
+						
+						//email fix, some emails are in different places
 						$("#results_email").empty().append( results[0].email);
+						//$("#results_email").append( results[0].offices[0].email);
+						
+						
+						
+						
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
 					
 					
@@ -60,7 +96,7 @@ $(document).ready(function(){
 						
 						$("#results_name").empty().append( "Senator " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
-						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
+						$("#results_chamber").empty().append("State Senate, District " + results[0].roles[0].district);
 						$("#results_email").empty().append( results[0].email);
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
 					
@@ -96,7 +132,7 @@ $(document).ready(function(){
 						
 						$("#results_name2").empty().append( "Senator " + results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
-						$("#results_chamber2").empty().append("State House, District " + results[1].roles[0].district);
+						$("#results_chamber2").empty().append("State Seante, District " + results[1].roles[0].district);
 						$("#results_email2").empty().append( results[1].email);
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
@@ -117,7 +153,8 @@ $(document).ready(function(){
 					leg_id0 = results[0].leg_id;
 					leg_id1 = results[1].leg_id;
 					
-					
+					$('#lookup_errors').append(results[0].full_name + ": " + results[0].leg_id + "<br>");
+					$('#lookup_errors').append(results[1].full_name + ": " + results[1].leg_id + "<br>");
 					
 						//get additional info based on legislative id 1of2
 						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(data) {
