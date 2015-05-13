@@ -80,11 +80,13 @@ $(document).ready(function(){
 						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
 						
 						
-						//email fix, some emails are in different places
-						$("#results_email").empty().append( results[0].email);
-						//$("#results_email").append( results[0].offices[0].email);
-						
-						
+						//email fix
+						if (results[0].email != undefined){
+							$("#results_email").empty().append( results[0].email);
+						}else if (results[0].offices[0].email != undefined){
+							$("#results_email").empty().append( results[0].offices[0].email);
+							
+						}
 						
 						
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
@@ -97,7 +99,14 @@ $(document).ready(function(){
 						$("#results_name").empty().append( "Senator " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("State Senate, District " + results[0].roles[0].district);
-						$("#results_email").empty().append( results[0].email);
+						
+						//email fix
+						if (results[0].email != undefined){
+							$("#results_email").empty().append( results[0].email);
+						}else if (results[0].offices[0].email != undefined){
+							$("#results_email").empty().append( results[0].offices[0].email);
+							
+						}
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
 					
 					
@@ -107,7 +116,14 @@ $(document).ready(function(){
 						$("#results_name").empty().append( results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("District " + results[0].roles[0].district);
-						$("#results_email").empty().append( results[0].email);
+						
+						//email fix
+						if (results[0].email != undefined){
+							$("#results_email").empty().append( results[0].email);
+						}else if (results[0].offices[0].email != undefined){
+							$("#results_email").empty().append( results[0].offices[0].email);
+							
+						}
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);	
 						
 					}
@@ -122,7 +138,17 @@ $(document).ready(function(){
 						$("#results_name2").empty().append( "Representative " + results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("State House, District " + results[1].roles[0].district);
-						$("#results_email2").empty().append( results[1].email);
+						
+						//email fix
+						if (results[1].email != undefined){
+							$("#results_email2").empty().append( results[1].email);
+						}else if (results[1].offices[0].email != undefined){
+							$("#results_email2").empty().append( results[1].offices[0].email);
+							
+						}
+						
+						
+
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
 					
@@ -133,7 +159,14 @@ $(document).ready(function(){
 						$("#results_name2").empty().append( "Senator " + results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("State Seante, District " + results[1].roles[0].district);
-						$("#results_email2").empty().append( results[1].email);
+						
+						//email fix
+						if (results[1].email != undefined){
+							$("#results_email2").empty().append( results[1].email);
+						}else if (results[1].offices[0].email != undefined){
+							$("#results_email2").empty().append( results[1].offices[0].email);
+							
+						}
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
 					
@@ -143,7 +176,15 @@ $(document).ready(function(){
 						$("#results_name2").empty().append( results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("District " + results[1].roles[0].district);
-						$("#results_email2").empty().append( results[1].email);
+						
+						//email fix
+						if (results[1].email != undefined){
+							$("#results_email2").empty().append( results[1].email);
+						}else if (results[1].offices[0].email != undefined){
+							$("#results_email2").empty().append( results[1].offices[0].email);
+							
+						}
+						
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);	
 						
 					}
@@ -167,7 +208,11 @@ $(document).ready(function(){
 							$("#results_phone-b").empty().append( data.offices[1].phone);
 							$("#results_address-b").empty().append( data.offices[1].address);
 													
-							
+							if (data.offices[0].email != undefined){
+								$("#results_email").empty().append( data.offices[0].email);
+							}else if (data.offices[1].email != undefined){
+								$("#results_email").empty().append( data.offices[1].email);
+							}
 						});
 						
 						
@@ -182,6 +227,12 @@ $(document).ready(function(){
 							$("#results_work2-b").empty().append( lore.offices[1].name + ":");
 							$("#results_phone2-b").empty().append( lore.offices[1].phone);
 							$("#results_address2-b").empty().append( lore.offices[1].address);
+							
+							if (lore.offices[0].email != undefined){
+								$("#results_email2").empty().append( lore.offices[0].email);
+							}else if (lore.offices[1].email != undefined){
+								$("#results_email2").empty().append( lore.offices[1].email);
+							}
 													
 												
 						});
