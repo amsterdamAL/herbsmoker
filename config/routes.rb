@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  #match '/articles',      to: 'articles#new',           via: 'get'
   
+  
+  get "(:keyword)" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
+  get "find/all" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
   
   resources :articles do
     resources :comments
@@ -13,10 +17,17 @@ Rails.application.routes.draw do
   end
   
 
-resources :engages
-resources :lookups
+
+
+
+  resources :engages
+  
   
   root 'engages#now'
+  
+  get 'find/all' => 'lookups#new'
+  
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

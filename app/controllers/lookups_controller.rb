@@ -6,7 +6,6 @@ class LookupsController < ApplicationController
   end
   
   
-  def create
-    
-  end
+   
+  
 end

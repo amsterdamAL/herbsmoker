@@ -14,7 +14,9 @@
 			</div>
 			
 			<div class="featured_pic">
-				<%= image_tag @article.image.url(:featured) %>
+				
+				<%= link_to image_tag(@article.image.url(:featured)), {:controller => 'articles', :action => 'show', :id => @article.id } %>
+				
 			</div>
 			
 			<div id="content" class="expandDiv">
@@ -22,17 +24,14 @@
 			</div>
 		</div>
 		
-		
-		
-		
-		
-		
+			
 		<div class="the_rest">
 			<% @articles = Article.last(7).each do |a| %>
 				<li class="block">
-					<div class="mini_image"><%= image_tag a.image.url(:thumb) %></div>
+					<div class="mini_image"><%= link_to image_tag(a.image.url(:thumb)), {:controller => 'articles', :action => 'show', :id => a.id } %></div>
 					<div class="mini_info"><%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %></div>
 					<div class="mini_text"><strong><%= a.title %></strong></div>
+					
 				</li>
 			<% end %>
 		</div>

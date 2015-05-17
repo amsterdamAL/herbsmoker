@@ -21,7 +21,7 @@ $(document).ready(function(){
 	
 		} else {
 	
-			$('#lookup_errors').empty().append("<h2 class='loading'>Retreving info, please wait....</h2>");
+			$('#lookup_errors').empty().append("Retreving info, please wait....");
 			
 			$("#results_name").empty();
 			$("#results_party").empty();
@@ -86,6 +86,9 @@ $(document).ready(function(){
 						}else if (results[0].offices[0].email != undefined){
 							$("#results_email").empty().append( results[0].offices[0].email);
 							
+						}else{
+							
+							$("#results_email").empty().append( "EMAIL: not available");
 						}
 						
 						
@@ -106,6 +109,9 @@ $(document).ready(function(){
 						}else if (results[0].offices[0].email != undefined){
 							$("#results_email").empty().append( results[0].offices[0].email);
 							
+						}else{
+							
+							$("#results_email").empty().append( "EMAIL: not available");
 						}
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
 					
@@ -122,7 +128,9 @@ $(document).ready(function(){
 							$("#results_email").empty().append( results[0].email);
 						}else if (results[0].offices[0].email != undefined){
 							$("#results_email").empty().append( results[0].offices[0].email);
+						}else{
 							
+							$("#results_email").empty().append( "EMAIL: not available");
 						}
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);	
 						
@@ -145,6 +153,9 @@ $(document).ready(function(){
 						}else if (results[1].offices[0].email != undefined){
 							$("#results_email2").empty().append( results[1].offices[0].email);
 							
+						}else{
+							
+							$("#results_email2").empty().append( "EMAIL: not available");
 						}
 						
 						
@@ -166,6 +177,9 @@ $(document).ready(function(){
 						}else if (results[1].offices[0].email != undefined){
 							$("#results_email2").empty().append( results[1].offices[0].email);
 							
+						}else{
+							
+							$("#results_email2").empty().append( "EMAIL: not available");
 						}
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
@@ -183,6 +197,9 @@ $(document).ready(function(){
 						}else if (results[1].offices[0].email != undefined){
 							$("#results_email2").empty().append( results[1].offices[0].email);
 							
+						}else{
+							
+							$("#results_email2").empty().append( "EMAIL: not available");
 						}
 						
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);	

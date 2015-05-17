@@ -1,5 +1,6 @@
 <div class="skinny_bar">
 	<div class="skinny_bar_content">
+		
 		<span id="tag" class="tag_line"><%= render :partial => 'shared/logo2' %></span>
 	</div>	
 </div>	
@@ -12,16 +13,16 @@
 			<ul>
 				<li>
 					
-					<%= link_to 'Home', root_path %>
+					<%= link_to 'news', root_path %>
 					
 				</li>
 				<li>
 					
-					<%= link_to 'Look Up', new_lookup_path %>
+					<%= link_to 'find my REP!', :controller=>"lookups", :action=>"new" %>
 					
 				</li>
 				<li>
-					<%= link_to 'News', articles_path %>
+					<%= link_to 'archive', articles_path %>
 				</li>
 				<li>
 					
@@ -34,11 +35,17 @@
 			
 				<li>
 					<form class="search-bar" role="search">
-  					<input type="search" name='keyword' placeholder="Enter Search" />
+  					<input type="search" name='keyword' placeholder="Enter Search" autocomplete="on" />
   					<!--<button type="submit">
     					<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
   					</button>-->
 					</form>
+		<!--		<%= form_tag url_for(:controller => 'articles', :action => 'index'), :method => 'get' do %>
+				
+				<%= label_tag(:keyword, "Search for:") %>
+    			<%= text_field_tag(:keyword) %>
+    			<%= submit_tag("Search") %>
+				<% end %>-->
 				</li>
 				
 			</ul>
