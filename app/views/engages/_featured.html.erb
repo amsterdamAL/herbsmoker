@@ -4,7 +4,7 @@
 			
 			<% @article = Article.order("created_at").last %>
 			<div class= "featured_title">
-				<h2 class="title"><a href = "test"><%= @article.title %></a></h2>
+				<h2 class="title"><%= link_to @article.title, {:controller => 'articles', :action => 'show', :id => @article.id } %></h2>
 			</div>
 			
 			<div class="featured_time_stamp">
@@ -30,7 +30,7 @@
 				<li class="block">
 					<div class="mini_image"><%= link_to image_tag(a.image.url(:thumb)), {:controller => 'articles', :action => 'show', :id => a.id } %></div>
 					<div class="mini_info"><%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %></div>
-					<div class="mini_text"><strong><%= a.title %></strong></div>
+					<div class="mini_text"><strong><%= link_to a.title, {:controller => 'articles', :action => 'show', :id => a.id }  %></strong></div>
 					
 				</li>
 			<% end %>

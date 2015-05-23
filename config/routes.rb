@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   get "(:keyword)" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
   get "find/all" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
-  
+  get 'lookups/all' => 'lookups#all'
   resources :articles do
     resources :comments
     
@@ -21,8 +21,8 @@ Rails.application.routes.draw do
 
 
   resources :engages
-  
-  
+  resources :subscribers
+  get 'engages/show' => 'engages#show'
   root 'engages#now'
   
   get 'find/all' => 'lookups#new'

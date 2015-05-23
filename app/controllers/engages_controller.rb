@@ -9,6 +9,7 @@ class EngagesController < ApplicationController
     @sub = Subscriber.new(subscriber_params)
     respond_to do |format|
       if @sub.save
+        UserMailer.welcome_email(@sub).deliver_now
         #format.html { render 'now', notice: 'User was successfully created.' }
         format.js {render 'success'}
       else
@@ -17,6 +18,19 @@ class EngagesController < ApplicationController
     end
   end      
   
+
+
+  def show
+    @sub = Subscriber.all
+  end
+
+
+  def destroy
+    @sub = Subscriber.find(params[:id])
+    @sub.destroy
+  
+    redirect_to engages_path
+  end  
 
 private
   def subscriber_params

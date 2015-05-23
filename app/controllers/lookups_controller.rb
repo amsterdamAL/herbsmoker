@@ -6,6 +6,8 @@ class LookupsController < ApplicationController
   end
   
   
-   
+  def all
+    
+  end 
   
 end

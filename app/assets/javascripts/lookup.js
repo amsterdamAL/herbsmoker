@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 	
 	
-	//do this when user enters address info
+	//do this when user clicks find button
 	var getLookup = function(){
 	
 		
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		
 		if(zip == "" && addy == "" && city == ""){
 	
-			$('#lookup_errors').empty().append("<h3 class='loading'>Please enter an address to locate your Representitives.</h3>");
+			$('#lookup_errors').empty().append("Please enter an address to locate your Representitives.");
 	
 		} else {
 	
@@ -52,7 +52,7 @@ $(document).ready(function(){
 			
 			
 			
-			//get lat and lng info based on user input, then use lat and lng for sunlight foundation api next
+			//STEP ONE;;;;   get lat and lng info based on user input
 			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + city + zip + "&components=administrative_area:FL|country:US&key=AIzaSyBf5WygDVM-Ib4sKti8pIvLIBYO1luw-J0", function(json){
 	    	              
 				
@@ -67,7 +67,7 @@ $(document).ready(function(){
 			 	
 			 	
 			 	
-			 	//use lat and lng to lookup reps.
+			 	//STEP TWO:::::   use lat and lng to lookup reps.
 			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(results) {
 					
 					
@@ -86,9 +86,14 @@ $(document).ready(function(){
 						}else if (results[0].offices[0].email != undefined){
 							$("#results_email").empty().append( results[0].offices[0].email);
 							
+						}else if ( results[0].first_name == "Bobby B."){
+							$("#results_email").empty().append( "bobby.dubose@myfloridahouse.gov");
+						}else if ( results[0].last_name == "Sprowls"){
+							$("#results_email").empty().append( "Chris.Sprowls@myfloridahouse.gov");
+						}else if ( results[0].full_name == "Evan Jenne"){
+							$("#results_email").empty().append( "Evan.Jenne@myfloridahouse.gov");
 						}else{
-							
-							$("#results_email").empty().append( "EMAIL: not available");
+							$("#results_email").empty().append( "Email: *** missing ***");
 						}
 						
 						
@@ -116,26 +121,8 @@ $(document).ready(function(){
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
 					
 					
-										
-					}else{
-						
-						$("#results_name").empty().append( results[0].full_name);
-						$("#results_party").empty().append( results[0].party + " Party");
-						$("#results_chamber").empty().append("District " + results[0].roles[0].district);
-						
-						//email fix
-						if (results[0].email != undefined){
-							$("#results_email").empty().append( results[0].email);
-						}else if (results[0].offices[0].email != undefined){
-							$("#results_email").empty().append( results[0].offices[0].email);
-						}else{
-							
-							$("#results_email").empty().append( "EMAIL: not available");
-						}
-						$("#results_term").empty().append("Term: " + results[0].roles[0].term);	
-						
-					}
-									
+					}					
+					
 					
 					
 					
@@ -155,7 +142,7 @@ $(document).ready(function(){
 							
 						}else{
 							
-							$("#results_email2").empty().append( "EMAIL: not available");
+							$("#results_email2").empty().append( results[1].first_name);
 						}
 						
 						
@@ -177,34 +164,15 @@ $(document).ready(function(){
 						}else if (results[1].offices[0].email != undefined){
 							$("#results_email2").empty().append( results[1].offices[0].email);
 							
-						}else{
-							
-							$("#results_email2").empty().append( "EMAIL: not available");
+						}else if (results[1].first_name == "Charles S. \"Charlie"){
+														
+							$("#results_email2").empty().append( "dean.charles@flsenate.gov");
 						}
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
 					
-										
-					}else{
-						
-						$("#results_name2").empty().append( results[1].full_name);
-						$("#results_party2").empty().append( results[1].party + " Party");
-						$("#results_chamber2").empty().append("District " + results[1].roles[0].district);
-						
-						//email fix
-						if (results[1].email != undefined){
-							$("#results_email2").empty().append( results[1].email);
-						}else if (results[1].offices[0].email != undefined){
-							$("#results_email2").empty().append( results[1].offices[0].email);
-							
-						}else{
-							
-							$("#results_email2").empty().append( "EMAIL: not available");
-						}
-						
-						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);	
-						
-					}
+					}					
+					
 					
 					
 					
@@ -218,12 +186,12 @@ $(document).ready(function(){
 						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(data) {
 							
 							
-							$("#results_work").empty().append( data.offices[0].name + ":");
-							$("#results_phone").empty().append( data.offices[0].phone);
-							$("#results_address").empty().append( data.offices[0].address);
-							$("#results_work-b").empty().append( data.offices[1].name + ":");
-							$("#results_phone-b").empty().append( data.offices[1].phone);
-							$("#results_address-b").empty().append( data.offices[1].address);
+							//$("#results_work").empty().append( data.offices[0].name + ":");
+							//$("#results_phone").empty().append( data.offices[0].phone);
+							//$("#results_address").empty().append( data.offices[0].address);
+							//$("#results_work-b").empty().append( data.offices[1].name + ":");
+							//$("#results_phone-b").empty().append( data.offices[1].phone);
+							//$("#results_address-b").empty().append( data.offices[1].address);
 													
 							if (data.offices[0].email != undefined){
 								$("#results_email").empty().append( data.offices[0].email);
@@ -237,13 +205,13 @@ $(document).ready(function(){
 						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(lore) {
 							
 							
-							$("#results_work2").empty().append( lore.offices[0].name + ":");
-							$("#results_phone2").empty().append( lore.offices[0].phone);
-							$("#results_address2").empty().append( lore.offices[0].address);
+							//$("#results_work2").empty().append( lore.offices[0].name + ":");
+							//$("#results_phone2").empty().append( lore.offices[0].phone);
+							//$("#results_address2").empty().append( lore.offices[0].address);
 							
-							$("#results_work2-b").empty().append( lore.offices[1].name + ":");
-							$("#results_phone2-b").empty().append( lore.offices[1].phone);
-							$("#results_address2-b").empty().append( lore.offices[1].address);
+							//$("#results_work2-b").empty().append( lore.offices[1].name + ":");
+							//$("#results_phone2-b").empty().append( lore.offices[1].phone);
+							//$("#results_address2-b").empty().append( lore.offices[1].address);
 							
 							if (lore.offices[0].email != undefined){
 								$("#results_email2").empty().append( lore.offices[0].email);
@@ -268,6 +236,18 @@ $(document).ready(function(){
 	
 	$('#lookup_button').click(getLookup);
 	$('#lookup_address').keyup(function(event){
+		if(event.keyCode == 13){
+			getLookup();
+		}
+	  
+	});
+	$('#lookup_city').keyup(function(event){
+		if(event.keyCode == 13){
+			getLookup();
+		}
+	  
+	});
+	$('#lookup_zip').keyup(function(event){
 		if(event.keyCode == 13){
 			getLookup();
 		}

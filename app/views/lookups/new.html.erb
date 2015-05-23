@@ -5,15 +5,13 @@
 	<div id="lookup_form">
 		
 		
+		<div id="lookup_stepone"><%= render :partial => 'shared/stepone' %></div>
 		<div><input type="text" placeholder="Address (optional)" id="lookup_address" /></div>
 		<div id="smoosh">
 			<input type="text" placeholder="City (optional)" id="lookup_city" />
 			<input type="text" placeholder="Zip (optional)" id="lookup_zip" />
 		</div>
-		<div id="smoosh2">
-			<div id="lookup_stepone"><%= render :partial => 'shared/stepone' %></div>
-			<button id="lookup_button">Find</button>
-		</div>
+		<button id="lookup_button">FIND</button>
 		<pre id="lookup_errors"></pre>
 		
 		
@@ -25,17 +23,9 @@
 		<div id="results_name"> </div>
 		<div id="results_party"> </div>
 		<div id="results_email"> </div>
-		<div id="results_tn"> </div>
+		
 		<div id="results_chamber"> </div>
 		<div id="results_district"> </div>
-		<div id="results_term"> </div>
-		<div id="results_work"> </div>
-		<pre id="results_address"> </pre>
-		<div id="results_phone"> </div>
-		
-		<div id="results_work-b"> </div>
-		<pre id="results_address-b"> </pre>
-		<div id="results_phone-b"> </div>
 		
 			
 	</div>		
@@ -45,18 +35,10 @@
 		<div id="results_name2"> </div>
 		<div id="results_party2"> </div>
 		<div id="results_email2"> </div>
-		<div id="results_tn2"> </div>
+		
 		<div id="results_chamber2"> </div>
 		<div id="results_district2"> </div>
-		<div id="results_term2"> </div>
-		<div id="results_work2"> </div>
-		<pre id="results_address2"> </pre>
-		<div id="results_phone2"> </div>
-		
-		<div id="results_work2-b"> </div>
-		<pre id="results_address2-b"> </pre>
-		<div id="results_phone2-b"> </div>
-		
+				
 			
 	</div>		
 		
@@ -67,7 +49,17 @@
 
 
 	<aside id="lookup_aside">
-		side shiiiit
+		<div id="lookup_review">
+		
+		
+		<div id="lookup_steptwo"><%= render :partial => 'shared/stepone' %></div>
+		
+		<button id="review_button">REVIEW</button>
+		
+		
+		
+		
+	</div>
 	
 	</aside>
 
