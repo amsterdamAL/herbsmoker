@@ -10,8 +10,9 @@
 		<div id="smoosh">
 			<input type="text" placeholder="City (optional)" id="lookup_city" />
 			<input type="text" placeholder="Zip (optional)" id="lookup_zip" />
+			<input type="submit" value="Find" id="lookup_button" />
 		</div>
-		<button id="lookup_button">FIND</button>
+		
 		<pre id="lookup_errors"></pre>
 		
 		
@@ -23,6 +24,7 @@
 		<div id="results_name"> </div>
 		<div id="results_party"> </div>
 		<div id="results_email"> </div>
+		
 		
 		<div id="results_chamber"> </div>
 		<div id="results_district"> </div>
@@ -52,10 +54,16 @@
 		<div id="lookup_review">
 		
 		
-		<div id="lookup_steptwo"><%= render :partial => 'shared/stepone' %></div>
+		<div id="lookup_steptwo"><%= render :partial => 'shared/steptwo' %></div>
+		<div id="letter"> <%= image_tag("letters.jpg") %> </div>
 		
-		<button id="review_button">REVIEW</button>
-		
+		<%= form_tag("/lookups/review", method: "get") do %>
+			<%= text_field_tag 'email_to_controller' %>
+			<%= text_field_tag 'name_to_controller' %>
+			<%= text_field_tag 'email2_to_controller' %>
+			<%= text_field_tag 'name2_to_controller' %>
+			<%= button_to "Review", {:action => "review"}, :form => {:id => "review_button"}, :method => "get" %>
+		<% end %>
 		
 		
 		

@@ -7,28 +7,22 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   #match '/articles',      to: 'articles#new',           via: 'get'
   
+  get "(:keyword)" => "articles#list", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != "" && request.params[:keyword] != "articles"}
+  get "/find/all" => "articles#list", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
   
-  get "(:keyword)" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
-  get "find/all" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
-  get 'lookups/all' => 'lookups#all'
-  resources :articles do
-    resources :comments
-    
-  end
   
-
-
-
-
-  resources :engages
-  resources :subscribers
+  get 'engages/showit' => 'engages#showit'
+  
+  
+  
   get 'engages/show' => 'engages#show'
-  root 'engages#now'
+  
   
   get 'find/all' => 'lookups#new'
   
   
-
+  get 'lookups/review' => 'lookups#review'
+  root 'engages#now'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -77,4 +71,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :engages, :subscribers
+  
+  resources :articles do
+    resources :comments
+  end
+
 end

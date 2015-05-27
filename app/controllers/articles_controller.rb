@@ -3,6 +3,12 @@ class ArticlesController < ApplicationController
 #before_action :authenticate_user!, except: [:index, :show]
 
 
+def list
+  
+    @list = Article.search(params[:keyword]).order('created_at DESC')
+  end
+
+
 #CREATE = new,create
 def new
   @article = Article.new

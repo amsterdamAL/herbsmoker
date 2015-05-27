@@ -18,7 +18,7 @@
 				</li>
 				<li>
 					
-					<%= link_to 'find my REP!', :controller=>"lookups", :action=>"new" %>
+					<%= link_to 'find my REP!', {:controller=>"/lookups", :action=>"new"} %>
 					
 				</li>
 				<li>
@@ -26,26 +26,30 @@
 				</li>
 				<li>
 					
-					<%= link_to 'donate', :controller => "lookups", :action => "all"%>
+					<%= link_to 'sign in', new_user_session_path %>
 					
 				</li>
 				<li>
-					<%= link_to 'abou us', :controller => "engages", :action => "show"%>
+					<%= link_to 'abou us', {:controller => "engages", :action => "showit" }%>
 				</li>
 			
 				<li>
-					<form class="search-bar" role="search">
-  					<input type="search" name='keyword' placeholder="Enter Search" autocomplete="on" />
-  					<!--<button type="submit">
-    					<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-  					</button>-->
+					
+					<form class="search-bar" role="search" >
+ 						<input type="search" name='keyword' placeholder="Enter Search" autocomplete="on"/>
+						
+											
+						<button type="submit" >
+    						<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+  						</button>
 					</form>
-		<!--		<%= form_tag url_for(:controller => 'articles', :action => 'index'), :method => 'get' do %>
+					
+					
+					
+					
+					
+					
 				
-				<%= label_tag(:keyword, "Search for:") %>
-    			<%= text_field_tag(:keyword) %>
-    			<%= submit_tag("Search") %>
-				<% end %>-->
 				</li>
 				
 			</ul>

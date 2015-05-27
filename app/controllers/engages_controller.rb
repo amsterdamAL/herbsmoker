@@ -20,8 +20,8 @@ class EngagesController < ApplicationController
   
 
 
-  def show
-    @sub = Subscriber.all
+  def showit
+    @subb = Subscriber.all
   end
 
 

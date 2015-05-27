@@ -8,4 +8,10 @@ class UserMailer < ApplicationMailer
     mail(to: @sub.email, subject: "Welcome to FloridaToker")
   end
   
+  def reach_out_email(email, email2)
+    @email = email
+    @email2 = email2
+    mail(to: @email, subject: "test")
+  end
+  
 end

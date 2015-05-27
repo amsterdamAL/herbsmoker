@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	
+	//$('#lookup_review').hide();
 	
 	//do this when user clicks find button
 	var getLookup = function(){
@@ -76,6 +76,7 @@ $(document).ready(function(){
 					
 					if (results[0].roles[0].chamber == "lower"){
 						$("#results_name").empty().append( "Representative " + results[0].full_name);
+						$("#name_to_controller").val( "Representative " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
 						
@@ -83,15 +84,25 @@ $(document).ready(function(){
 						//email fix
 						if (results[0].email != undefined){
 							$("#results_email").empty().append( results[0].email);
+							$("#email_to_controller").val(results[0].email);
 						}else if (results[0].offices[0].email != undefined){
 							$("#results_email").empty().append( results[0].offices[0].email);
-							
+							$("#email_to_controller").val(results[0].offices[0].email);
 						}else if ( results[0].first_name == "Bobby B."){
 							$("#results_email").empty().append( "bobby.dubose@myfloridahouse.gov");
+							$("#email_to_controller").val("bobby.dubose@myfloridahouse.gov");
 						}else if ( results[0].last_name == "Sprowls"){
 							$("#results_email").empty().append( "Chris.Sprowls@myfloridahouse.gov");
+							$("#email_to_controller").val("Chris.Sprowls@myfloridahouse.gov");
 						}else if ( results[0].full_name == "Evan Jenne"){
 							$("#results_email").empty().append( "Evan.Jenne@myfloridahouse.gov");
+							$("#email_to_controller").val("Evan.Jenne@myfloridahouse.gov");
+						}else if ( results[0].full_name == "Avila, Bryan"){
+							$("#results_email").empty().append( "bryan.avila@myfloridahouse.gov");
+							$("#email_to_controller").val("bryan.avila@myfloridahouse.gov");
+						}else if ( results[0].full_name == "Raschein, Holly"){
+							$("#results_email").empty().append( "holly.raschein@myfloridahouse.gov");
+							$("#email_to_controller").val("holly.raschein@myfloridahouse.gov");
 						}else{
 							$("#results_email").empty().append( "Email: *** missing ***");
 						}
@@ -105,14 +116,17 @@ $(document).ready(function(){
 					}else if (results[0].roles[0].chamber == "upper"){
 						
 						$("#results_name").empty().append( "Senator " + results[0].full_name);
+						$("#name_to_controller").val( "Senator " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("State Senate, District " + results[0].roles[0].district);
 						
 						//email fix
 						if (results[0].email != undefined){
 							$("#results_email").empty().append( results[0].email);
+							$("#email_to_controller").val(results[0].email);
 						}else if (results[0].offices[0].email != undefined){
 							$("#results_email").empty().append( results[0].offices[0].email);
+							$("#email_to_controller").val(results[0].offices[0].email);
 							
 						}else{
 							
@@ -131,18 +145,20 @@ $(document).ready(function(){
 					
 					if (results[1].roles[0].chamber == "lower"){
 						$("#results_name2").empty().append( "Representative " + results[1].full_name);
+						$("#name2_to_controller").val( "Representative " + results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("State House, District " + results[1].roles[0].district);
 						
 						//email fix
 						if (results[1].email != undefined){
 							$("#results_email2").empty().append( results[1].email);
+							$("#email2_to_controller").val(results[1].email);
 						}else if (results[1].offices[0].email != undefined){
 							$("#results_email2").empty().append( results[1].offices[0].email);
-							
+							$("#email2_to_controller").val(results[1].offices[0].email);
 						}else{
 							
-							$("#results_email2").empty().append( results[1].first_name);
+							$("#results_email2").empty().append( "Email: *** missing ***");
 						}
 						
 						
@@ -155,18 +171,21 @@ $(document).ready(function(){
 					}else if (results[1].roles[0].chamber == "upper"){
 						
 						$("#results_name2").empty().append( "Senator " + results[1].full_name);
+						$("#name2_to_controller").val( "Senator " + results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("State Seante, District " + results[1].roles[0].district);
 						
 						//email fix
 						if (results[1].email != undefined){
 							$("#results_email2").empty().append( results[1].email);
+							$("#email2_to_controller").val(results[1].email);
 						}else if (results[1].offices[0].email != undefined){
 							$("#results_email2").empty().append( results[1].offices[0].email);
-							
+							$("#email2_to_controller").val(results[1].offices[0].email);
 						}else if (results[1].first_name == "Charles S. \"Charlie"){
 														
 							$("#results_email2").empty().append( "dean.charles@flsenate.gov");
+							$("#email2_to_controller").val("dean.charles@flsenate.gov");
 						}
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
 					
@@ -195,8 +214,10 @@ $(document).ready(function(){
 													
 							if (data.offices[0].email != undefined){
 								$("#results_email").empty().append( data.offices[0].email);
+								$("#email_to_controller").val(data.offices[0].email);
 							}else if (data.offices[1].email != undefined){
 								$("#results_email").empty().append( data.offices[1].email);
+								$("#email_to_controller").val(data.offices[1].email);
 							}
 						});
 						
@@ -215,8 +236,10 @@ $(document).ready(function(){
 							
 							if (lore.offices[0].email != undefined){
 								$("#results_email2").empty().append( lore.offices[0].email);
+								$("#email2_to_controller").val(lore.offices[0].email);
 							}else if (lore.offices[1].email != undefined){
 								$("#results_email2").empty().append( lore.offices[1].email);
+								$("#email2_to_controller").val(lore.offices[1].email);
 							}
 													
 												
@@ -225,10 +248,11 @@ $(document).ready(function(){
 					});	
 				});         
 						
-				
+		$('#lookup_review').fadeIn(2000);		
 		};
 	
 		return false;
+		
 	};
 	
 	
