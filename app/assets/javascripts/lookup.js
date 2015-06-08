@@ -79,7 +79,7 @@ $(document).ready(function(){
 						$("#name_to_controller").val( "Representative " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("State House, District " + results[0].roles[0].district);
-						
+						$('#district_1').val("State House, District " + results[0].roles[0].district);
 						
 						//email fix
 						if (results[0].email != undefined){
@@ -149,6 +149,7 @@ $(document).ready(function(){
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("State House, District " + results[1].roles[0].district);
 						
+						
 						//email fix
 						if (results[1].email != undefined){
 							$("#results_email2").empty().append( results[1].email);
@@ -174,6 +175,7 @@ $(document).ready(function(){
 						$("#name2_to_controller").val( "Senator " + results[1].full_name);
 						$("#results_party2").empty().append( results[1].party + " Party");
 						$("#results_chamber2").empty().append("State Seante, District " + results[1].roles[0].district);
+						$('#district_2').val("State Seante, District " + results[1].roles[0].district);
 						
 						//email fix
 						if (results[1].email != undefined){

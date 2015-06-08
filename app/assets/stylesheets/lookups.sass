@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#letter_info
+  ul
+    list-style: square
+    li
+      display:list-item
+      margin-left: 40px
+      
+      
+h5
+  margin-left: 0px      
 
 .lookup_wrapper
   +outer-container
   padding-top: 30px
+  
   
 
 pre
@@ -21,29 +32,43 @@ pre
   +border-right-radius(5px)
   +border-bottom-radius(5px)
   +border-left-radius(5px)
+  border: 1px solid
   
-  
+#lookup_review
+  +border-top-radius(5px)
+  +border-right-radius(5px)
+  +border-bottom-radius(5px)
+  +border-left-radius(5px)
+  border: 1px solid
 #lookup_results
-  +span-columns(3)
   
+  float: left
   
 #lookup_results2
-  +span-columns(3)
+  float: right
+  
   
 #lookup_aside
   +span-columns(3)
   
+  
 #headshot, #headshot2
   width: 150px
   height: 200px
-  border: 1px solid
-  
-#lookup_stepone
+#lookup_wrap
+  padding: 8px 5px 10px 10px  
+
+#lookup_stepone, #lookup_steptwo, #lookup_stepthree
   
   width: 100%
   
-    
-
+  
+  background: black
+  color: white
+  font-weight: 400
+  padding: 5px
+  
+  
 #lookup_button
   
   width: 100%
@@ -56,9 +81,24 @@ pre
   
   +border-left-radius(5px)
   
-form
-  input
-    width: 100%
+
+#results_wrap
+  margin: 0 auto
+  
+  border: 1px solid
+  +clearfix
+  overflow: hidden
+  
+  +span-columns(6)
+  
+  +border-top-radius(5px)
+  +border-right-radius(5px)
+  +border-bottom-radius(5px)
+  +border-left-radius(5px)
+  
+  
+  
+  
 #results_name, #results_name2
   font-size: .8em
   font-weight: 700
@@ -83,3 +123,50 @@ form
 #lookup_zip
   width: 46%
   float: right
+  
+
+#letter_page_wrapper
+  +outer-container
+  
+  
+  
+#letter1_wrapper
+  +span-columns(6)
+  
+  padding: 20px
+  
+  
+  
+#letter1 
+  
+  form
+    
+    label
+      margin: 0 auto
+      padding-top: 10px
+      font-size: .7em
+      
+        
+      
+      
+      
+    input
+      margin: 0 auto
+      width: 100%
+      padding: 4px
+      
+#record_body
+  height: 250px  
+  
+  
+#letter_info_wrapper
+  +span-columns(4)
+  padding: 20px
+  
+  
+#letter_info
+  padding-top: 10px
+  
+  
+  
+      

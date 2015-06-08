@@ -1,5 +1,46 @@
-<h3>review <h2>TESTER</h2></h3>
-<%= @name + " " + @email %> <br>
-<%= @name2 + " " + @email2 %>
 
+<div id="letter_page_wrapper">	
+	
+	<div id="letter1_wrapper">
+		<div id="letter1">
+			<%= form_for :record do |f| %>
+		  		<%= f.label :from %>
+		  		<%= f.text_field :from, :value => @user %>
+		
+		  		<%= f.label :subject %>
+		  		<%= f.text_field :subject, :value => @subject %>
+		  		
+		  		<%= f.label :body %>
+		  		<%= f.text_area :body, :value => @body %>
+		  		
+		  		<%= f.submit %>
+			<% end %>
+		</div>
+	</div>
+	
+	<div id="letter_info_wrapper">
+		<div id="letter_info">
+	 		
+	 		<h5>Recipients</h5>
+	 		
+	 		<ul>
+	 			<li><%= @name %></li>
+	 			<li><%= @name2 %></li>
+	 			
+	 			
+	 			
+	 			
+	 		</ul>
+	 		
+	 		
+	 		
+	 		
+	 		<%= @user%></br>
+			<%= @name %></br> 
+			<%= @district %></br>
+			<%= @name2 %></br>
+			<%= @district2 %></br>
+		</div>
+	</div>
 
+</div>
