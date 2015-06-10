@@ -63,7 +63,7 @@
 			<div id="lookup_stepthree"><strong>Step 3:</strong> &nbsp&nbsp&nbsp Sound off.</div>
 			<div id="letter"> <%= image_tag("letters.jpg") %> </div>
 			
-			<%= form_tag("/lookups/review", method: "get") do %>
+			<%= form_tag("/letters/review", method: "get") do %>
 				<%= hidden_field_tag 'email_to_controller' %>
 				<%= hidden_field_tag 'district_1' %>
 				<%= hidden_field_tag 'name_to_controller' %>
@@ -73,7 +73,7 @@
 				<%= hidden_field_tag 'district_2' %>
 				
 				
-				<%= button_to "Review", {:action => "review"}, :form => {:id => "review_button"}, :method => "get" %>
+				<%= button_to "Review", {:action => "review", :controller => "letters"}, :form => {:id => "review_button"}, :method => "get" %>
 			<% end %>
 		
 		

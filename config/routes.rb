@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   get 'find/all' => 'lookups#new'
   
   
-  get 'lookups/review' => 'lookups#review'
+  #get 'lookups/review' => 'lookups#review'
+  get 'letters/review' => 'letters#review'
   root 'engages#now'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
