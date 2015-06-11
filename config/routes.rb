@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   
   #get 'lookups/review' => 'lookups#review'
   get 'letters/review' => 'letters#review'
+  post 'letters/sender' => 'letters#sender'
   root 'engages#now'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -72,7 +73,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :engages, :subscribers
+  resources :engages, :subscribers, :letters
   
   resources :articles do
     resources :comments
