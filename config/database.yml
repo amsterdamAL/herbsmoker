@@ -31,6 +31,15 @@ development:
   pool: 5
   username: admin
   password: luc1dd0t
+  
+production:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: store_production
+  pool: 5
+  username: admin
+  password: luc1dd0t   
 
 test:
   adapter: postgresql
