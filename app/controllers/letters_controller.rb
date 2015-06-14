@@ -5,21 +5,26 @@ class LettersController < ApplicationController
     
   def create
     @letter = Letter.new(letter_params)
+    @user = current_user.email
+    if @letter.save
+      UserMailer.reach_out_email(@letter, @user).deliver_now
+      UserMailer.reach_out_email_secondary(@letter, @user).deliver_now
+      redirect_to @letter
+    end
     
-    @letter.save
-    redirect_to @letter
   end
   
   def review
     @letter = Letter.new()
-    
+    @email = "amsterdamAL@gmail.com"
+    @email2 = "ziploker@hotmail.com"
+    @raffomail = "raffomail@yahoo.com"
     @district = params[:district_1]
-    @email = params[:email_to_controller]
+    #@email = params[:email_to_controller]
     @name = params[:name_to_controller]
     @district2 = params[:district_2]
-    @email2 = params[:email2_to_controller]
+    #@email2 = params[:email2_to_controller]
     @name2 = params[:name2_to_controller]
-    #UserMailer.reach_out_email(@email, @email2).deliver_now
     
     if user_signed_in?
       
