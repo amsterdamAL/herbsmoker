@@ -39,14 +39,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+  gem 'puma', '~> 2.11.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+  
 group :production do 
   gem "pg" 
   gem 'rails_12factor'
-  gem 'puma'
+ 
 end
 
 group :development, :test do
@@ -54,6 +54,7 @@ group :development, :test do
   gem 'byebug'
   gem "pg" 
   gem 'rails_12factor'
+  
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
