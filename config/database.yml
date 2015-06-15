@@ -44,4 +44,11 @@ test:
   password: luc1dd0t 
   
 production:
-   url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: store_production
+  pool: 5
+  username: admin
+  password: luc1dd0t 
