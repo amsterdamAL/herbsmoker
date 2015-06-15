@@ -59,7 +59,7 @@ $(document).ready(function(){
 				if (json.results.length > 1){
 					$('#lookup_errors').empty().append("too many results, be more spicific. Ex.. add zipcode or city");
 				} else {
-				 	$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>");
+				 	$('#lookup_errors').empty().append(results[0].roles[0].chamber + "Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>");
 				 		lat = json.results[0].geometry.location.lat;
 				 		lng = json.results[0].geometry.location.lng;
 			 	}
