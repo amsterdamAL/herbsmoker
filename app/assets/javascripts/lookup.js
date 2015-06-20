@@ -14,6 +14,8 @@ $(document).ready(function(){
 		var lng;
 		var leg_id0;
 		var leg_id1;
+		var google = $('#lookup_form').data('google');
+		var sunlight = $('#lookup_form').data('sunlight');
 		
 		if(zip == "" && addy == "" && city == ""){
 	
@@ -53,7 +55,7 @@ $(document).ready(function(){
 			
 			
 			//STEP ONE;;;;   get lat and lng info based on user input
-			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + city + zip + "&components=administrative_area:FL|country:US&key=AIzaSyBf5WygDVM-Ib4sKti8pIvLIBYO1luw-J0", function(json){
+			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + city + zip + "&components=administrative_area:FL|country:US&key=" + google, function(json){
 	    	              
 				
 				if (json.results.length > 1){
@@ -68,11 +70,11 @@ $(document).ready(function(){
 			 	
 			 	
 			 	//STEP TWO:::::   use lat and lng to lookup reps.
-			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(results) {
+			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=" + sunlight, function(results) {
 					
-					$('#lookup_errors').empty().append(results[0].roles[0].chamber);
+					//$('#lookup_errors').empty().append(<%= j ENV['googleapi.key']%>);
 					
-					//$("#headshot").attr("src", results[0].photo_url);	
+					$("#headshot").attr("src", results[0].photo_url);	
 					
 					if (results[0].roles[0].chamber == "lower"){
 						$("#results_name").empty().append( "Representative " + results[0].full_name);
@@ -141,7 +143,7 @@ $(document).ready(function(){
 					
 					
 					
-					//$("#headshot2").attr("src", results[1].photo_url);	
+					$("#headshot2").attr("src", results[1].photo_url);	
 					
 					if (results[1].roles[0].chamber == "lower"){
 						$("#results_name2").empty().append( "Representative " + results[1].full_name);
@@ -204,7 +206,7 @@ $(document).ready(function(){
 					$('#lookup_errors').append(results[1].full_name + ": " + results[1].leg_id + "<br>");
 					
 						//get additional info based on legislative id 1of2
-						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(data) {
+						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=" + sunlight, function(data) {
 							
 							
 							//$("#results_work").empty().append( data.offices[0].name + ":");
@@ -225,7 +227,7 @@ $(document).ready(function(){
 						
 						
 						//get additional info based on legislative id 2of2
-						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=0b6a2cec0fa54bd0ae0816a53afb82cf", function(lore) {
+						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=" + sunlight, function(lore) {
 							
 							
 							//$("#results_work2").empty().append( lore.offices[0].name + ":");
