@@ -72,7 +72,7 @@ $(document).ready(function(){
 			 	//STEP TWO:::::   use lat and lng to lookup reps.
 			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=" + sunlight, function(results) {
 					
-					//$('#lookup_errors').empty().append(<%= j ENV['googleapi.key']%>);
+					$('#lookup_errors').empty().append(sunlight + google);
 					
 					$("#headshot").attr("src", results[0].photo_url);	
 					
