@@ -27,7 +27,7 @@ development:
   adapter: postgresql
   host: localhost
   encoding: unicode
-  database: store_development
+  database: postgres
   pool: 5
   username: admin
   password: luc1dd0t
