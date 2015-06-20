@@ -61,7 +61,7 @@ $(document).ready(function(){
 				if (json.results.length > 1){
 					$('#lookup_errors').empty().append("too many results, be more spicific. Ex.. add zipcode or city");
 				} else {
-				 	$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>");
+				 	$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>" + sunlight + "<br>" + google);
 				 		lat = json.results[0].geometry.location.lat;
 				 		lng = json.results[0].geometry.location.lng;
 			 	}
@@ -72,7 +72,7 @@ $(document).ready(function(){
 			 	//STEP TWO:::::   use lat and lng to lookup reps.
 			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=" + sunlight, function(results) {
 					
-					$('#lookup_errors').empty().append(sunlight + google);
+					//$('#lookup_errors').empty().append(sunlight + google);
 					
 					$("#headshot").attr("src", results[0].photo_url);	
 					
