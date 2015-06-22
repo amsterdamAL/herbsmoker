@@ -1,6 +1,7 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-# get bourbon -n- neat ma'nigga
+
+
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
@@ -11,6 +12,7 @@ gem 'activesupport'
 gem 'readmorejs_rails', '~> 0.0.1'
 gem 'devise'
 gem 'figaro'
+gem 'opentok', "~> 2.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

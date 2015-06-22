@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Opentok Quick Start</title>
+    <script src='http://static.opentok.com/v2/js/opentok.min.js'></script>
+    <% require "opentok" %>
+	<% @opentok = OpenTok::OpenTok.new @a, @b %>
+	
+	<% @session = @opentok.create_session %>
+	<% @session_id = @session.session_id %>
+
+    <!-- ><script type="text/javascript">
+      // Initialize API key, session, and token...
+      // Think of a session as a room, and a token as the key to get in to the room
+      // Sessions and tokens are generated on your server and passed down to the client
+      var apiKey = "45266732";
+      var sessionId = "2_MX40NTI2NjczMn5-MTQzNDg5NDkzMjk1MX51dlJIMGFsL2VZdVpEYzV0L2Z4ZEdlVzJ-fg";
+      var token = "T1==cGFydG5lcl9pZD00NTI2NjczMiZzaWc9ZGExYWQ1N2Q1MDkyZjdkOWQzZTM0YmMyZGYxYjMwYzE0NjJhOTI2Yzpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5USTJOamN6TW41LU1UUXpORGc1TkRrek1qazFNWDUxZGxKSU1HRnNMMlZaZFZwRVl6VjBMMlo0WkVkbFZ6Si1mZyZjcmVhdGVfdGltZT0xNDM0ODk0OTY2Jm5vbmNlPTAuODA4NDc4MTgzODczOTAwNg==";
+
+      // Initialize session, set up event listeners, and connect
+      var session = OT.initSession(apiKey, sessionId);
+ 
+      session.on("streamCreated", function(event) {
+        session.subscribe(event.stream);
+      });
+     
+      session.connect(token, function(error) {
+        var publisher = OT.initPublisher();
+        session.publish(publisher);
+      });
+    </script> -->
+  </head>
+  <body>
+    <h1>Awesome video feed!</h1>
+    <div id="myPublisherDiv"></div>
+  </body>
+</html>

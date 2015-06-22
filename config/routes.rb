@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   
   get 'find/all' => 'lookups#new'
+  get 'chats/demo' => 'chats#demo'
   
   
   #get 'lookups/review' => 'lookups#review'
