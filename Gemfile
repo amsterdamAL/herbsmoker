@@ -44,13 +44,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-  gem 'puma', '~> 2.11.3'
+  
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-  
+gem 'puma', '~> 2.11.3'  
 group :production do 
-  gem "pg" 
-  gem 'rails_12factor'
  
 end
 

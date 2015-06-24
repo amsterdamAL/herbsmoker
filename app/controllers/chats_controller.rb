@@ -1,9 +1,20 @@
 class ChatsController < ApplicationController
   
   def demo
+    require "opentok"
     
-    @a = "45266732"
-    @b = "141dc7cc7d8eddac8c0a4be35b910ea080936de6"
+    
+    @test1 = ENV['api_key']
+    @test2 = ENV['api_secret']
+    
+
+    @opentok = OpenTok::OpenTok.new ENV['api_key'], ENV['api_secret']
+    
+    
+    @session = @opentok.create_session :media_mode => :routed
+    
+    @session_id = @session.session_id
+    
   end
   
 end

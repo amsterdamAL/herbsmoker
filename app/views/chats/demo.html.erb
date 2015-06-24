@@ -1,36 +1,146 @@
+
 <html>
   <head>
     <title>Opentok Quick Start</title>
     <script src='http://static.opentok.com/v2/js/opentok.min.js'></script>
-    <% require "opentok" %>
-	<% @opentok = OpenTok::OpenTok.new @a, @b %>
-	
-	<% @session = @opentok.create_session %>
-	<% @session_id = @session.session_id %>
-
-    <!-- ><script type="text/javascript">
+    <script type="text/javascript">
       // Initialize API key, session, and token...
       // Think of a session as a room, and a token as the key to get in to the room
       // Sessions and tokens are generated on your server and passed down to the client
-      var apiKey = "45266732";
-      var sessionId = "2_MX40NTI2NjczMn5-MTQzNDg5NDkzMjk1MX51dlJIMGFsL2VZdVpEYzV0L2Z4ZEdlVzJ-fg";
-      var token = "T1==cGFydG5lcl9pZD00NTI2NjczMiZzaWc9ZGExYWQ1N2Q1MDkyZjdkOWQzZTM0YmMyZGYxYjMwYzE0NjJhOTI2Yzpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5USTJOamN6TW41LU1UUXpORGc1TkRrek1qazFNWDUxZGxKSU1HRnNMMlZaZFZwRVl6VjBMMlo0WkVkbFZ6Si1mZyZjcmVhdGVfdGltZT0xNDM0ODk0OTY2Jm5vbmNlPTAuODA4NDc4MTgzODczOTAwNg==";
+    var apiKey = <%= j ENV['api_key'] %>
+    var sessionId = "WN0VKQzN-fg";
+    var token = "T1==cGFydG5lcl9pZD00NTI2NjczMiZzaWc9NjY1MjU1NTJkYjhiNGY3NTA0Yjc2YTM1ZTg3MTJhODVkZWZmOGQ1Zjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5USTJOamN6TW41LU1UUXpOVEF6TlRRd09UazFNMzVHVkU1dVVURTNablExTkVnelJpc3pTMVJXTjBWS1F6Ti1mZyZjcmVhdGVfdGltZT0xNDM1MDM1NDU0Jm5vbmNlPTAuMDQzMTgzODYzMzAxMjI4NyZleHBpcmVfdGltZT0xNDM3NjI3MzkzJmNvbm5lY3Rpb25fZGF0YT0=";
+    var session;
+    var connectionCount = 0;
+    var publisher;
+    var streams = []
+$(document).ready(function() {		
+    
+    
+    
+    
+    
+    
+    function connect() {
+	  if (OT.checkSystemRequirements() == 0) {
+        console.log("The client does not support WebRTC.");
+      } else {
+        console.log("The client does support WebRTC." + connectionCount);
+        
+        @session = OT.initSession(apiKey, sessionId);
+		 
+		session.on({ 
+		  
+		  streamCreated: function (event){
+		  	console.log("new stream created")
+		  	
+		  	subscriber = session.subscribe(event.stream, vid2);
+		  	session.connect(token);
+		  },
+		  
+		  
+		  
+		  
+		  connectionCreated: function (event) {
+		    
+		    var stream = event.stream;
+            
+            
+            
+		    console.log("session on NEW connection created" + connectionCount);
+		  },
+		      
+		
+		  connectionDestroyed: function (event) {
+		    connectionCount--;
+		    console.log("session on, connection distroyed" + connectionCount);
+		  },
+		       
+	    
+	      sessionDisconnected: function sessionDisconnectHandler(event) {
+	        // The event is defined by the SessionDisconnectEvent class
+	        console.log("Disconnected from the session.");
+	        document.getElementById('disconnectBtn').style.display = 'none';
+	        if (event.reason == "networkDisconnected") {
+	          alert("Your network connection terminated.")
+	        }
+		  }
+        });
+      
+      
+        // Replace token with your own value:
+        session.connect(token, function(error) {
+          if (error) {
+            OT.log("Unable to connect: ", error.message);
+          } else {
+            document.getElementById('disconnectBtn').style.display = 'block';
+            console.log("session.connect, Connected to the session." + connectionCount);
+            
+            
+            
+    	
+    
+            
+                      
+		  }
+        });
+	  }
+    }
 
-      // Initialize session, set up event listeners, and connect
-      var session = OT.initSession(apiKey, sessionId);
- 
-      session.on("streamCreated", function(event) {
-        session.subscribe(event.stream);
-      });
+
+  
+  
+  
+  
+  
+  
+  
+  
+  function publish(){
+        
+        publisher = OT.initPublisher();
+        //session.publish(publisher);
+        console.log("You can publish an audio-video stream." + connectionCount);
+        
      
-      session.connect(token, function(error) {
-        var publisher = OT.initPublisher();
-        session.publish(publisher);
-      });
-    </script> -->
+        publisher.on({
+          streamCreated: function (event) {
+            
+            connectionCount++;
+            console.log("Publisher started streaming."+ connectionCount);
+          },
+        
+          streamDestroyed: function (event) {
+            console.log("Publisher stopped streaming. Reason: " + event.reason);
+            connectionCount--;
+          }
+        });
+};
+  function disconnect() {
+    console.log("publisher dissstroyed")
+    publisher.destroy();
+    connectionCount--;
+  };
+		
+		
+		
+  $('#disconnectBtn').click( function () { 
+  	disconnect();
+  });
+      
+  $('#start').click( function () {
+    publish();
+  });
+  
+  connect();
+});
+    </script>
   </head>
   <body>
-    <h1>Awesome video feed!</h1>
-    <div id="myPublisherDiv"></div>
+    <h1><%= @session_id %></h1>
+    <div id="vid1"></div>
+    <div id="vid2"></div>
+    <button id="start">start</button>
+    <button id="disconnectBtn">disconnect</button>
   </body>
 </html>
