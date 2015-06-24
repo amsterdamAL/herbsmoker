@@ -8,7 +8,7 @@ class ChatsController < ApplicationController
     @test2 = ENV['api_secret']
     
 
-    @opentok = OpenTok::OpenTok.new ENV['api_key'], ENV['api_secret']
+    @opentok = OpenTok::OpenTok.new @test1, @test2
     
     
     @session = @opentok.create_session :media_mode => :routed
