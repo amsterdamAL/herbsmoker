@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  require opentok
+  require 'opentok'
   def demo
     
     
