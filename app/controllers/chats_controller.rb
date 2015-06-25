@@ -15,8 +15,8 @@ class ChatsController < ApplicationController
     
     session_id = session.session_id
     @session_id = session_id
-    
-    @token = session_id.generate_token
+    token = opentok.generate_token session_id
+    @token = token
   end
   
 end
