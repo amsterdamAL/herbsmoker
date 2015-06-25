@@ -28,7 +28,7 @@ $(document).ready(function() {
 	  if (OT.checkSystemRequirements() == 0) {
         console.log("The client does not support WebRTC.");
       } else {
-        console.log("The client does support WebRTC." + connectionCount);
+        console.log("The client does support WebRTC.");
         
         session = OT.initSession("45266732", "<%= @session_id %>");
 		 
@@ -50,13 +50,13 @@ $(document).ready(function() {
             
             
             
-		    console.log("session on NEW connection created" + connectionCount);
+		    console.log("session on NEW connection created");
 		  },
 		      
 		
 		  connectionDestroyed: function (event) {
 		    
-		    console.log("session on, connection distroyed" + connectionCount);
+		    console.log("session on, connection distroyed");
 		  },
 		       
 	    
@@ -77,7 +77,7 @@ $(document).ready(function() {
             OT.log("Unable to connect: ", error.message);
           } else {
             document.getElementById('disconnectBtn').style.display = 'block';
-            console.log("session.connect, Connected to the session." + connectionCount);
+            console.log("session.connect, Connected to the session.");
             
             
             
@@ -110,7 +110,7 @@ $(document).ready(function() {
           streamCreated: function (event) {
             
             
-            console.log("Publisher started streaming."+ connectionCount);
+            console.log("Publisher started streaming.");
           },
         
           streamDestroyed: function (event) {
@@ -140,7 +140,7 @@ $(document).ready(function() {
     </script>
   </head>
   <body>
-    <h1><%= @session_id %></h1>
+    <h1>H1 tag</h1>
     <div id="vid1"></div>
     <div id="vid2"></div>
     <button id="start">start</button>
