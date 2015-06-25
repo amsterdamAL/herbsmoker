@@ -8,7 +8,7 @@ class ChatsController < ApplicationController
     @api_secret = ENV['api_secret']
     
 
-    opentok = OpenTok::OpenTok.new api_key, api_secret
+    opentok = OpenTok::OpenTok.new @api_key, @api_secret
     
     
     session = opentok.create_session
