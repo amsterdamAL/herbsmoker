@@ -13,7 +13,7 @@
     
     //var token = "T1==cGFydG5lcl9pZD00NTI2NjczMiZzaWc9NjY1MjU1NTJkYjhiNGY3NTA0Yjc2YTM1ZTg3MTJhODVkZWZmOGQ1Zjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5USTJOamN6TW41LU1UUXpOVEF6TlRRd09UazFNMzVHVkU1dVVURTNablExTkVnelJpc3pTMVJXTjBWS1F6Ti1mZyZjcmVhdGVfdGltZT0xNDM1MDM1NDU0Jm5vbmNlPTAuMDQzMTgzODYzMzAxMjI4NyZleHBpcmVfdGltZT0xNDM3NjI3MzkzJmNvbm5lY3Rpb25fZGF0YT0=";
   
-    var connectionCount = 0;
+    
     var publisher;
     var streams = []
     var token = <%= @token %>
@@ -55,7 +55,7 @@ $(document).ready(function() {
 		      
 		
 		  connectionDestroyed: function (event) {
-		    connectionCount--;
+		    
 		    console.log("session on, connection distroyed" + connectionCount);
 		  },
 		       
@@ -103,26 +103,26 @@ $(document).ready(function() {
         
         publisher = OT.initPublisher();
         session.publish(publisher);
-        console.log("You can publish an audio-video stream." + connectionCount);
+        console.log("You can publish an audio-video stream.");
         
      
         publisher.on({
           streamCreated: function (event) {
             
-            connectionCount++;
+            
             console.log("Publisher started streaming."+ connectionCount);
           },
         
           streamDestroyed: function (event) {
             console.log("Publisher stopped streaming. Reason: " + event.reason);
-            connectionCount--;
+            
           }
         });
 };
   function disconnect() {
     console.log("publisher dissstroyed")
     publisher.destroy();
-    connectionCount--;
+    
   };
 		
 		
