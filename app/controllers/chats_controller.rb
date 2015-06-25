@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
-  
+  require opentok
   def demo
-    require "opentok"
+    
     
     
     @api_key = ENV['api_key']
