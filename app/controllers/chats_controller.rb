@@ -13,10 +13,10 @@ class ChatsController < ApplicationController
     
     session = opentok.create_session
     
-    session_id = session.session_id
-    @session_id = session_id
-    token = opentok.generate_token session_id
-    @token = token
+    @session_id = session.session_id
+    
+    @token = opentok.generate_token session_id
+   
   end
   
 end
