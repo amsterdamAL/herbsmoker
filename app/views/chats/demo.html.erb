@@ -4,25 +4,12 @@
     <title>Opentok Quick Start</title>
     <script src='http://static.opentok.com/v2/js/opentok.min.js'></script>
     <script type="text/javascript">
-    
-      // Initialize API key, session, and token...
-      // Think of a session as a room, and a token as the key to get in to the room
-      // Sessions and tokens are generated on your server and passed down to the client
-    
-    //var sessionId = "WN0VKQzN-fg";
-    
-    //var token = "T1==cGFydG5lcl9pZD00NTI2NjczMiZzaWc9NjY1MjU1NTJkYjhiNGY3NTA0Yjc2YTM1ZTg3MTJhODVkZWZmOGQ1Zjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5USTJOamN6TW41LU1UUXpOVEF6TlRRd09UazFNMzVHVkU1dVVURTNablExTkVnelJpc3pTMVJXTjBWS1F6Ti1mZyZjcmVhdGVfdGltZT0xNDM1MDM1NDU0Jm5vbmNlPTAuMDQzMTgzODYzMzAxMjI4NyZleHBpcmVfdGltZT0xNDM3NjI3MzkzJmNvbm5lY3Rpb25fZGF0YT0=";
-  
+$(document).ready(function() {	    
     
     var publisher;
     var streams = [];
     var token = "<%= @token %>";
-$(document).ready(function() {		
-    
-    
-    
-    
-    
+	var session = "<%= @session %>"
     
     function connect() {
 	  if (OT.checkSystemRequirements() == 0) {
@@ -30,7 +17,7 @@ $(document).ready(function() {
       } else {
         console.log("The client does support WebRTC.");
         
-        session = OT.initSession("45266732", "<%= @session_id %>");
+        
 		 
 		session.on({ 
 		  
