@@ -10,12 +10,12 @@ class ChatsController < ApplicationController
 
     opentok = OpenTok::OpenTok.new "45266732", "141dc7cc7d8eddac8c0a4be35b910ea080936de6"
     
-    if @session == "undefined" || @session == null
+    if @session == "undefined" || @session == "null"
       
       @session = opentok.create_session
     end
     
-    if @session_id == "undefined" || @session_id == null
+    if @session_id == "undefined" || @session_id == "null"
     @session_id = @session.session_id
     end
     
