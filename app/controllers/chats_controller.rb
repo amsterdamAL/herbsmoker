@@ -15,7 +15,7 @@ class ChatsController < ApplicationController
     
     
     
-    @token = opentok.generate_token @session_id
+    @token = opentok.generate_token ENV['session_id']
    
   end
   
