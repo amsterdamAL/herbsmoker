@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   require 'opentok'
   def demo
     
-    @session_id = "ENV['session_id']"
+    @session_id = "2_MX40NTI2NjczMn5-MTQzNTI5NzAxMTQ5N355MGZzTW5TaGgraXpiMjNydTJVOCtOa0Z-UH4"
     
     @api_key = ENV['api_key']
     @api_secret = ENV['api_secret']
