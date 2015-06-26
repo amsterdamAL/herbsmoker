@@ -9,15 +9,14 @@ $(document).ready(function() {
     var publisher;
     var streams = [];
     var token = "<%= @token %>";
-	var session = "<%= @session %>"
-    
+	
     function connect() {
 	  if (OT.checkSystemRequirements() == 0) {
         console.log("The client does not support WebRTC.");
       } else {
         console.log("The client does support WebRTC.");
         
-        session = OT.initSession("45266732", "<%= @session_id %>");
+        session = OT.initSession("45266732", "2_MX40NTI2NjczMn5-MTQzNTI5NzAxMTQ5N355MGZzTW5TaGgraXpiMjNydTJVOCtOa0Z-UH4");
 		 
 		session.on({ 
 		  
