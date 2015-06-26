@@ -85,9 +85,10 @@ $(document).ready(function() {
   
   function publish(){
         
-        publisher = OT.initPublisher();
+        publisher = OT.initPublisher('ivid1', {width:150, height:150});
         session.publish(publisher);
         console.log("You can publish an audio-video stream.");
+        
         
      
         publisher.on({
@@ -124,12 +125,32 @@ $(document).ready(function() {
     </script>
   </head>
   <body>
-    <h1>H1 tag</h1>
     
-    token: <%= @token %><br/>
-    <div id="vid1"></div>
-    <div id="vid2"></div>
-    <button id="start">start</button>
-    <button id="disconnectBtn">disconnect</button>
+    <div id="streams_wrapper">
+	    <div id="streams_container">
+	    	<div id="ovid1"><div id="ivid1"></div></div>
+	    	<div id="ovid2"><div id="ivid2"></div></div>
+	    	<div id="ovid3"><div id="ivid3"></div></div>
+	    	<div id="ovid4"><div id="ivid4"></div></div>
+	    	<div id="ovid5"><div id="ivid5"></div></div>
+	    
+	    
+	    </div>
+	    
+	    <div id="chats_aside">
+	    	<h1>H1 tag</h1>
+	    	<h3> test aside</h3>
+	    	<button id="start">start</button>
+			<button id="disconnectBtn">disconnect</button>
+			token: <%= @token %><br/>
+	    </div>
+	    
+    
+    
+    
+    </div>
+    
+    
+    
   </body>
 </html>
