@@ -25,7 +25,7 @@ $(document).ready(function() {
 		//Local user connects to the session
 		session.on("sessionConnected", function(sessionConnectedEvent){
 			
-			console.log("sessionConnected by local user, watchers = " watchers "& streamers = " streamers);
+			console.log("sessionConnected by local user, watchers: "+watchers+" & streamers: "+ streamers);
 			
 		});	
 			
@@ -34,7 +34,7 @@ $(document).ready(function() {
 		session.on("connectionCreated", function(event){
 			var stream = event.stream;
             watchers++;
-            console.log("connectionCreated by forign user, watchers = " watchers "& streamers = " streamers);
+            console.log("connectionCreated by forign user, watchers: "+watchers+" & streamers: "+ streamers);
             watchers++;
 		});
 		
@@ -46,7 +46,7 @@ $(document).ready(function() {
 		  		if(stream.connection.connectionId != session.connection.connectionId) {
 		  			session.subscribe(stream, 'ivid2', {width:155, height:150});
 		  			streamers++;
-		  			console.log("sucsessfully subscribed to new forign stream, watchers = " watchers  "& streamers = " streamers)
+		  			console.log("sucsessfully subscribed to new forign stream, watchers: "+watchers+" & streamers: "+ streamers)
 		  		}
 		  	})
         });
@@ -74,7 +74,7 @@ $(document).ready(function() {
 	    //Local user stoped publishing to the session
 		session.on("streamDestroyed", function(event){
 			streamers--;
-			console.log("forign user stopped streaming, watchers = " watchers  "& streamers = " streamers);
+			console.log("forign user stopped streaming, watchers: "+watchers+" & streamers: "+ streamers);
 		});	 
       
       
@@ -100,14 +100,14 @@ function publish(){
   //Local user started publishing to the session
   publisher.on("streamCreated", function(event){
   	streamers++;
-    console.log("local publisher started streaming, watchers = " watchers  "& streamers = " streamers);
+    console.log("local publisher started streaming, watchers: "+watchers+" & streamers: "+ streamers);
   });	  
  
   //Local user stoped publishing to the session
   publisher.on("streamDestroyed", function(event){
   	streamers--;
-    console.log("local publisher stopped streaming, watchers = " watchers  "& streamers = " streamers);
-    event.preventDefault();
+    console.log("local publisher stopped streaming, watchers: "+watchers+" & streamers: "+ streamers);
+    
   });	  
 };  
       
