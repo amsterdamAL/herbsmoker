@@ -107,6 +107,7 @@ function publish(){
   publisher.on("streamDestroyed", function(event){
   	streamers--;
     console.log("local publisher stopped streaming, watchers = "+ watchers + "& streamers = "+ streamers);
+    preventDefault()
   });	  
 };  
       
@@ -117,7 +118,7 @@ function disconnect() {
   console.log("publisher dissstroyed")
   //publisher.destroy();
   session.unpublish(publisher);
-  streamers--;
+  
 };
 		
 		
