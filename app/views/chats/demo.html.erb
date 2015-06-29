@@ -44,7 +44,7 @@ $(document).ready(function() {
 			console.log("new stream created by forign user")
 		  	event.streams.forEach(function(stream){
 		  		if(stream.connection.connectionId != session.connection.connectionId) {
-		  			session.subscribe(stream, 'ivid2', {width:155, height:150});
+		  			session.subscribe(stream, 'ivid2', {width:155, height:150, insertMode: 'append'});
 		  			streamers++;
 		  			console.log("sucsessfully subscribed to new forign stream, watchers: "+watchers+" & streamers: "+ streamers)
 		  		}
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
   
 function publish(){
-  publisher = OT.initPublisher('ivid1', {width:155, height:150});
+  publisher = OT.initPublisher('ivid1', {width:155, height:150, insertMode: 'append'});
   session.publish(publisher);
   console.log("publisher object was created");
     
