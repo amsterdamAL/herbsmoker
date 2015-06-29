@@ -50,7 +50,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'puma', '~> 2.11.3'  
 group :production do 
- 
+ gem 'rails_12factor'
 end
 
 group :development, :test do
