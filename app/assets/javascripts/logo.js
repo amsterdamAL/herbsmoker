@@ -73,7 +73,9 @@ function sticky_relocate() {
     }
 }
 
+if (window.location.pathname != "/chats/demo") {
 $(function () {
     $(document).scroll(sticky_relocate);
     sticky_relocate();
 });
+}

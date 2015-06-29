@@ -4,55 +4,76 @@
     <title>Opentok Quick Start</title>
     <script src='http://static.opentok.com/v2/js/opentok.min.js'></script>
     <script type="text/javascript">
+
 $(document).ready(function() {	    
     
     var publisher;
     var streams = [];
     var token = "<%= @token %>";
-	
+    var watchers = 0;
+	var streamers = 0;
+    var session;
+    
     function connect() {
 	  if (OT.checkSystemRequirements() == 0) {
         console.log("The client does not support WebRTC.");
       } else {
         console.log("The client does support WebRTC.");
-        
         session = OT.initSession("45266732", "2_MX40NTI2NjczMn5-MTQzNTI5NzAxMTQ5N355MGZzTW5TaGgraXpiMjNydTJVOCtOa0Z-UH4");
-		 
-		session.on({ 
-		  
-		  streamCreated: function (event){
-		  	console.log("new stream created")
+		
+		
+		//Local user connects to the session
+		session.on("sessionConnected", function(sessionConnectedEvent){
+			watchers++;
+			console.log("sessionConnected by local user, watchers = "+ watchers + "& streamers = "+ streamers);
+			
+		});	
+			
+			
+		//forign user connects to the session
+		session.on("connectionCreated", function(event){
+			var stream = event.stream;
+            watchers++;
+            console.log("connectionCreated by forign user, watchers = "+ watchers + "& streamers = "+ streamers);
+            watchers++;
+		});
+		
+		
+		//stream created by forign user
+		session.on("streamCreated", function(event){
+			console.log("new stream created by forign user")
 		  	event.streams.forEach(function(stream){
 		  		if(stream.connection.connectionId != session.connection.connectionId) {
 		  			session.subscribe(stream);
+		  			streamers++;
+		  			console.log("sucsessfully subscribed to new forign stream, watchers = "+ watchers + "& streamers = "+ streamers)
 		  		}
 		  	})
-		  	//subscriber = session.subscribe(event.stream, vid2);
-		  	//session.connect(token);
-		  },
-		  
-		  
-		  connectionCreated: function (event) {
-		    var stream = event.stream;
-            console.log("session on NEW connection created");
-		  },
-		      
+        });
 		
-		  connectionDestroyed: function (event) {
-		    
-		    console.log("session on, connection distroyed");
-		  },
-		       
-	    
-	      sessionDisconnected: function sessionDisconnectHandler(event) {
-	        // The event is defined by the SessionDisconnectEvent class
-	        console.log("Disconnected from the session.");
+		
+		//session connection destroyed
+		session.on("connectionDestroyed", function(event){
+			console.log("session connection destroyed");
+        });
+		
+		
+		//session connection destroyed
+		session.on("sessionDisconnected", function sessionDisconnectHandler(event) {
+			console.log("Disconnected from the session.");
 	        document.getElementById('disconnectBtn').style.display = 'none';
 	        if (event.reason == "networkDisconnected") {
 	          alert("Your network connection terminated.")
 	        }
-		  }
+		  };
         });
+		
+	    
+	    //Local user stoped publishing to the session
+		publisher.on("streamDestroyed", function(event){
+			streamers--;
+			console.log("forign user stopped streaming, watchers = "+ watchers + "& streamers = "+ streamers);
+		});	 
       
       
         // Replace token with your own value:
@@ -60,95 +81,78 @@ $(document).ready(function() {
           if (error) {
             OT.log("Unable to connect: ", error.message);
           } else {
-            document.getElementById('disconnectBtn').style.display = 'block';
+            //document.getElementById('disconnectBtn').style.display = 'block';
             console.log("session.connect, Connected to the session.");
-            
-            
-            
-    	
-    
-            
-                      
-		  }
+          }
         });
 	  }
     }
 
 
   
-  
-  
-  
-  
-  
-  
-  
-  function publish(){
-        
-        publisher = OT.initPublisher('ivid1', {width:150, height:150});
-        session.publish(publisher);
-        console.log("You can publish an audio-video stream.");
-        
-        
-     
-        publisher.on({
-          streamCreated: function (event) {
-            
-            
-            console.log("Publisher started streaming.");
-          },
-        
-          streamDestroyed: function (event) {
-            console.log("Publisher stopped streaming. Reason: " + event.reason);
-            
-          }
-        });
-};
-  function disconnect() {
-    console.log("publisher dissstroyed")
-    publisher.destroy();
+function publish(){
+  publisher = OT.initPublisher('ivid1', {width:155, height:150});
+  session.publish(publisher);
+  console.log("publisher object was created");
     
-  };
-		
-		
-		
-  $('#disconnectBtn').click( function () { 
-  	disconnect();
-  });
+  //Local user started publishing to the session
+  publisher.on("streamCreated", function(event){
+  	streamers++;
+    console.log("local publisher started streaming, watchers = "+ watchers + "& streamers = "+ streamers);
+  });	  
+ 
+  //Local user stoped publishing to the session
+  publisher.on("streamDestroyed", function(event){
+  	streamers--;
+    console.log("local publisher stopped streaming, watchers = "+ watchers + "& streamers = "+ streamers);
+  });	  
+};  
       
-  $('#start').click( function () {
-    publish();
-  });
+      
+      
+     
+function disconnect() {
+  console.log("publisher dissstroyed")
+  //publisher.destroy();
+  session.unpublish(publisher);
+};
+		
+		
+		
   
-  connect();
+$('#disconnectBtn').click( function () { 
+  disconnect();
+});
+      
+$('#start').click( function () {
+  publish();
+});
+  
+
+connect();
+
 });
     </script>
   </head>
   <body>
     
     <div id="streams_wrapper">
-	    <div id="streams_container">
+		<div id="streams_container">
 	    	<div id="ovid1"><div id="ivid1"></div></div>
-	    	<div id="ovid2"><div id="ivid2"></div></div>
-	    	<div id="ovid3"><div id="ivid3"></div></div>
-	    	<div id="ovid4"><div id="ivid4"></div></div>
-	    	<div id="ovid5"><div id="ivid5"></div></div>
-	    
-	    
+			<div id="ovid2"><div id="ivid2"></div></div>
+			<div id="ovid3"><div id="ivid3"></div></div>
+			<div id="ovid4"><div id="ivid4"></div></div>
+			<div id="ovid5"><div id="ivid5"></div></div>
 	    </div>
 	    
-	    <div id="chats_aside">
-	    	<h1>H1 tag</h1>
-	    	<h3> test aside</h3>
-	    	<button id="start">start</button>
+		<div id="chats_aside">
+			<h1>H1 tag</h1>
+			<h3> test aside</h3>
+			<button id="start">start</button>
 			<button id="disconnectBtn">disconnect</button>
 			token: <%= @token %><br/>
 	    </div>
-	    
-    
-    
-    
-    </div>
+</div>
     
     
     
