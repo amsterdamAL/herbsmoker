@@ -24,7 +24,7 @@ $(document).ready(function() {
 		
 		//Local user connects to the session
 		session.on("sessionConnected", function(sessionConnectedEvent){
-			watchers++;
+			watchers = 1;
 			console.log("sessionConnected by local user, watchers = "+ watchers + "& streamers = "+ streamers);
 			
 		});	
