@@ -24,7 +24,7 @@ $(document).ready(function() {
 		
 		//Local user connects to the session
 		session.on("sessionConnected", function(sessionConnectedEvent){
-			watchers = 1;
+			
 			console.log("sessionConnected by local user, watchers = "+ watchers + "& streamers = "+ streamers);
 			
 		});	
@@ -55,12 +55,14 @@ $(document).ready(function() {
 		//session connection destroyed
 		session.on("connectionDestroyed", function(event){
 			console.log("session connection destroyed");
+			watchers--;
         });
 		
 		
 		//session connection destroyed
 		session.on("sessionDisconnected", function sessionDisconnectHandler(event) {
 			console.log("Disconnected from the session.");
+			watchers--;
 	        //document.getElementById('disconnectBtn').style.display = 'none';
 	        if (event.reason == "networkDisconnected") {
 	          alert("Your network connection terminated.")
@@ -115,6 +117,7 @@ function disconnect() {
   console.log("publisher dissstroyed")
   //publisher.destroy();
   session.unpublish(publisher);
+  streamers--;
 };
 		
 		
