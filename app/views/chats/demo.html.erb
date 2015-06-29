@@ -61,16 +61,16 @@ $(document).ready(function() {
 		//session connection destroyed
 		session.on("sessionDisconnected", function sessionDisconnectHandler(event) {
 			console.log("Disconnected from the session.");
-	        document.getElementById('disconnectBtn').style.display = 'none';
+	        //document.getElementById('disconnectBtn').style.display = 'none';
 	        if (event.reason == "networkDisconnected") {
 	          alert("Your network connection terminated.")
 	        }
-		  };
+		  
         });
 		
 	    
 	    //Local user stoped publishing to the session
-		publisher.on("streamDestroyed", function(event){
+		session.on("streamDestroyed", function(event){
 			streamers--;
 			console.log("forign user stopped streaming, watchers = "+ watchers + "& streamers = "+ streamers);
 		});	 
