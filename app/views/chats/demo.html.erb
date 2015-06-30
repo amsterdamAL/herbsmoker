@@ -21,22 +21,37 @@ $(document).ready(function() {
         console.log("The client does support WebRTC.");
         session = OT.initSession("45266732", "<%= @session_id %>");
 		
-		
+		//Initial session connection
 		//Local user connects to the session
 		session.on("sessionConnected", function(sessionConnectedEvent){
-			
 			console.log("sessionConnected by local user, watchers: "+watchers+" & streamers: "+ streamers);
-			
 		});	
 			
-			
+		//session connection destroyed
+		session.on("sessionDisconnected", function sessionDisconnectHandler(event) {
+			console.log("Disconnected from the session.");
+			watchers--;
+	        //document.getElementById('disconnectBtn').style.display = 'none';
+	        if (event.reason == "networkDisconnected") {
+	          alert("Your network connection terminated.")
+	        }
+		});
+        
+        	
+		
 		//forign user connects to the session
 		session.on("connectionCreated", function(event){
 			var stream = event.stream;
             watchers++;
             console.log("connectionCreated by forign user, watchers: "+watchers+" & streamers: "+ streamers);
-            watchers++;
-		});
+        });
+		
+		//session connection destroyed
+		session.on("connectionDestroyed", function(event){
+			console.log("session connection destroyed");
+			watchers--;
+        });
+		
 		
 		
 		//stream created by forign user
@@ -51,32 +66,15 @@ $(document).ready(function() {
 		  	})
         });
 		
-		
-		//session connection destroyed
-		session.on("connectionDestroyed", function(event){
-			console.log("session connection destroyed");
-			watchers--;
-        });
-		
-		
-		//session connection destroyed
-		session.on("sessionDisconnected", function sessionDisconnectHandler(event) {
-			console.log("Disconnected from the session.");
-			watchers--;
-	        //document.getElementById('disconnectBtn').style.display = 'none';
-	        if (event.reason == "networkDisconnected") {
-	          alert("Your network connection terminated.")
-	        }
-		  
-        });
-		
-	    
-	    //Local user stoped publishing to the session
+		//Local user stoped publishing to the session
 		session.on("streamDestroyed", function(event){
 			streamers--;
 			console.log("forign user stopped streaming, watchers: "+watchers+" & streamers: "+ streamers);
-		});	 
-      
+		});	
+		
+		
+		
+		      
       
         // Replace token with your own value:
         session.connect(token, function(error) {
