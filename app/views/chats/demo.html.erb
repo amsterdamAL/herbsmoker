@@ -137,11 +137,12 @@ function publish(){
 		session.publish(publisher);
 		console.log("publisher object was created on 4of5");
 	}else if ( $('#ivid5').children().length == 0 ) {
-		publisher = OT.initPublisher('ivid1', {width:155, height:150, insertMode: 'append'});
+		publisher = OT.initPublisher('ivid5', {width:155, height:150, insertMode: 'append'});
 		session.publish(publisher);
 		console.log("publisher object was created on 5of5");
 	}else{
 		console.log("no more room to publish a stream!")
+		return;
 	}
 	
     
