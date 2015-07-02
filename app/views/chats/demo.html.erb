@@ -12,16 +12,6 @@ $(document).ready(function() {
     var token = "<%= @token %>";
     var watchers = 0;
 	var streamers = 0;
-    var $store_butt_1;
-    var $store_butt_2;
-    var $store_butt_3;
-    var $store_butt_4;
-    var $store_butt_5;
-    var $quit_butt_1;
-    var $quit_butt_2;
-    var $quit_butt_3;
-    var $quit_butt_4;
-    var $quit_butt_5;
     
     
     
@@ -66,31 +56,31 @@ $(document).ready(function() {
 		session.on("streamCreated", function(event){
 			console.log("new stream created by forign user")
 		  	if(event.stream.connection.connectionId != session.connection.connectionId){
-		  		if ( $('#ivid1').children().length == 0 ) {
+		  		if ( $('#ivid1').children().length < 3 ) {
 				session.subscribe(event.stream, 'ivid1', {width:155, height:150, insertMode: 'append'});
-				
+				setupJoin();
 				
 				
 		  		streamers++;
 		  		console.log("sucsessfully subscribed to new forign stream 1of5, watchers: "+watchers+" & streamers: "+ streamers)
-				}else if ( $('#ivid2').children().length == 0 ) {
+				}else if ( $('#ivid2').children().length < 3 ) {
 				session.subscribe(event.stream, 'ivid2', {width:155, height:150, insertMode: 'append'});
-				
+				setupJoin();
 		  		streamers++;
 		  		console.log("sucsessfully subscribed to new forign stream 2of5, watchers: "+watchers+" & streamers: "+ streamers)
-				}else if ( $('#ivid3').children().length == 0 ) {
+				}else if ( $('#ivid3').children().length < 3 ) {
 				session.subscribe(event.stream, 'ivid3', {width:155, height:150, insertMode: 'append'});
-				
+				setupJoin();
 		  		streamers++;
 		  		console.log("sucsessfully subscribed to new forign stream 3of5, watchers: "+watchers+" & streamers: "+ streamers)
-				}else if ( $('#ivid4').children().length == 0 ) {
+				}else if ( $('#ivid4').children().length < 3 ) {
 				session.subscribe(event.stream, 'ivid4', {width:155, height:150, insertMode: 'append'});
-				
+				setupJoin();
 		  		streamers++;
 		  		console.log("sucsessfully subscribed to new forign stream 4of5, watchers: "+watchers+" & streamers: "+ streamers)
-				}else if ( $('#ivid5').children().length == 0 ) {
+				}else if ( $('#ivid5').children().length < 3 ) {
 				session.subscribe(event.stream, 'ivid5', {width:155, height:150, insertMode: 'append'});
-				
+				setupJoin();
 		  		streamers++;
 		  		console.log("sucsessfully subscribed to new forign stream 5of5, watchers: "+watchers+" & streamers: "+ streamers)
 				}else{
@@ -146,29 +136,33 @@ $(document).ready(function() {
   
 function publish(){
 	console.log( $('#ivid1').children().length);
-	if ( $('#ivid1').children().length < 2 ) {
+	if ( $('#ivid1').children().length < 3 ) {
 		publisher = OT.initPublisher('ivid1', {width:155, height:150, insertMode: 'append'});
-		$('.overlay').hide();
+		$(".overlayno:first").attr('class', 'overlay');
 		session.publish(publisher);
 		
 		console.log("publisher object was created on 1of5");
-	}else if ( $('#ivid2').children().length == 0 ) {
+	}else if ( $('#ivid2').children().length < 3 ) {
 		publisher = OT.initPublisher('ivid2', {width:155, height:150, insertMode: 'append'});
+		$(".overlayno:second").attr('class', 'overlay');	
 		session.publish(publisher);
 		
 		console.log("publisher object was created on 2of5");
-	}else if ( $('#ivid3').children().length == 0 ) {
+	}else if ( $('#ivid3').children().length < 3 ) {
 		publisher = OT.initPublisher('ivid3', {width:155, height:150, insertMode: 'append'});
+		$(".overlayno:third").attr('class', 'overlay');
 		session.publish(publisher);
 		
 		console.log("publisher object was created on 3of5");
-	}else if ( $('#ivid4').children().length == 0 ) {
+	}else if ( $('#ivid4').children().length < 3 ) {
 		publisher = OT.initPublisher('ivid4', {width:155, height:150, insertMode: 'append'});
+		$(".overlayno:forth").attr('class', 'overlay');
 		session.publish(publisher);
 		
 		console.log("publisher object was created on 4of5");
-	}else if ( $('#ivid5').children().length == 0 ) {
+	}else if ( $('#ivid5').children().length < 3 ) {
 		publisher = OT.initPublisher('ivid5', {width:155, height:150, insertMode: 'append'});
+		$(".overlayno:last").attr('class', 'overlay');
 		session.publish(publisher);
 		
 		console.log("publisher object was created on 5of5");
@@ -204,7 +198,26 @@ function disconnect() {
 };
 		
 		
-		
+function setupJoin(){
+	if ( $('#ivid1').children().length == 2 ){
+		$(".connect").attr('class', 'connect1');
+		return;
+	}else if ( $('#ivid2').children().length == 2 ){
+		console.log('just do it');
+		$('#ivid2').attr('class', '.connect');
+		//$(".connect").attr('class', 'connect1');
+		return;
+	}else if ( $('#ivid3').children().length == 2 ){
+		$(".connect").attr('class', 'connect1');
+		return;
+	}else if ( $('#ivid4').children().length == 2 ){
+		$(".connect").attr('class', 'connect1');
+		return;
+	}else if ( $('#ivid5').children().length == 2 ){
+		$(".connect").attr('class', 'connect1');
+	}
+	
+}		
   
 $('#quit_butt_1').click( function () { 
   disconnect();
@@ -212,8 +225,13 @@ $('#quit_butt_1').click( function () {
  
 });
       
-$('.overlay').click( function () {
-  publish();
+$('.connect1, .connect').click( function () {
+  //publish();
+  console.log($('#ivid1').children().length);
+  console.log($('#ivid2').children().length);
+  console.log($('#ivid3').children().length);
+  console.log($('#ivid4').children().length);
+  console.log($('#ivid5').children().length);
 });
   
 
@@ -222,54 +240,75 @@ $('.overlay').click( function () {
 
 
 connect();
+
 });
     </script>
   </head>
   <body>
-    sessionID: <%= @session_id %><br />
-    token: <%= @token %><br />
+    
     <div id="streams_wrapper">
 		<div id="streams_container">
-	    	<div id="streams_bin">
+         	<div id="streams_bin">
 		    	<div id="ovid1">
 		    		<div id="ivid1">
-		    			<div class="overlay">
-		    				<div class="join_text">
-		    					
-		    				</div>
-	    				</div>
+		    			<div class="connectup">
+		    				<a><strong>(( (connect)) )</strong></a>
+		    			</div>	
+		    			
+		    			<div class="overlayno">
+		    			</div>
+		    							
 		    			
 		    		</div>
-		    		
 		    	</div>		
 				<div id="ovid2">
 		    		<div id="ivid2">
-		    			<div class="overlay"></div>
+		    			<div class="connectdown">
+		    				<a><strong>(( (connect)) )</strong></a>
+		    			</div>	
+		    			
+		    			<div class="overlayno">
+		    			</div>
 	    			</div>
 		    	</div>
 		    	<div id="ovid3">
 		    		<div id="ivid3">
-		    			<div class="overlay"></div>
-	    			</div>
+		    			<div class="connectdown">
+		    				<a><strong>(( (connect)) )</strong></a>
+		    			</div>	
+		    			
+		    			<div class="overlayno">
+		    			</div>
+		    	   </div>		
 		    	</div>
 		    	<div id="ovid4">
 		    		<div id="ivid4">
-		    			<div class="overlay"></div>
-	    			</div>
+		    			<div class="connectdown">
+		    				<a><strong>(( (connect)) )</strong></a>
+		    			</div>	
+		    			
+		    			<div class="overlayno">
+		    			</div>
+		    		</div> 	
 		    	</div>
 		    	<div id="ovid5">
 		    		<div id="ivid5">
-		    			<div class="overlay"></div>
-	    			</div>
+		    			<div class="connectdown">
+		    				<a><strong>(( (connect)) )</strong></a>
+		    			</div>	
+		    			
+		    			<div class="overlayno">
+		    			</div>
+	    			  </div>
 		    	</div>
-	    	</div>
+            </div>
 	    </div>
 	    
 		<div id="chats_aside">
 			<h1>H1 tag</h1>
 			<h3> test aside</h3>
 			
-			token: <%= @token %><br/>
+			
 	    </div>
 </div>
     

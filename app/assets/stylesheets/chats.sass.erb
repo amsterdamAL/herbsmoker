@@ -4,27 +4,85 @@
   
   +outer-container
   height: 500px
+  padding-top: 25px
   
   #streams_container
   
     height: 300px
     
     +span-columns(9)
-    padding: 5px
     
-    #ovid1, #ovid2, #ovid3, #ovid4, #ovid5
-      display: inline-block
-      width: 155px
+    #streams_bin
+      width: 808px
       height: 150px
         
-      #ivid1, #ivid2, #ivid3, #ivid4, #ivid5
+      #ovid1, #ovid2, #ovid3, #ovid4, #ovid5
+        display: inline-block
         width: 155px
         height: 150px
-        background: url("man.png")
-        background-size: 155px 150px
-        background-repeat: no-repeat
-        padding-bottom: 30px
-        border: 1px solid
+        padding: 0
+        margin: 0 auto
+        
+        #ivid1, #ivid2, #ivid3, #ivid4, #ivid5
+          width: 155px
+          height: 150px
+          
+          background: fade-out(#9C4061, 0.1)
+          background: url("man.png")
+          background-repeat: no-repeat
+          background-position: center center
+          background-size: cover
+          border: 1px solid
+          position: relative
+          
+          
+          .connectup
+            margin: 0 auto
+            +position(absolute, 0 0 0 0)
+            background: fade-out(green, 0.6)
+            cursor: pointer
+          
+            a
+              text-align: center
+              line-height: 250px
+              color: black
+              weight: 700
+              
+              strong
+                display: block
+          
+          
+          .connectdown
+            margin: 0 auto
+            +position(absolute, 100% 0 0 0)
+            background: fade-out(red, 0.6)
+            cursor: pointer
+            
+            a
+              text-align: center
+              line-height: 250px
+              color: black
+              weight: 700
+              
+              strong
+                display: block
+              
+          &:hover .connectdown
+            +position(absolute, 0 0 0 0)
+          
+          .overlay
+          
+            +position (absolute, 100% 0px null 0px)
+            height: 100%
+            
+            +transition-duration(0.5s)
+            +transition-timing-function(ease-in)
+            
+           
+            &:hover .overlay
+              +position (absolute, 80% 0px null 0px)
+              background: fade-out(#1A1F1D, 0.2)      
+              z-index: 10
           
       
     
@@ -34,24 +92,11 @@
     border: 3px solid
     overflow: hidden
     word-wrap: break-word
-#streams_bin
-  width: 808px
-  height: 150px
 
-#join_butt_1, #join_butt_2, #join_butt_3, #join_butt_4, #join_butt_5,
-#quit_butt_1, #quit_butt_2, #quit_butt_3, #quit_butt_4, #quit_butt_5
-  width: 155px
-  height: 20px
-  vertical-align: bottom
-  padding-bottom: 30px  
-  
 
-  
 
-.overlay
-  background-color: rgba(255, 0, 0, 0.2)
-  width: 155px
-  height: 150px
+
+
   
 .join_text
   font-size: .9em
