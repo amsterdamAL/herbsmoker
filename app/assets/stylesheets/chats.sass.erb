@@ -34,22 +34,34 @@
           background-size: cover
           border: 1px solid
           position: relative
-          
-          
+          overflow: hidden
+          &:hover 
+            .connectdown
+              +position(absolute, 0 0 0 0)
+          &:hover .overlay
+            +position (absolute, 80% 0px null 0px)
+            background: fade-out(#1A1F1D, 0.2) 
+            color: white
+            font-weight: 700
+            text-align: center
+            line-height: 30px
+            cursor: pointer
+            
+            
           .connectup
             margin: 0 auto
             +position(absolute, 0 0 0 0)
             background: fade-out(green, 0.6)
             cursor: pointer
           
-            a
-              text-align: center
-              line-height: 250px
-              color: black
-              weight: 700
+            
+            text-align: center
+            line-height: 250px
+            color: black
+            weight: 700
               
-              strong
-                display: block
+            strong
+              display: block
           
           
           .connectdown
@@ -58,31 +70,33 @@
             background: fade-out(red, 0.6)
             cursor: pointer
             
-            a
-              text-align: center
-              line-height: 250px
-              color: black
-              weight: 700
+            
+            text-align: center
+            line-height: 250px
+            color: black
+            weight: 700
               
-              strong
-                display: block
+            strong
+              display: block
               
-          &:hover .connectdown
-            +position(absolute, 0 0 0 0)
+          
           
           .overlay
-          
+            
             +position (absolute, 100% 0px null 0px)
             height: 100%
-            
+            background: fade-out(#1A1F1D, 0.2) 
+            color: white
+            font-weight: 700
+            text-align: center
+            line-height: 30px
+            z-index: 10
             +transition-duration(0.5s)
             +transition-timing-function(ease-in)
             
-           
-            &:hover .overlay
-              +position (absolute, 80% 0px null 0px)
-              background: fade-out(#1A1F1D, 0.2)      
-              z-index: 10
+          .overlayno
+            font-size: 0
+          
           
       
     
