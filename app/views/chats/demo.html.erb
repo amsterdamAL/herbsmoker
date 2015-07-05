@@ -110,18 +110,7 @@ $(document).ready(function() {
 			
 		});	
 		
-		//Local user started publishing to the session
-		publisher.on("streamCreated", function(event){
-  	
-  			streamers++;
-    		console.log("local publisher started streaming, watchers: "+watchers+" & streamers: "+ streamers);
-		});	  
- 
-		//Local user stoped publishing to the session
-		publisher.on("streamDestroyed", function(event){
-			streamers--;
-			console.log("local publisher stopped streaming, watchers: "+watchers+" & streamers: "+ streamers);
-		});
+		
 		
 		      
       
@@ -159,6 +148,20 @@ $('.connectdown').click( function (){
 	
 	//publish audio/video
 	session.publish(publisher);
+	
+	//Local user started publishing to the session
+	publisher.on("streamCreated", function(event){
+  	
+		streamers++;
+		console.log("local publisher started streaming, watchers: "+watchers+" & streamers: "+ streamers);
+	});	  
+ 
+	//Local user stoped publishing to the session
+	publisher.on("streamDestroyed", function(event){
+		streamers--;
+		console.log("local publisher stopped streaming, watchers: "+watchers+" & streamers: "+ streamers);
+	});
+	
 });  
       
       
