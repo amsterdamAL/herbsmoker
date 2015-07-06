@@ -124,6 +124,49 @@ $(document).ready(function() {
             console.log("session.connect, Connected to the session.");
           }
         });
+        
+        session.on("signal", function(event) {
+      		console.log("Signal sent from connection " + event.from.id);
+      		// Process the event.data property, if there is any data.
+      		$('#text_area').append(session.connection.data + ": " + event.data + "\n" );
+		});
+        
+        
+       
+		window.sendMSG = function() {       
+       
+       
+	        session.signal(
+	  			{
+	    			data: $('#message').val()
+	  			},
+	  			function(error) {
+	    			if (error) {
+	      				console.log("signal error ("
+	                   		+ error.code
+	                   		+ "): " + error.message);
+	    			} else {
+	      				console.log("signal sent.");
+	    			}
+	  			}
+			);
+			
+			
+			$('#message').val("");
+			
+        };
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 	  }
     }
 
@@ -136,7 +179,7 @@ $('.connectdown').click( function (){
 	$parentID = $(this).parent().attr('id');
 	
 	
-	publisher = OT.initPublisher($parentID, {width:155, height:150, insertMode: 'append'});
+	publisher = OT.initPublisher($parentID, {name: session.connection.data}, {width:155, height:150, insertMode: 'append'});
 	$('#' + $parentID + " .overlayno").attr('class', 'overlay');
 	
 	//remove hover on all other divs so only 1 publisher...
@@ -188,6 +231,21 @@ $('.overlayno').click( function(){
 
 
 connect();
+
+	$('#chat_window button').click( function(){
+		
+		console.log('buttonclicked');
+		sendMSG();
+	});
+	
+	$('#message').keyup(function(event){
+		if(event.keyCode == 13){
+			console.log('enterHitt');
+			sendMSG();
+		}
+	  
+	});
+
 
 });
     </script>
@@ -254,7 +312,14 @@ connect();
 	    			  </div>
 		    	</div>
             </div>
+            <div id="chat_window">
+            	<div id="text"><%= text_area_tag 'text_area', "This is my statement one." + "\n" + "This is my statement2" + "\n", {disabled: "true", escape: "true"} %></div>
+	    		<div id="msg"><%= text_field_tag 'message', nil, placeholder: 'speak here...' %></div>
+	    		<div id="sendit"><%= button_tag %></div>
+
+	    </div>	
 	    </div>
+	    
 	    
 		<div id="chats_aside">
 			<h1>H1 tag</h1>

@@ -11,8 +11,10 @@ class ChatsController < ApplicationController
     
     opentok = OpenTok::OpenTok.new 45266732, "141dc7cc7d8eddac8c0a4be35b910ea080936de6"
     
+    numbr = rand(400..900)
     
-    @token = opentok.generate_token @session_id
+    
+    @token = opentok.generate_token @session_id, :data => 'guest_' + numbr.to_s
     
     
     
