@@ -128,7 +128,8 @@ $(document).ready(function() {
         session.on("signal", function(event) {
       		console.log("Signal sent from connection " + event.from.id);
       		// Process the event.data property, if there is any data.
-      		$('#text_area').append(event.data + "\n" );
+      		$('#text_area').append("\n" + event.data);
+      		$('#text_area').scrollTop(  $('#text_area')[0].scrollHeight   );
 		});
         
         
@@ -227,7 +228,7 @@ $('.overlayno').click( function(){
 		}
 	});
 });
-
+  
 
 
 connect();
