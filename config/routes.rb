@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   
   #get 'lookups/review' => 'lookups#review'
   get 'letters/review' => 'letters#review'
+  get 'feedbacks/new' => 'feedbacks/new'
   post 'letters/sender' => 'letters#sender'
   root 'engages#now'
   # Example of regular route:
@@ -74,7 +75,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :engages, :subscribers, :letters
+  resources :engages, :subscribers, :letters, :feedbacks
   
   resources :articles do
     resources :comments

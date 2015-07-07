@@ -4,14 +4,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to FloridaToker, <%= @sub.email %></h1>
+    <h1>Feedback Report</h1><br /><br />
+    
+    <h2> Name: <%= @feedback.name%> </h2><br />
+    <h2> Email: <%= @feedback.email%> </h2><br />
+    
+    
     <p>
-      You have successfully signed up to FloridaToker.com,
-      your username is: <%= @sub.zip %>.<br>
+      <%= @feedback.body %>.<br />
     </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    
+    
+    -peace
+    
   </body>
 </html>
