@@ -20,7 +20,7 @@ gem 'rails', '4.2.0'
 #gem 'sqlite3'
 
 gem "pg" 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -50,7 +50,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'puma', '~> 2.11.3'  
 group :production do 
- gem 'rails_12factor'
+ 
 end
 
 group :development, :test do

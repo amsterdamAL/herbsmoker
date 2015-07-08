@@ -8,36 +8,30 @@
   
   #streams_container
   
-    height: 155px
+    width: 100%
     
     +span-columns(9)
     
     #streams_bin
-      width: 808px
-      height: 150px
-        
+      width: 100%
+      height: 100%
+      +clearfix
+      
       #ovid1, #ovid2, #ovid3, #ovid4, #ovid5
-        display: inline-block
-        width: 155px
-        height: 150px
-        padding: 0
-        margin: 0 auto
-        
-        
-        
-        
+        display: block
+        position: relative
+        width: 20%
+        padding-top: 20%
+        float: left
         
         #ivid1, #ivid2, #ivid3, #ivid4, #ivid5
-          width: 155px
-          height: 150px
-          
           background: fade-out(#DCFCDF, 0.1)
           background-image: url(<%= asset_path "man.png" %>)
           background-repeat: no-repeat
           background-position: center center
           background-size: cover
           border: 1px solid
-          position: relative
+          +position(absolute, 0 0 0 0)
           overflow: hidden
           &:hover 
             .connectdown
@@ -111,11 +105,12 @@
     display: block
     position: relative
     
+    
     #text
       overflow: hidden
     
       #text_area
-      
+        
         width: 100%
         height: 200px
         border: 1px solid
@@ -140,6 +135,7 @@
     border: 3px solid
     overflow: hidden
     word-wrap: break-word
+    height: 420px
 
   
 

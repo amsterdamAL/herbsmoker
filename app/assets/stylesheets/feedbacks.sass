@@ -5,6 +5,35 @@
 
   #feedback_form
     +span-columns(9)
+    
+    #form_container
+      margin: 0 auto
+      padding: 20px
+      max-width: 600px
+      
+      #feedback_form
+        +clearfix
+        
+      input#feedback_name
+        width: 50%
+        float: left
+        
+      input#feedback_email
+        width: 50%
+        foat: right  
+      
+      textarea#feedback_body
+        width: 100%
+        height: 200px
+        
 		
   #feedback_aside
     +span-columns(3)
+    
+    #feedback_aside_contect
+      margin-top: 20px
+      background-color: green
+      height: 500px
+
+.feedbackbutton
+  width: 100%
