@@ -30,7 +30,7 @@
           background-repeat: no-repeat
           background-position: center center
           background-size: cover
-          border: 1px solid
+          
           +position(absolute, 0 0 0 0)
           overflow: hidden
           &:hover 
@@ -98,36 +98,44 @@
           
   #chat_window
     width: 100%
-    height: 300px
+    height: 250px
     background: pink
     margin-top: 15px 
-    margin-bottom: 50px
-    display: block
     position: relative
+    +clearfix
     
-    
-    #text
+    #text_area
       overflow: hidden
-    
-      #text_area
-        
-        width: 100%
-        height: 200px
-        border: 1px solid
-        bottom: 10px
-        left: 0px
-        +position(absolute, 0 0 null 0)
-    #msg
+      resize: none
       width: 80%
-      +position(absolute, null null 0 0)
-      bottom: 0
-      left: 0
-    #sendit
-      width: 20% 
-      +position(absolute, null 0 0 null)
+      float: left  
+      height: 100%
+    #user_area
+      overflow: hidden
+      resize: none   
+      width: 20%  
+      float: left  
+      height: 100% 
+      font-size: .6em
+  #msg
+    width: 100%
+    +clearfix
       
-      button
-        +fill-parent
+    #message
+      float: left
+      width: 80%
+      
+      
+        
+      
+    button
+      float: left
+      width: 20%
+      height: 36.9px
+      color: white
+        
+     
+     
     
   #chats_aside
     +span-columns(3)
