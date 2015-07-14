@@ -43,6 +43,7 @@ GEM
     aws-sdk-v1 (1.64.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
+    bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -110,6 +111,8 @@ GEM
     neat (1.7.0)
       bourbon (>= 4.0)
       sass (>= 3.3)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
     nokogiri (1.6.6.2-x86-mingw32)
       mini_portile (~> 0.6.0)
     opentok (2.3.0)
@@ -122,6 +125,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.2)
     pg (0.18.2-x86-mingw32)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
@@ -206,6 +210,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
@@ -236,4 +241,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.4
+   1.10.5

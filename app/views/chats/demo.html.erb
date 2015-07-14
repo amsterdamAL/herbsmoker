@@ -41,20 +41,22 @@ $(document).ready(function() {
 			var stream = event.stream;
             watchers++;
             console.log("connectionCreated by forign user, watchers: "+watchers+" & streamers: "+ streamers);
-            var textarea = document.getElementById("user_area");
+            var usernames = document.getElementById("user_area");
             
-        
-			$.trim(textarea);
+        	$('#user_area ul').append('<li id="'+event.connection.data+'"><span class="usernames">' +event.connection.data+ '</span></li>');
+
+
+			//$.trim(usernames);
 			
-			if ( $('#user_area').val() ){
-        		$('#user_area').val(  $('#user_area').val() + "\n" +event.connection.data);
-        		$.trim('#user_area');
-        		console.log('true');
-    	    }else{
-    	    	$('#user_area').val(  $('#user_area').val() + event.connection.data);
-    	    	$.trim('#user_area');
-    	    	console.log('falsee');
-    	    }
+			//if ( $('#user_area').val() ){
+        	//	$('#user_area').val(  $('#user_area').val() + "\n" +event.connection.data);
+        	//	$.trim('#user_area');
+        	//	console.log('true');
+    	    //}else{
+    	    //	$('#user_area').val(  $('#user_area').val() + event.connection.data);
+    	    //	$.trim('#user_area');
+    	    //	console.log('falsee');
+    	    //}
         	$('#user_area').scrollTop(  $('#user_area')[0].scrollHeight   );
       		
         });
@@ -64,10 +66,15 @@ $(document).ready(function() {
 			watchers--;
 			console.log("session connection destroyed, watchers: "+watchers+" & streamers: "+ streamers);
         	
-        	$('#text_area').append("\n *** " + event.connection.data + " has left the room. ***");
+
+			$('#text_area ul').append('<li><span class="infomsg">** '+event.connection.data+' has left the room. **</span></li>');
       		$('#text_area').scrollTop(  $('#text_area')[0].scrollHeight   );
-      		deleteValue(event.connection.data);
-        	
+
+
+        	//$('#text_area').append("\n *** " + event.connection.data + " has left the room. ***");
+      		//$('#text_area').scrollTop(  $('#text_area')[0].scrollHeight   );
+      		
+        	$('#'+event.connection.data+'').remove();
         });
 		
 		
@@ -149,7 +156,8 @@ $(document).ready(function() {
         session.on("signal", function(event) {
       		console.log("Signal sent from connection " + event.from.id);
       		// Process the event.data property, if there is any data.
-      		$('#text_area').append("\n" + event.data);
+      		//$('#text_area').append("\n" + event.data);
+      		$('#text_area ul').append('<li><span class="textmsg">' +event.data+ '</span></li>');
       		$('#text_area').scrollTop(  $('#text_area')[0].scrollHeight   );
 		});
         
@@ -256,15 +264,6 @@ $('.overlayno').click( function(){
 	});
 });
   
-function deleteValue(userNameToRemove) {
-	
-	var name = userNameToRemove;
-    var textarea = document.getElementById("user_area");
-    var data = textarea.value;
-    textarea.value = textarea.value.replace(name, "");
-    
-	//$('#user_area').val( $('#user_area').val().replace(/\n/,'') );
-}
 
 function removeSpaces(string) {
  return string.split(' ').join('');
@@ -353,9 +352,18 @@ connect();
 		    	</div>
             </div>
             <div id="chat_window">
+            	<div id="text_area">
+	            	<ul>
+	            		<li> [welcome to Florida Toker] </li>
+	            	</ul>
+            	</div>
+            	<div id="user_area">
+            		<ul>
+
+            		</ul>
+
+            	</div>
             	
-            	<%= text_area_tag 'text_area', "[welcome to Florida Toker]", {disabled: "true", escape: "true"} %>
-            	<%= text_area_tag 'user_area', nil, disabled: "true", escape: "true" %>
 	    	</div>	
 	    	
 	    	<div id="msg">
