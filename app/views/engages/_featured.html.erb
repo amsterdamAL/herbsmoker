@@ -26,14 +26,26 @@
 		
 			
 		<div class="the_rest">
-			<% @articles = Article.last(7).each do |a| %>
+			<% @rticles = Article.offset(1).order("created_at").reverse_order().first(5).each do |a| %>
 				<li class="block">
 					<div class="mini_image"><%= link_to image_tag(a.image.url(:thumb)), {:controller => 'articles', :action => 'show', :id => a.id } %></div>
 					<div class="mini_info"><%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %></div>
 					<div class="mini_text"><strong><%= link_to a.title, {:controller => 'articles', :action => 'show', :id => a.id }  %></strong></div>
-					
 				</li>
 			<% end %>
+
+				<li class="block">
+
+
+				<div class="mini_image"></div>
+					<div class="mini_info"></div>
+					<div class="mini_text"><strong></strong></div>
+				</li>
+
+
+
+
+
 		</div>
 		
 		
