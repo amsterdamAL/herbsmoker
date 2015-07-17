@@ -1,11 +1,11 @@
 $(document).ready(function(){
 	
-	//$('#lookup_review').hide();
-	
+	$('#progressbar').hide();
+	$('#lookup_errors').hide();
+	$('#results_wrap').hide();
 	//do this when user clicks find button
 	var getLookup = function(){
 	
-		
 		//user input stored
 		var addy = $('#lookup_address').val();
 		var city = $('#lookup_city').val();
@@ -19,11 +19,12 @@ $(document).ready(function(){
 		
 		if(zip == "" && addy == "" && city == ""){
 	
-			$('#lookup_errors').empty().append("Please enter an address to locate your Representitives.");
+			$('#lookup_errors').show().empty().append("Please enter an address to locate your Representitives.");
 	
 		} else {
 	
-			$('#lookup_errors').empty().append("Retreving info, please wait....");
+			$('#lookup_errors').show().empty().append("Retreving info, please wait....");
+			$('#progressbar').show();
 			
 			$("#results_name").empty();
 			$("#results_party").empty();
@@ -60,21 +61,18 @@ $(document).ready(function(){
 				
 				if (json.results.length > 1){
 					$('#lookup_errors').empty().append("too many results, be more spicific. Ex.. add zipcode or city");
+					$('#progressbar').hide();
 				} else {
-				 	$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>" + sunlight + "<br>" + google);
-				 		lat = json.results[0].geometry.location.lat;
-				 		lng = json.results[0].geometry.location.lng;
+				 	//$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>" + sunlight + "<br>" + google);
+			 		lat = json.results[0].geometry.location.lat;
+			 		lng = json.results[0].geometry.location.lng;
+			 		$('.progress-bar .meter').css('width', '22%');
 			 	}
-			 	
-			 	
-			 	
 			 	
 			 	//STEP TWO:::::   use lat and lng to lookup reps.
 			 	$.getJSON("http://openstates.org/api/v1//legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=" + sunlight, function(results) {
-					
-					$('#lookup_errors').empty().append(results[0].photo_url);
-					
-					$("#headshot").attr("src", results[0].photo_url);	
+					$("#headshot").attr("src", results[0].photo_url);
+					$('.progress-bar .meter').css('width', '41%');	
 					
 					if (results[0].roles[0].chamber == "lower"){
 						$("#results_name").empty().append( "Representative " + results[0].full_name);
@@ -111,7 +109,7 @@ $(document).ready(function(){
 						
 						
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
-					
+						$('.progress-bar .meter').css('width', '58%');
 					
 					
 					
@@ -121,7 +119,7 @@ $(document).ready(function(){
 						$("#name_to_controller").val( "Senator " + results[0].full_name);
 						$("#results_party").empty().append( results[0].party + " Party");
 						$("#results_chamber").empty().append("State Senate, District " + results[0].roles[0].district);
-						
+						$('.progress-bar .meter').css('width', '67%');
 						//email fix
 						if (results[0].email != undefined){
 							$("#results_email").empty().append( results[0].email);
@@ -135,6 +133,7 @@ $(document).ready(function(){
 							$("#results_email").empty().append( "EMAIL: not available");
 						}
 						$("#results_term").empty().append("Term: " + results[0].roles[0].term);
+						$('.progress-bar .meter').css('width', '58%');
 					
 					
 					}					
@@ -144,6 +143,7 @@ $(document).ready(function(){
 					
 					
 					$("#headshot2").attr("src", results[1].photo_url);	
+					$('.progress-bar .meter').css('width', '100%');
 					
 					if (results[1].roles[0].chamber == "lower"){
 						$("#results_name2").empty().append( "Representative " + results[1].full_name);
@@ -167,7 +167,7 @@ $(document).ready(function(){
 						
 
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
-					
+						//$('.progress-bar .meter').css('width', '75%');
 					
 					
 					
@@ -192,77 +192,96 @@ $(document).ready(function(){
 							$("#email2_to_controller").val("dean.charles@flsenate.gov");
 						}
 						$("#results_term2").empty().append("Term: " + results[1].roles[0].term);
-					
+						//$('.progress-bar .meter').css('width', '75%');
 					
 					}					
 					
-					
+					console.log('alpha');
 					
 					
 					leg_id0 = results[0].leg_id;
 					leg_id1 = results[1].leg_id;
 					
-					$('#lookup_errors').append(results[0].full_name + ": " + results[0].leg_id + "<br>");
-					$('#lookup_errors').append(results[1].full_name + ": " + results[1].leg_id + "<br>");
+					//$('#lookup_errors').append(results[0].full_name + ": " + results[0].leg_id + "<br>");
+					//$('#lookup_errors').append(results[1].full_name + ": " + results[1].leg_id + "<br>");
 					
-						//get additional info based on legislative id 1of2
-						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=" + sunlight, function(data) {
-							
-							
-							//$("#results_work").empty().append( data.offices[0].name + ":");
-							//$("#results_phone").empty().append( data.offices[0].phone);
-							//$("#results_address").empty().append( data.offices[0].address);
-							//$("#results_work-b").empty().append( data.offices[1].name + ":");
-							//$("#results_phone-b").empty().append( data.offices[1].phone);
-							//$("#results_address-b").empty().append( data.offices[1].address);
-													
-							if (data.offices[0].email != undefined){
-								$("#results_email").empty().append( data.offices[0].email);
-								$("#email_to_controller").val(data.offices[0].email);
-							}else if (data.offices[1].email != undefined){
-								$("#results_email").empty().append( data.offices[1].email);
-								$("#email_to_controller").val(data.offices[1].email);
-							}
-						});
+					//get additional info based on legislative id 1of2
+					$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=" + sunlight, function(data) {
 						
 						
-						//get additional info based on legislative id 2of2
-						$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=" + sunlight, function(lore) {
-							
-							
-							//$("#results_work2").empty().append( lore.offices[0].name + ":");
-							//$("#results_phone2").empty().append( lore.offices[0].phone);
-							//$("#results_address2").empty().append( lore.offices[0].address);
-							
-							//$("#results_work2-b").empty().append( lore.offices[1].name + ":");
-							//$("#results_phone2-b").empty().append( lore.offices[1].phone);
-							//$("#results_address2-b").empty().append( lore.offices[1].address);
-							
-							if (lore.offices[0].email != undefined){
-								$("#results_email2").empty().append( lore.offices[0].email);
-								$("#email2_to_controller").val(lore.offices[0].email);
-							}else if (lore.offices[1].email != undefined){
-								$("#results_email2").empty().append( lore.offices[1].email);
-								$("#email2_to_controller").val(lore.offices[1].email);
-							}
-													
+						//$("#results_work").empty().append( data.offices[0].name + ":");
+						//$("#results_phone").empty().append( data.offices[0].phone);
+						//$("#results_address").empty().append( data.offices[0].address);
+						//$("#results_work-b").empty().append( data.offices[1].name + ":");
+						//$("#results_phone-b").empty().append( data.offices[1].phone);
+						//$("#results_address-b").empty().append( data.offices[1].address);
 												
-						});
-					
-					});	
-				});         
+						if (data.offices[0].email != undefined){
+							$("#results_email").empty().append( data.offices[0].email);
+							$("#email_to_controller").val(data.offices[0].email);
+						}else if (data.offices[1].email != undefined){
+							$("#results_email").empty().append( data.offices[1].email);
+							$("#email_to_controller").val(data.offices[1].email);
+						}
 						
-		$('#lookup_review').fadeIn(2000);		
+						console.log('beta');
+					});
+					
+					
+					//get additional info based on legislative id 2of2
+					$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=" + sunlight, function(lore) {
+						
+						
+						//$("#results_work2").empty().append( lore.offices[0].name + ":");
+						//$("#results_phone2").empty().append( lore.offices[0].phone);
+						//$("#results_address2").empty().append( lore.offices[0].address);
+						
+						//$("#results_work2-b").empty().append( lore.offices[1].name + ":");
+						//$("#results_phone2-b").empty().append( lore.offices[1].phone);
+						//$("#results_address2-b").empty().append( lore.offices[1].address);
+						
+						if (lore.offices[0].email != undefined){
+							$("#results_email2").empty().append( lore.offices[0].email);
+							$("#email2_to_controller").val(lore.offices[0].email);
+						}else if (lore.offices[1].email != undefined){
+							$("#results_email2").empty().append( lore.offices[1].email);
+							$("#email2_to_controller").val(lore.offices[1].email);
+						}
+						
+						console.log('charlie');
+						$('#progressbar').fadeOut(1000);						
+						$('#lookup_errors').delay(1000).fadeOut(2000);					
+					});
+						
+					
+				});
+
+			}); 
+
 		};
-	
-		return false;
+		console.log('done');
 		
+	
 	};
 	
 	
+
 	
 	
-	$('#lookup_button').click(getLookup);
+	$('#lookup_button').click(function () {
+		
+		
+		if ( $('#arrow').is(":visible")  ){
+			
+			$('#results_wrap, #arrow').toggle();
+			getLookup();
+			
+		}else{
+			getLookup();
+		}
+
+	});
+	
 	$('#lookup_address').keyup(function(event){
 		if(event.keyCode == 13){
 			getLookup();
