@@ -2,8 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.form, .index, .add_comment
+#index_wrapper
 	+outer-container
-  
+	margin-top: 20px
 
+	#index_container
+		+span_columns(10)
+		background: pink
+		
+
+
+		.index_stick
+			+clearfix
+			width: 100%
+			height: 60px
+			img
+				width: 100%
+				margin: 0px auto
+
+
+			.index_thumb
+				float: left
+				overflow: hidden
+				background: red
+				
+			.index_subject
+				float: left
+				overflow: hidden
+				word-wrap: break-word
+				background: blue

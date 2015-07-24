@@ -1,7 +1,0 @@
-<h1> engages show </h1>
-<% @subb.each do |person| %>
-	<%= person.email %><%= person.zip %>
-	<%= link_to 'Destroy', subscriber_path(person), method: :delete %><br>
-<% end %>
-
-<!--  , data: { confirm: 'u sure??'} -->

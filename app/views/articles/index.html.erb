@@ -1,33 +1,30 @@
 
 
-<div class="index">
-<% if current_user.try(:admin?) %> 
-	<%= link_to 'new_article_path', new_article_path %> 
-<% end %>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Image</th>
-  </tr>
- 
- 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= image_tag article.image.url(:thumb) %></td>
-      
-      <% if user_signed_in? %>
-	      <td><%= link_to 'newh', new_article_path %>
-        <%= link_to 'show', article_path(article) %>
-	         <%= link_to 'Edit', edit_article_path(article) %>
-	         <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'u sure??'} %>
-	         <%= article.comments.count %>
-	    </tr>
-    <% end %>
+<div id="index_wrapper">
+  <% if current_user.try(:admin?) %> 
+  	<%= link_to 'new_article_path', new_article_path %> 
   <% end %>
-</table>
 
+  <div id="index_container">
+  
+
+    <% @articles.each do |art| %>
+      <div class="index_stick">
+        
+        <div class="index_thumb"> 
+          <%= image_tag art.image.url(:thumb) %>
+        </div>
+
+        <div class="index_subject">
+          <%= art.title %>
+          <%= link_to 'show', article_path(art) %>
+          <%= link_to 'Edit', edit_article_path(art) %>
+          <%= link_to 'Destroy', article_path(art), method: :delete, data: { confirm: 'u sure??'} %>
+          <%= art.comments.count %>
+        </div>
+
+      </div>  
+    <% end %>
+
+  </div>
 </div>
