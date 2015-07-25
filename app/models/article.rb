@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
   
   has_many :comments, dependent: :destroy
   
-  has_attached_file :image, :styles => { :featured => "386x217>", :regular => "300x300>", :thumb => "218x138#" }
+  has_attached_file :image, :styles => { :featured => "386x217>", :regular => "300x300>", :thumb => "100x100#" }
   
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
                     
