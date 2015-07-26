@@ -17,10 +17,15 @@
 
         <div class="index_subject">
           <%= art.title %><br />
-          <%= link_to 'show', article_path(art) %>
-          <%= link_to 'Edit', edit_article_path(art) %>
-          <%= link_to 'Destroy', article_path(art), method: :delete, data: { confirm: 'u sure??'} %><br />
-          comments: <%= art.comments.count %>
+          <% if current_user.try(:admin?) %> 
+            <%= link_to 'show', article_path(art) %>
+            <%= link_to 'Edit', edit_article_path(art) %>
+            <%= link_to 'Destroy', article_path(art), method: :delete, data: { confirm: 'u sure??'} %><br />
+          <% end %>
+          
+          <div class="bottom_info_bar">
+            comments: <%= art.comments.count %>
+          </div>
         </div>
 
       </div>  
