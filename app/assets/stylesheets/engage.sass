@@ -5,7 +5,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+body
+  background: url("upfeathers4.png")
  
 h1 h2 h3
   font-family: "Ubuntu"
@@ -114,7 +115,9 @@ h2
   .featured_main
     +span-columns(9)
     padding-left: 10px
-    
+    padding-right: 10px
+    background: #EBFFE0
+    box-shadow: 5px 2px 15px #888888
     .featured_content
       +clearfix
     
@@ -136,7 +139,7 @@ h2
         +omega(3n) 
         margin-bottom: 15px
         background: pink
-        box-shadow: 5px 2px 15px #888888
+        //box-shadow: 5px 2px 15px #888888
         .mini_image
           background: pink
       
