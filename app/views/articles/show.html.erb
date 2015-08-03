@@ -1,51 +1,78 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
 
-<p>
-	<%= image_tag @article.image.url(:regular) %>
-</p>
+<div class='show_page_wrapper'>
 
-
-<h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-
-	<p>
-		<strong>Commenter:</strong>
-		<%= comment.commenter %>
-	</p>
-	<p>
-		<strong>Comment:</strong>
-		<%= comment.body %>
-	</p>
-	<p>
-		<%= link_to 'distroy comment', [comment.article, comment], method: :delete, data: { confirm: 'u sure??'}%>
+	<div class='show_page_content'>
 		
-	</p>
-<% end %>
+		<div class='show_title_bar'>
+			<h1><%= @article.title %></h1>
+		</div>
 
+		<div class='show_info_bar'>
+		** comments: <%= @article.comments.count %>
+		</div>
+		
+		<div class='show_image'>
+			<%= image_tag @article.image.url(:show) %>
+		</div>
+		
+		<div class='show_words'>
+			<%= @article.text.html_safe %>
+		</div>
 
-<div class = "add_comment">
-	<h2>Add a comment</h2>
-	<%= form_for ([@article, @article.comments.build]) do |f|%>
-		<p>
-			<%= f.label :commenter %><br>
-			<%= f.text_field :commenter %>
-		</p>
-		<p>
-			<%= f.label :body %><br>
-			<%= f.text_area :body %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
+		<div class='show_comments'>
+
+			<h2>Comments</h2>
+			
+			<% @article.comments.each do |comment| %>
+
+				<p>
+					<strong>Commenter:</strong>
+					<%= comment.commenter %>
+				</p>
+				<p>
+					<strong>Comment:</strong>
+					<%= comment.body %>
+				</p>
+				<p>
+					<%= link_to 'distroy comment', [comment.article, comment], method: :delete, data: { confirm: 'u sure??'}%>
+					
+				</p>
+			<% end %>
+		</div>
+
+		<div class = "add_comment">
+			
+			<h2>Add a comment</h2>
+			
+			<%= form_for ([@article, @article.comments.build]) do |f|%>
+				<p>
+					<%= f.label :commenter %><br>
+					<%= f.text_field :commenter %>
+				</p>
+				<p>
+					<%= f.label :body %><br>
+					<%= f.text_area :body %>
+				</p>
+				<p>
+					<%= f.submit %>
+				</p>
+			<% end %>
+		</div>
+				<%= link_to 'back', articles_path %>
+				<%= link_to 'edit', edit_article_path(@article) %>
+	</div>
+	
+	<div class="show_aside">
+		asfas dfgsdf asdfasdf sdfasdf
+		asdfasdf asdfas f
+		asdfasdf
+		asdfasdfasdf
+		asdfasdf
+		asdfasdf
+
+	</div>
+
 </div>
-<%= link_to 'back', articles_path %>
-<%= link_to 'edit', edit_article_path(@article) %>
+
+
+

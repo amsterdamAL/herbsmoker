@@ -16,15 +16,24 @@
         </div>
 
         <div class="index_subject">
-          <%= art.title %><br />
-          <% if current_user.try(:admin?) %> 
-            <%= link_to 'show', article_path(art) %>
-            <%= link_to 'Edit', edit_article_path(art) %>
-            <%= link_to 'Destroy', article_path(art), method: :delete, data: { confirm: 'u sure??'} %><br />
-          <% end %>
+          
+          <h2><%= link_to art.title, {:controller => 'articles', :action => 'show', :id => art.id } %></h2>
+
+          <div class="index_first_line">
+            <%= Nokogiri::HTML.parse(art.text).css('p').first.text %>
+
+          </div>
+          
           
           <div class="bottom_info_bar">
             comments: <%= art.comments.count %>
+
+            <% if current_user.try(:admin?) %> 
+            <%= link_to 's', article_path(art) %>
+            <%= link_to 'e', edit_article_path(art) %>
+            <%= link_to 'd', article_path(art), method: :delete, data: { confirm: 'u sure??'} %><br />
+            <% end %>
+
           </div>
         </div>
 
