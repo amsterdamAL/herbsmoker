@@ -30,7 +30,7 @@ development:
   database: postgres
   pool: 5
   username: admin
-  password: luc1dd0t
+  password: passwords
   
   
 
@@ -41,7 +41,7 @@ test:
   database: store_test
   pool: 5
   username: admin
-  password: luc1dd0t 
+  password: passwords 
   
 #production:
 #  url: <%= ENV['DATABASE_URL'] %>
