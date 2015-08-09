@@ -7,16 +7,8 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   #match '/articles',      to: 'articles#new',           via: 'get'
   
-  get "(:keyword)" => "articles#list", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != "" && request.params[:keyword] != "articles"}
-  get "/find/all" => "articles#list", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
-  
-  
-  get 'engages/showit' => 'engages#showit'
-  
-  
-  
-  get 'engages/show' => 'engages#show'
-  
+  get "(:keyword)" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != "" && request.params[:keyword] != "articles"}
+  #get "/find/all" => "articles#list", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
   
   get 'find/all' => 'lookups#new'
   get 'chats/demo' => 'chats#demo'
