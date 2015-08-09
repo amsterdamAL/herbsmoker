@@ -4,10 +4,10 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+//$green_light: tint(#E6F5EB, 88%)
 body
   //background: url("upfeathers4.png")
-  background: tint(#CCEBD6, 60%)
+  background: tint($green_base, 88%)
 h1 h2 h3
   font-family: "Ubuntu"
   font-weight: normal 
@@ -116,7 +116,7 @@ h2
     +span-columns(9)
     padding-left: 10px
     padding-right: 10px
-    background: tint(#E6F5EB, 88%)
+    background: tint($green_base, 95%)
     box-shadow: 5px 2px 15px #888888
     .featured_content
       +clearfix
@@ -133,15 +133,17 @@ h2
     .the_rest
       margin-top: 25px
       +clearfix
+
       
       .block
         +span-columns(2.66666 of 8)
         +omega(3n) 
         margin-bottom: 15px
-        background: pink
+        border: 1px solid darken($green_base, 20%)
+
         //box-shadow: 5px 2px 15px #888888
         .mini_image
-          background: pink
+          //background: tint($green_base, 80%)
       
       
           img
@@ -149,7 +151,7 @@ h2
             margin: 0px auto
         
         .mini_info
-          background: pink
+          //background: tint($green_base, 80%)
           font-size: 10px
           overflow: hidden
           float: right
@@ -157,12 +159,13 @@ h2
       
         .mini_text
           word-wrap: break-word
-          background: pink
+          //background: tint($green_base, 80%)
           padding: 0px 10px 5px 10px
           font-size: 1.5em
           clear: both
           height: 138px
           overflow: hidden
+
 
   .side
     +span-columns(3)
