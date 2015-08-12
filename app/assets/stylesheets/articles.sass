@@ -17,33 +17,43 @@
 			+clearfix
 			width: 100%
 			padding: 10px
+			overflow: none
 			
-			overflow: hidden
 			margin-top: 2px
 			background: pink
+			white-space: nowrap
 			
 			.index_thumb
-				float: left
 				
 				
+				display: inline-block
 				
 				
 			.index_subject
-				float: left
+				
 				padding: 0 5px 0 5px
 				word-wrap: break-word
-				position: relative
-				height: 100px
-				
+				display: inline-block
+				vertical-align: top
+				width: 95%
+
+				.subject_line
+					padding: 3px 20px 3px 10px
+					word-wrap: break-word
+					white-space: normal
+					width: 95%
 				.index_first_line
-					padding-top: 3px
-					
+					padding: 3px 20px 3px 10px
+					word-wrap: break-word
+					white-space: normal
+					width: 95%
 				.bottom_info_bar
-				
-					+position(absolute, null null 0 0)
+					
+					width: 95%
 					font-size: .6em
 					padding: 0 5px 0 5px
-				
+					word-wrap: break-word
+					vertical-align: text-bottom
 
 
 

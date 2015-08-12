@@ -17,8 +17,8 @@
 
         <div class="index_subject">
           
-          <h2><%= link_to art.title, {:controller => 'articles', :action => 'show', :id => art.id } %></h2>
-
+          <div class='subject_line'><h2><%= link_to art.title, {:controller => 'articles', :action => 'show', :id => art.id } %></h2>
+          </div>  
           <div class="index_first_line">
             <%= Nokogiri::HTML.parse(art.text).css('p').first.text %>
 

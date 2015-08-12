@@ -105,6 +105,8 @@
     margin-top: 15px 
     position: relative
     +clearfix
+    background: tint($green_base, 98%)
+    
     
     #text_area
       overflow: hidden
@@ -112,9 +114,12 @@
       width: 80%
       float: left  
       height: 100%
-      border-top: 1px solid
-      border-bottom: 1px solid
-      border-left: 1px solid
+      background: tint($green_base, 98%)
+      
+      
+      border-top: 1px solid lighten($grays, 3%)
+      border-bottom: 1px solid lighten($grays, 3%)
+      border-left: 1px solid lighten($grays, 3%)
       ul
         li
           padding-left: 5px
@@ -125,7 +130,8 @@
       float: left  
       height: 100% 
       font-size: .6em
-      border: 1px solid
+      border: 1px solid lighten($grays, 3%)
+      background: tint($green_base, 98%)
       ul
         li
           padding-left: 5px
@@ -156,12 +162,12 @@
   #chats_aside
     +span-columns(3)
     background: gray
-    border: 3px solid
+    border: 1px solid lighten($grays, 10%)
     overflow: hidden
     word-wrap: break-word
     height: 420px
-
-  
+    background: tint($green_base, 98%)
+   
 
 
 
