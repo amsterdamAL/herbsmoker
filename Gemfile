@@ -49,6 +49,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'puma', '~> 2.11.3'  
+gem 'social-share-button', '~> 0.1.6'
 group :production do 
  
 end

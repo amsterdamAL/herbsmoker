@@ -19,14 +19,19 @@
           
           <div class='subject_line'><h2><%= link_to art.title, {:controller => 'articles', :action => 'show', :id => art.id } %></h2>
           </div>  
-          <div class="index_first_line">
-            <%= Nokogiri::HTML.parse(art.text).css('p').first.text %>
-
-          </div>
           
+          <% if false %>
+            <div class="index_first_line">
+              <%= Nokogiri::HTML.parse(art.text).css('p').first.text %>
+
+            </div>
+          <% end %>
           
           <div class="bottom_info_bar">
-            comments: <%= art.comments.count %>
+            
+            
+            
+            
 
             <% if current_user.try(:admin?) %> 
             <%= link_to 's', article_path(art) %>

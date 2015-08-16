@@ -14,5 +14,6 @@
 //= require jquery_ujs
 
 //= require readmore.js
+//= require social-share-button
 //= require_tree .
 
