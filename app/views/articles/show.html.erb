@@ -1,16 +1,26 @@
-<% content_for :head do %>
-  <!-- your tags -->
-  
-  
-  
-  <meta property="og:type" content="article" />
-  
-  <meta property="article:section" content="test article section" />
-  <meta property="article:published_time" content="<%= @article.created_at %>" />
-  <meta property="og:title" content= "<%= @article.title %>" />
-<% end %>
+<% if false %>
 
+	<% content_for :head do %>
+	  <!-- your tags -->
+	  
+	  
+	  
+	  <meta property="og:type" content="article" />
+	  
+	  <meta property="article:section" content="test article section" />
+	  <meta property="article:published_time" content="<%= @article.created_at %>" />
+	  <meta property="og:title" content= "<%= @article.title %>" />
 
+<%end%>
+<% set_meta_tags :og => {
+	:title => 'gem title',
+	:description => 'gem description.',
+    :type => 'article',
+    :article => {
+    	:section => 'gem article section',
+    	:published_time => '<%= @article.created_at %>'
+    }
+}%>
 
 <div class='show_page_wrapper'>
 

@@ -50,6 +50,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'puma', '~> 2.11.3'  
 gem 'social-share-button', '~> 0.1.6'
+gem 'meta-tags'
 group :production do 
  
 end
