@@ -6,7 +6,7 @@
   <meta property="og:type" content='article' />
   <meta property="og:description" content='Test description' />
   <meta property="article:section" content='test article section' />
-  <meta property="article:published_time" content='<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>' />
+  <meta property="article:published_time" content='<%= @article.created_at %>' />
 <% end %>
 
 
