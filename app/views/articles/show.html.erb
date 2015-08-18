@@ -3,7 +3,8 @@
      type: "article",
      title: @article.title,
      image: @article.image.url(:facebook),
-     url: request.original_url 
+     url: request.original_url,
+     description: @article.text.html_safe
 
    }%>
 
