@@ -1,8 +1,17 @@
 
 <% meta og: {
-     title: "tester title metamaggiccc",
-     image: @article.image.url(:regular)
+     type: "article",
+     title: @article.title,
+     image: @article.image.url(:regular),
+     url: request.original_url,
+       image: {
+         height: 200,
+         width: 200	
+       } 
+
    }%>
+
+
 
 <div class='show_page_wrapper'>
 
