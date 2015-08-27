@@ -4,13 +4,18 @@
 			
 			<% @article = Article.order("created_at").last %>
 			<div class= "featured_title">
-				<h2 class="title"><%= link_to @article.title, {:controller => 'articles', :action => 'show', :id => @article.id } %></h2>
+				<h1 class="title"><%= link_to @article.title, {:controller => 'articles', :action => 'show', :id => @article.id } %></h1>
 			</div>
 			
-			<div class="featured_time_stamp">
+			<div class="featured_time_stamp_wrapper">
+				<div class="featured_share_buttons">
+					<%= social_share_button_tag("FloridaToker.com") %>
+				</div>
+				<div class="featured_time_stamp">
 				posted on
-				<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
-				<!-- #{article.created_at.day.ordinalize} -->
+					<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
+					<!-- #{article.created_at.day.ordinalize} -->
+				</div>
 			</div>
 			
 			<div class="featured_pic">
@@ -29,7 +34,15 @@
 			<% @rticles = Article.offset(1).order("created_at").reverse_order().first(5).each do |a| %>
 				<li class="block">
 					<div class="mini_image"><%= link_to image_tag(a.image.url(:regular)), {:controller => 'articles', :action => 'show', :id => a.id } %></div>
-					<div class="mini_info"><%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %></div>
+					<div class="mini_info_wrapper">
+						<div class="mini_share_buttons">
+							<%= social_share_button_tag("FloridaToker.com") %>
+						</div>
+						<div class="mini_info">
+							<%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %>
+						</div>
+					</div>
+					
 					<div class="mini_text"><strong><%= link_to a.title, {:controller => 'articles', :action => 'show', :id => a.id }  %></strong></div>
 				</li>
 			<% end %>

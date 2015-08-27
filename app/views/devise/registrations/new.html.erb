@@ -1,22 +1,75 @@
-<div class='login_wrapper'>
-  
-	<div class='login_form'>
-		<h2>Sign up</h2>
 
-		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-		  <%= f.error_notification %>
+<div class="devise_main">
 
-		  <div class="form-inputs">
-		    <%= f.input :email, required: true, autofocus: true %>
-		    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
-		    <%= f.input :password_confirmation, required: true %>
-		  </div>
+	<div class="devise_headline">
+		<div id="headline">
+			<h1>Create a new account</h1>
+		</div>
 
-		  <div class="form-actions">
-		    <%= f.button :submit, "Sign up" %>
-		  </div>
-		<% end %>
-
-		<%= render "devise/shared/links" %>
+		<div id="padlock"> 
+			<%= render :partial => 'shared/padlock' %>
+		</div>
 	</div>
-</div>	
+
+	
+
+	<div class='login_wrapper'>
+	  
+	  	<div class='login_form'>
+			
+
+			<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			<%= f.error_notification %>
+
+			  
+		    <%= f.input :email, required: true, autofocus: true %>
+		    <%= f.input :password, required: true %>
+		    <%= f.input :password_confirmation, required: true %>
+		    <%= f.input :nickname, required: false %>
+		  
+		    <div class="avatar_wrapper">
+			    <%= f.label :avatar  %>
+			    
+			    <%= f.file_field :avatar %>
+	       
+			</div>	    
+			<div class="subscriber_wrapper">
+				<%= f.input :subscriber, inline_label: 'Yes, subscriber to newsletter.' %>
+			</div>    
+	        <div class="terms_wrapper">
+				<%= f.input :terms, inline_label: 'Yes, i agree to the FloridaToker terms and conditions.' %>
+			</div>
+	       
+	    
+
+
+
+			<div class="devise_signup">
+				<%= f.button :submit, "Sign up" %>
+			</div>
+			<% end %>
+			
+
+
+
+			
+
+
+			
+		</div>
+	</div>
+	
+		
+	
+	
+
+</div>
+
+
+
+
+
+
+
+
+

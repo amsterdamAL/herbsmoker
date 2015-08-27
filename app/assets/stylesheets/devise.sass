@@ -1,5 +1,73 @@
-.login_wrapper
+.devise_main
 	+outer-container
 
-.login_form
-	+span-columns(5)	
+div.login_wrapper
+	
+		
+
+div.input.email.required, 
+div.input.password.required,
+div.input.string.optional,
+div.avatar_wrapper,
+div.subscriber_wrapper,
+div.terms_wrapper,
+div.input.password.optional.user_password.field_with_hint,
+div.input.password.optional.user_password_confirmation,
+div.input.password.required.user_current_password.field_with_hint,
+div.avatar_wrapper_current
+	+clearfix
+	min-width: 420px
+	overflow: none
+	
+	white-space: nowrap
+	
+label.email.required, 
+label.password.required,
+label.string.optional,
+label.file.optional,
+label.password.optional
+
+	float: left
+	width: 200px
+	line-height: 36px
+	text-align: right
+	padding-right: 5px
+
+input#user_email.string.email.required,
+input#user_password.password.required,
+input#user_password_confirmation.password.required,
+input#user_nickname.string.optional,
+input#user_avatar,
+input#user_password.password.optional,
+input#user_password_confirmation.password.optional,
+input#user_current_password.password.required
+	float: left
+	width: 220px
+	
+input#user_avatar
+	line-height: 36px
+
+
+
+.devise_headline
+	+clearfix
+	white-space: nowrap
+	min-width: 430px
+
+#headline
+	float: left
+#padlock
+	width: 50px
+	height: 50px
+	float: left
+	margin-top: 15px
+
+div.subscriber_wrapper,
+div.terms_wrapper,
+	font-size: .8em
+	padding-left: 200px
+
+input.btn
+	width: 100px
+
+	margin-left: 200px

@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :engages, :subscribers, :letters, :feedbacks
+  resources :engages, :letters, :feedbacks
   
   resources :articles do
     resources :comments
