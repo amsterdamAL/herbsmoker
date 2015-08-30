@@ -102,7 +102,7 @@ pre
   
  
 
-#results_wrap, #arrow
+#results_wrap
   margin: 0 auto
   box-shadow: 5px 5px 15px #888888
   background: tint($green_base, 98%)
@@ -118,6 +118,22 @@ pre
   +border-bottom-radius(5px)
   +border-left-radius(5px)
   
+#arrow
+  margin: 0 auto
+  
+  +clearfix
+  overflow: hidden
+  
+  +span-columns(6)
+  
+
+
+
+
+
+
+
+
 
   
   
@@ -215,11 +231,3 @@ ul
 
 #arrow
   
-  #arrow_top
-    span
-      h1
-        display: inline
-        padding: 5px
-        margin: 0 auto
-  #arrow_bottom
-    padding-left: 30px

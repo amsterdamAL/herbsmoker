@@ -14,7 +14,9 @@ div.terms_wrapper,
 div.input.password.optional.user_password.field_with_hint,
 div.input.password.optional.user_password_confirmation,
 div.input.password.required.user_current_password.field_with_hint,
-div.avatar_wrapper_current
+div.avatar_wrapper_current,
+div.input.email.optional.user_email,
+div.input.password.optional.user_password
 	+clearfix
 	min-width: 420px
 	overflow: none
@@ -25,6 +27,8 @@ label.email.required,
 label.password.required,
 label.string.optional,
 label.file.optional,
+label.password.optional,
+label.email.optional,
 label.password.optional
 
 	float: left
@@ -40,7 +44,10 @@ input#user_nickname.string.optional,
 input#user_avatar,
 input#user_password.password.optional,
 input#user_password_confirmation.password.optional,
-input#user_current_password.password.required
+input#user_current_password.password.required,
+input#user_email.string.email.optional,
+input#user_password.password.optional
+
 	float: left
 	width: 220px
 	
@@ -64,6 +71,7 @@ input#user_avatar
 
 div.subscriber_wrapper,
 div.terms_wrapper,
+div.input.boolean.optional.user_remember_me
 	font-size: .8em
 	padding-left: 200px
 
