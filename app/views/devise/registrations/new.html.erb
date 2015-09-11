@@ -16,24 +16,33 @@
 	<div class='login_wrapper'>
 	  
 	  	<div class='login_form'>
+
 			
 
 			<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 			<%= f.error_notification %>
 
-			  
-		    <%= f.input :email, required: true, autofocus: true %>
-		    <%= f.input :password, required: true %>
+			<% if(params[:e] != "" ) %>  
+		    	<%= f.input :email, required: true, :input_html => { :value => params[:e] }  %>
+		    	<%= f.input :password, required: true, autofocus: true %> 
+    		<% else %>
+    			<%= f.input :email, required: true, autofocus: true  %>
+    			<%= f.input :password, required: true %>
+			<% end %>
+		    	
+		    
 		    <%= f.input :password_confirmation, required: true %>
 		    <%= f.input :nickname, required: false %>
 		  	<div class="avatar_wrapper_current">
         
-    		<%= f.label "current avatar"  %>
-        	<% if current_user.avatar.url != nil %>
+    		<%= f.label "default avatar"  %>
+        	<% if false %>
+        	 if current_user.avatar.url != nil %>
           		<%= image_tag(current_user.avatar.url(:thumb)) %>
-        	<% else %>
+        	else %>
+        	<% end %>
           		<%= image_tag("man100px.png") %>
-       		 <% end %>
+       		 
 		    <div class="avatar_wrapper">
 			    <%= f.label :avatar  %>
 			    

@@ -68,18 +68,24 @@
 	
 	
 	
-	<div id="left" class="side">
-		<div id="subs" class="signup">
-				
-		  	<%= form_for :engage, :html => {:id => "subform"}, url: {action: "create"}, remote: true do |f| %>
-		  
-	  		<%= f.text_field :email, :maxlength => "30", :onblur => "if (this.value == '') {this.value = 'EMAIL';}", :onfocus => "if(this.value == 'EMAIL') {this.value = '';}", :size => "5", :value => "EMAIL" %>
-
-	  		<%= f.text_field :zip, :maxlength => "5", :onblur => "if (this.value == '') {this.value = 'ZIP';}", :onfocus => "if(this.value == 'ZIP') {this.value = '';}", :size => "5", :value => "ZIP" %>
-
-			<%= f.submit 'Sign Up!', :class => 'subbutton' %>
+	<div class="side">
+		<div id="one">
+			<% if !user_signed_in? %>
+				<div id="register_mini">
+					<%= image_tag("drawing.png") %>
+					<input type="text" placeholder="email" id="email_mini" />
+					
+					<input type="submit" value="Go!" id="go_mini" />
+				</div>
 			<% end %>
 		</div>
-		<div id= "results"></div>
+
+		<div class="side_top">
+			<%= image_tag("toker_chat_6.svg") %>
+		</div>
+		<div class="side_bottom">
+			<%= image_tag("small_chat.png") %>
+		</div>
 	</div>
+
 </div>	
