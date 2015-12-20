@@ -8,9 +8,9 @@
 			</div>
 			
 			<div class="featured_time_stamp_wrapper">
-				<div class="featured_share_buttons">
+				<!--<div class="featured_share_buttons">
 					<%= social_share_button_tag("FloridaToker.com") %>
-				</div>
+				</div>-->
 				<div class="featured_time_stamp">
 				posted on
 					<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
@@ -72,7 +72,7 @@
 		<div id="one">
 			<% if !user_signed_in? %>
 				<div id="register_mini">
-					<%= image_tag("drawing.png") %>
+					<%= image_tag("gggg.svg") %>
 					<input type="text" placeholder="email" id="email_mini" />
 					
 					<input type="submit" value="Go!" id="go_mini" />
@@ -81,7 +81,7 @@
 		</div>
 
 		<div class="side_top">
-			<%= image_tag("toker_chat_6.svg") %>
+			<%= image_tag("seeup.svg") %>
 		</div>
 		<div class="side_bottom">
 			<%= image_tag("small_chat.png") %>

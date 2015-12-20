@@ -35,7 +35,7 @@
 			"file": "/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
 			"settings":
 			{
-				"buffer_size": 2400,
+				"buffer_size": 2390,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
 			"settings":
 			{
-				"buffer_size": 5897,
+				"buffer_size": 5880,
 				"line_ending": "Unix"
 			}
 		}
@@ -234,15 +234,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2400,
+						"buffer_size": 2390,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2067,
-								2067
+								2279,
+								2279
 							]
 						],
 						"settings":
@@ -251,7 +251,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2436.0,
+						"translation.y": 2525.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -263,15 +263,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5897,
+						"buffer_size": 5880,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3795,
-								3795
+								3792,
+								3792
 							]
 						],
 						"settings":
@@ -281,14 +281,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5118.0,
+						"translation.y": 5032.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"file": "/home/amsterdam/workspace/florida/app/assets/images/man100px.png",
+					"file": "/home/amsterdam/workspace/florida/app/assets/images/man2.png",
 					"semi_transient": true,
 					"stack_index": 1,
 					"type": "image"

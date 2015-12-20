@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('#progressbar').hide();
 	$('#lookup_errors').hide();
 	$('#results_wrap').hide();
-	//do this when user clicks find button
+	//do this when user clicks find button. or enter key?
 	var getLookup = function(){
 	
 		//user input stored
@@ -282,21 +282,44 @@ $(document).ready(function(){
 
 	});
 	
+
+
 	$('#lookup_address').keyup(function(event){
 		if(event.keyCode == 13){
+			if ( $('#arrow').is(":visible")  ){
+			
+			$('#results_wrap, #arrow').toggle();
 			getLookup();
+			
+			}else{
+				getLookup();
+			}
 		}
 	  
 	});
 	$('#lookup_city').keyup(function(event){
 		if(event.keyCode == 13){
+			if ( $('#arrow').is(":visible")  ){
+			
+			$('#results_wrap, #arrow').toggle();
 			getLookup();
+			
+			}else{
+				getLookup();
+			}
 		}
 	  
 	});
 	$('#lookup_zip').keyup(function(event){
 		if(event.keyCode == 13){
+			if ( $('#arrow').is(":visible")  ){
+			
+			$('#results_wrap, #arrow').toggle();
 			getLookup();
+			
+			}else{
+				getLookup();
+			}
 		}
 	  
 	});
