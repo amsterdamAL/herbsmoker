@@ -152,28 +152,39 @@ h2
         //box-shadow: 5px 2px 15px #888888
         .mini_image
           //background: tint($green_base, 80%)
-      
-      
+          background: #f2f4f3
+          
           img
             width: 100%
             margin: 0px auto
-        
+            
         .mini_info_wrapper
           //background: tint($green_base, 80%)
+          
           font-size: 10px
+          //ovherflow: hidden
+          //padding: 0px 10px
+          background: #f2f4f3
           overflow: hidden
-          padding: 0px 10px
           .mini_share_buttons
             float: left
+            
+            background: #f2f4f3
           .mini_info
             float: right
+            background: #f2f4f3
+            
         .mini_text
+          @include linear-gradient(#f2f4f3, #f9fcfa)
           word-wrap: break-word
+          text-align: center
           //background: tint($green_base, 80%)
           padding: 0px 10px 5px 10px
-          font-size: 1.5em
+          font-size: 1.3em
+
+          
           clear: both
-          height: 138px
+          height: 130px
           overflow: hidden
 
 
@@ -181,7 +192,7 @@ h2
     +span-columns(3)
     //box-shadow: 5px 3px 15px #888888
     #one
-      
+      //border: 1px solid  
       margin-bottom: 80px
     .side_top img
       width: 100%
@@ -191,13 +202,14 @@ h2
       height: auto
       
       
-
+#register_mini
+  //border: 1px solid #green   
       
     
         
 
 
-
+  
 
 table
   padding-top: 40px
