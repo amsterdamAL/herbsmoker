@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
-require 'fog-aws'
+require 'fog/aws'
+require 'fog'
 #
 SitemapGenerator::Sitemap.default_host = 'http://agile-stream-2304.herokuapp.com'
 
