@@ -1,5 +1,5 @@
-#require 'rubygems'
-#require 'sitemap_generator'
+require 'rubygems'
+require 'sitemap_generator'
 #
 #SitemapGenerator::Sitemap.default_host = 'http://floridatoker.com'
 #SitemapGenerator::Sitemap.create do
