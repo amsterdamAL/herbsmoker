@@ -53,7 +53,7 @@ gem 'social-share-button', '~> 0.1.6'
 gem 'metamagic'
 gem 'fog-aws'
 #gem 'fog'
-gem 'sitemap-generator'
+gem 'sitemap_generator'
 group :production do 
   	 
 end
