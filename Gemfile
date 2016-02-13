@@ -52,7 +52,7 @@ gem 'puma', '~> 2.11.3'
 gem 'social-share-button', '~> 0.1.6'
 gem 'metamagic'
 gem 'fog-aws'
-gem 'fog'
+#gem 'fog'
 gem 'sitemap-generator'
 group :production do 
   	 
