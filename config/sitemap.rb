@@ -1,7 +1,8 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "http://agile-stream-2304.herokuapp.com"
-SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new
+#SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new
 #SitemapGenerator::Sitemap.sitemaps_host = ENV['SITEMAP_HOST']
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS', fog_directory: 'tokerbucket')
 SitemapGenerator::Sitemap.sitemaps_host = "http://tokerbucket.s3.amazonaws.com"
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
@@ -26,7 +27,7 @@ SitemapGenerator::Sitemap.create do
   #
   # Add all articles:
   #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+     Article.find_each do |article|
+       add article_path(article), :lastmod => article.updated_at
+     end
 end
