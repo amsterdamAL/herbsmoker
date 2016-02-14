@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'feedbacks/new' => 'feedbacks/new'
   post 'letters/sender' => 'letters#sender'
   root 'engages#now'
+  get '/sitemap.xml.gz' => 'sitemaps#show'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
