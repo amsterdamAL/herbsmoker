@@ -54,6 +54,7 @@ gem 'metamagic'
 gem 'fog-aws'
 #gem 'fog'
 gem 'sitemap_generator'
+gem 'friendly_id', '~> 5.1'
 group :production do 
   	 
 end

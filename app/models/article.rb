@@ -1,5 +1,8 @@
 class Article < ActiveRecord::Base
   
+  include FriendlyId
+    friendly_id :title, use: [:slugged, :finders]
+  
   def self.search(keyword)
     if keyword.present?
       #where(title: keyword)
@@ -20,7 +23,7 @@ class Article < ActiveRecord::Base
   validates :title, presence: true,
                     length: {minimum: 5}
 
-
+                 
 
   protected
     def set_keywords
