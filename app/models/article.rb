@@ -30,6 +30,8 @@ class Article < ActiveRecord::Base
       self.keywords = [title, text].map(&:downcase).join(' ')
     end
 
-
+    def should_generate_new_friendly_id?
+      slug.blank? || title_changed?
+    end
 end
  

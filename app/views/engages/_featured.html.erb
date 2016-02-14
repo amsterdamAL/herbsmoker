@@ -4,7 +4,16 @@
 			
 			<% @article = Article.order("created_at").last %>
 			<div class= "featured_title">
-				<h1 class="title"><%= link_to @article.title, {:controller => 'articles', :action => 'show', :id => @article.id } %></h1>
+				<h1 class="title">
+
+				
+
+				
+
+				<%= link_to @article.title, {:controller => 'articles', :action => 'show', :id => @article.slug } %>
+
+
+				</h1>
 			</div>
 			
 			<div class="featured_time_stamp_wrapper">
@@ -20,7 +29,7 @@
 			
 			<div class="featured_pic">
 				
-				<%= link_to image_tag(@article.image.url(:featured)), {:controller => 'articles', :action => 'show', :id => @article.id } %>
+				<%= link_to image_tag(@article.image.url(:featured)), {:controller => 'articles', :action => 'show', :id => @article.slug } %>
 				
 			</div>
 			
@@ -71,7 +80,7 @@
 						</div>
 					</div>-->
 					
-					<div class="mini_text"><strong><%= link_to a.title, {:controller => 'articles', :action => 'show', :id => a.id }  %></strong></div>
+					<div class="mini_text"><strong><%= link_to a.title, {:controller => 'articles', :action => 'show', :id => a.slug }  %></strong></div>
 				</li>
 			<% end %>
 
