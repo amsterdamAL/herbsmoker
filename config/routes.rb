@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post 'letters/sender' => 'letters#sender'
   root 'engages#now'
   get '/sitemap.xml.gz' => 'sitemaps#show'
+  get '/robots.:format' => 'pages#robots'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
