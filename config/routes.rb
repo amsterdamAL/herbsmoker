@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   #match '/articles',      to: 'articles#new',           via: 'get'
-  
+  get '/robots.:format' => 'pages#robots', defaults: { format: 'text' }
   get "(:keyword)" => "articles#index", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != "" && request.params[:keyword] != "articles"}
   #get "/find/all" => "articles#list", :constraints => lambda { |request| request.params[:keyword] && request.params[:keyword] != ""}
   
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   post 'letters/sender' => 'letters#sender'
   root 'engages#now'
   get '/sitemap.xml.gz' => 'sitemaps#show'
-  get '/robots.:format' => 'pages#robots'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
