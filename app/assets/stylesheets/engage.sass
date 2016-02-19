@@ -329,10 +329,10 @@ form.search-bar
 
 
 #leafymenu
-  display: hidden
+  display: none
   
   
-  //background: red
+  
   //background: url("dummy_avatar.png") no-repeat
   //background-position: center
 
@@ -343,12 +343,14 @@ form.search-bar
   
   
   #leafymenu
-    display: inline-block  
+    display: inline-block !important  
     float: right
-    width: 30px
-    height: 30px
+    width: 27px
+    height: 19px
+    padding: 5px
+    padding-right: 5px
 
-  nav ul 
+  #mnav ul 
 
     display: none
     position: absolute
@@ -360,14 +362,14 @@ form.search-bar
     //width: 50%
     //border-radius: 4px 0 4px 4px
 
-  nav li
+  #mnav ul li
 
     text-align: center
     width: 100%
     padding: 10px 0
     margin: 0
 
-  nav:hover ul
+  #mnav:hover ul
 
     display: block 
   .skinny_bar
