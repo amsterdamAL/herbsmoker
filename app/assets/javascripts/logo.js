@@ -8,14 +8,18 @@ function isElementVisible(elementToBeChecked) {
 
 
 document.addEventListener('page:load', function(){
-   $("#ghost").hide();
+    if ($(window).width() >= 820){
+        //$("#ghost").hide();
+    }
+
    
 });
 
 
 $(document).ready(function(){
-    $("#ghost").hide();// hide it initially
-    
+    if ($(window).width() >= 820){
+        //$("#ghost").hide();// hide it initially
+    }
     
     $('#content').expander({
     slicePoint: 320, //It is the number of characters at which the contents will be sliced into two parts.
@@ -47,27 +51,37 @@ $(document).ready(function(){
 //});
 
 $(window).scroll(function(){
-    isOnView = isElementVisible("#tag");
+    if ($(window).width() >= 820){
+        isOnView = isElementVisible("#tag");
     
-    if(isOnView){
-    	//fade out small image once main logo is in view
-    	$('#ghost').fadeOut();
-    }else{
-	   	//fade in small image once main logo is out of view
-    	$('#ghost').fadeIn();
+        if(isOnView){
+        	//fade out small image once main logo is in view
+        	$('#ghost').fadeOut();
+            
+        }else{
+    	   	//fade in small image once main logo is out of view
+        	$('#ghost').fadeIn();
+            
+        }
     }
   });
 
 
 
 function sticky_relocate() {
-    var window_top = $(document).scrollTop();
-    var div_top = $('#stickit').offset().top;
-    if (window_top < div_top) {
-        $('#sticky-anchor').removeClass('stick');
-        $('#main-stuff').removeClass('pad');
+    if ($(window).width() >= 820){
+        var window_top = $(document).scrollTop();
+        var div_top = $('#stickit').offset().top;
+        if (window_top < div_top) {
+            $('#sticky-anchor').removeClass('stick');
+            $('#main-stuff').removeClass('pad');
+        } else {
+            
+            $('#sticky-anchor').addClass('stick');
+            $('#main-stuff').addClass('pad');
+        }
     } else {
-        
+
         $('#sticky-anchor').addClass('stick');
         $('#main-stuff').addClass('pad');
     }
@@ -79,3 +93,6 @@ $(function () {
     sticky_relocate();
 });
 }
+
+
+

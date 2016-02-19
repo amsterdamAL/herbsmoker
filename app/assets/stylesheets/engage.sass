@@ -23,6 +23,9 @@ body
       display: inline-block
       width: 40%
       margin-left: 5px
+
+
+
 /*-----------------------------------------------end of upper nav bar ------------------*/  
 
 
@@ -86,7 +89,7 @@ body
                
           
 
-
+  
 
 #main-stuff
   padding-top: 20px
@@ -322,3 +325,50 @@ form.search-bar
 #letter_inst
   margin-top: 20px  
   
+
+
+
+a#menu-icon
+
+  display: hidden
+  width: 40px
+  height: 40px
+  background: red
+  background: url("dummy_avatar.png") no-repeat
+  background-position: center
+
+
+@media screen and (max-width: 819px)
+  body
+    background-color: red
+  a#menu-icon
+    display: inline-block  
+    float: right
+
+  nav ul 
+
+    display: none
+    position: absolute
+    //padding: 20px
+    background: pink
+    //border: 5px solid #444
+    //right: 20px
+    //top: 60px
+    //width: 50%
+    //border-radius: 4px 0 4px 4px
+
+  nav li
+
+    text-align: center
+    width: 100%
+    padding: 10px 0
+    margin: 0
+
+  nav:hover ul
+
+    display: block 
+  .skinny_bar
+    display: none
+
+  #sticky-anchor.perm_bar.stick
+    position: absolute
