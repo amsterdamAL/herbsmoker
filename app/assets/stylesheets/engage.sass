@@ -337,9 +337,9 @@ form.search-bar
   //background-position: center
 
 
-@media screen and (max-width: 819px)
-  body
-    background-color: red
+@media screen and (max-width: 600px)
+  
+    
   
   
   #leafymenu
@@ -347,8 +347,9 @@ form.search-bar
     float: right
     width: 27px
     height: 19px
-    padding: 5px
-    padding-right: 5px
+    margin-right: 8px
+    padding: 5px 0 0 0
+    
 
   #mnav ul 
 
@@ -377,3 +378,19 @@ form.search-bar
 
   #sticky-anchor.perm_bar.stick
     position: absolute
+
+
+.featured_wrapper .featured_main
+  
+  +media($mobile)
+    +span-columns(4)
+    background: pink  
+    .the_rest .block
+      +media($mobile)
+        +span-columns(4 of 4)
+        +omega(1n)
+.featured_wrapper .side
+  +media($mobile)
+    +span-columns(4)
+      
+

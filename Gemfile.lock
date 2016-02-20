@@ -248,7 +248,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   metamagic
-  neat
+  neat (~> 1.7.0)
   opentok (~> 2.2)
   paperclip
   pg

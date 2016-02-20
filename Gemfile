@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 
 
 gem 'bourbon'
-gem 'neat'
+gem 'neat', '~> 1.7.0'
 gem 'bitters'
 gem 'sass'
 gem 'paperclip'
