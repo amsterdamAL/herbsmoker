@@ -18,7 +18,7 @@
 			width: 100%
 			padding: 10px
 			overflow: none
-			
+			margin-right: 10px
 			margin-top: 2px
 			background: tint($green_base, 98%)
 			white-space: nowrap
@@ -32,29 +32,35 @@
 			.index_subject
 				
 				padding: 0 5px 0 5px
-				word-wrap: break-word
+				
 				display: inline-block
 				vertical-align: top
-				width: 95%
+				
 
 				.subject_line
-					padding: 3px 20px 3px 10px
-					word-wrap: break-word
+					padding: 3px 0px 3px 20px
+					
 					white-space: normal
-					width: 95%
+					
+					font-size: .5em
+					width: 70%
+
 				.index_first_line
 					padding: 3px 20px 3px 10px
 					word-wrap: break-word
 					white-space: normal
-					width: 95%
+					
 				.bottom_info_bar
 					
-					width: 95%
+					
 					font-size: .6em
 					padding: 0 5px 0 5px
 					word-wrap: break-word
 					vertical-align: text-bottom
 
+#subject_line_container
+	padding-right: 15px
+	overflow: hidden
 
 
 .show_page_wrapper
@@ -78,4 +84,9 @@
 		margin-top: 10px
 
 
-.social-share-button
+#index_wrapper #index_container
+	+media($mobile)
+		+span-columns(4)
+
+
+
