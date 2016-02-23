@@ -5,7 +5,7 @@ SitemapGenerator::Sitemap.default_host = "http://agile-stream-2304.herokuapp.com
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(
   
   fog_provider: 'AWS', 
-  fog_directory: 'tokerbucket')
+  fog_directory: '#{ENV['S3_BUCKET_NAME']}')
 
 SitemapGenerator::Sitemap.sitemaps_host = "http://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
 SitemapGenerator::Sitemap.public_path = 'tmp/'

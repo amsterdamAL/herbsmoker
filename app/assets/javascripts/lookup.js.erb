@@ -14,8 +14,9 @@ $(document).ready(function(){
 		var lng;
 		var leg_id0;
 		var leg_id1;
-		var google = $('#lookup_form').data('google');
-		var sunlight = $('#lookup_form').data('sunlight');
+
+		var google = "<% ENV['google_api_key'] %>";
+		var sunlight = "<%= ENV['sunlight_foundation_api_key'] %>";
 		
 		if(zip == "" && addy == "" && city == ""){
 	

@@ -16,9 +16,9 @@ class LettersController < ApplicationController
   
   def review
     @letter = Letter.new()
-    @email = "amsterdamAL@gmail.com"
-    @email2 = "ziploker@hotmail.com"
-    @raffomail = "raffomail@yahoo.com"
+    @email = ENV['email']
+    @email2 = ENV['email2']
+    @raffomail = ENV['email3']
     @district = params[:district_1]
     #@email = params[:email_to_controller]
     @name = params[:name_to_controller]
