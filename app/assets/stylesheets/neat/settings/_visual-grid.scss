@@ -10,13 +10,13 @@ $visual-grid: true !default;
 ///
 /// @type Color
 
-$visual-grid-color: yellow !default;
+$visual-grid-color: pink !default;
 
 /// Sets the `z-index` property of the visual grid. Can be `back` (behind content) or `front` (in front of content). Set with `!global` flag.
 ///
 /// @type String
 
-$visual-grid-index: back !default;
+$visual-grid-index: front !default;
 
 /// Sets the opacity property of the visual grid. Set with `!global` flag.
 ///

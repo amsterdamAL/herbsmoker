@@ -295,7 +295,7 @@ form.search-bar
       height: 18px
       opacity: 0.7
     
-  
+
 
 #flash_notice
   background: red
@@ -337,12 +337,13 @@ form.search-bar
   //background-position: center
 
 
-@media screen and (max-width: 600px)
+
   
     
   
   
-  #leafymenu
+#leafymenu
+  +media($tablet)
     display: inline-block !important  
     float: right
     width: 27px
@@ -351,8 +352,9 @@ form.search-bar
     padding: 5px 0 0 0
     
 
-  #mnav ul 
+#mnav ul 
 
+  +media($tablet)
     display: none
     position: absolute
     //padding: 20px
@@ -363,21 +365,24 @@ form.search-bar
     //width: 50%
     //border-radius: 4px 0 4px 4px
     z-index: 420
-  #mnav ul li
+#mnav ul li
 
+  +media($mobile)
     text-align: center
     width: 100%
     padding: 10px 0
     margin: 0
 
-  #mnav:hover ul
-
+#mnav:hover ul
+  +media($mobile)
     display: block 
-  .skinny_bar
+.skinny_bar
+  +media($tablet)
     display: none
 
-  #sticky-anchor.perm_bar.stick
-    position: absolute
+#sticky-anchor.perm_bar.stick
+  +media($mobile)
+    //position: absolute
     height: 30px
 
 .featured_wrapper .featured_main
@@ -389,8 +394,6 @@ form.search-bar
       +media($mobile)
         +span-columns(4 of 4)
         +omega(1n)
-.featured_wrapper .side
-  +media($mobile)
-    +span-columns(4)
+
       
 

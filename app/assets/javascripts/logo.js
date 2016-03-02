@@ -8,8 +8,8 @@ function isElementVisible(elementToBeChecked) {
 
 
 document.addEventListener('page:load', function(){
-    if ($(window).width() >= 820){
-        //$("#ghost").hide();
+    if ($(window).width() > 900){
+        $("#ghost").hide();
     }
 
    
@@ -17,8 +17,8 @@ document.addEventListener('page:load', function(){
 
 
 $(document).ready(function(){
-    if ($(window).width() >= 820){
-        //$("#ghost").hide();// hide it initially
+    if ($(window).width() > 900){
+        $("#ghost").hide();// hide it initially
     }
     
     $('#content').expander({
@@ -51,40 +51,41 @@ $(document).ready(function(){
 //});
 
 $(window).scroll(function(){
-    if ($(window).width() >= 820){
-        isOnView = isElementVisible("#tag");
-    
-        if(isOnView){
-        	//fade out small image once main logo is in view
-        	$('#ghost').fadeOut();
-            
-        }else{
-    	   	//fade in small image once main logo is out of view
-        	$('#ghost').fadeIn();
-            
-        }
+    //if ($(window).width() >= 865){
+    isOnView = isElementVisible("#tag");
+    imout = $(window).scrollTop();
+    if(isOnView && $(".skinny_bar").css('display').toLowerCase() != 'none'){
+    	//fade out small image once main logo is in view
+    	$('#ghost').fadeOut();
+        console.log(imout)
+    }else{
+	   	//fade in small image once main logo is out of view
+    	$('#ghost').fadeIn();
+        console.log(imout)
+        
     }
+   // }
   });
 
 
 
 function sticky_relocate() {
-    if ($(window).width() >= 820){
-        var window_top = $(document).scrollTop();
-        var div_top = $('#stickit').offset().top;
-        if (window_top < div_top) {
-            $('#sticky-anchor').removeClass('stick');
-            $('#main-stuff').removeClass('pad');
-        } else {
-            
-            $('#sticky-anchor').addClass('stick');
-            $('#main-stuff').addClass('pad');
-        }
+   // if ($(window).width() > 865){
+    var window_top = $(document).scrollTop();
+    var div_top = $('#stickit').offset().top;
+    if (window_top < div_top) {
+        $('#sticky-anchor').removeClass('stick');
+        $('#main-stuff').removeClass('pad');
     } else {
-
+        
         $('#sticky-anchor').addClass('stick');
         $('#main-stuff').addClass('pad');
     }
+   // } else {
+
+    $('#sticky-anchor').addClass('stick');
+    $('#main-stuff').addClass('pad');
+    //}
 }
 
 if (window.location.pathname != "/chats/demo") {
