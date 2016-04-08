@@ -51,10 +51,10 @@ $(document).ready(function(){
 //});
 
 $(window).scroll(function(){
-    //if ($(window).width() >= 865){
+    if ($(window).width() > 900){
     isOnView = isElementVisible("#tag");
     imout = $(window).scrollTop();
-    if(isOnView && $(".skinny_bar").css('display').toLowerCase() != 'none'){
+    if(isOnView){
     	//fade out small image once main logo is in view
     	$('#ghost').fadeOut();
         console.log(imout)
@@ -64,7 +64,7 @@ $(window).scroll(function(){
         console.log(imout)
         
     }
-   // }
+    }
   });
 
 
