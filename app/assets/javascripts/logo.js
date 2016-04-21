@@ -1,24 +1,17 @@
 function isElementVisible(elementToBeChecked) {
 	var TopView = $(window).scrollTop();
 	var BotView = TopView + $(window).height();
-	var TopElement = $(elementToBeChecked).offset().top + 100;
+	var TopElement = $(elementToBeChecked).offset().top + 105;
 	var BotElement = TopElement + $(elementToBeChecked).height();
-	return ((BotElement <= BotView) && (TopElement >= TopView));
+	return ((BotElement < BotView) && (TopElement > TopView));
 }
 
 
-document.addEventListener('page:load', function(){
-    if ($(window).width() > 900){
-        $("#ghost").hide();
-    }
-
-   
-});
-
 
 $(document).ready(function(){
-    if ($(window).width() > 900){
-        $("#ghost").hide();// hide it initially
+    if ($(window).width() < 900){
+        $('#ghost').removeClass('hideellogo');
+        
     }
     
     $('#content').expander({
@@ -29,71 +22,56 @@ $(document).ready(function(){
     expandEffect: 'fadeIn',
     expandSpeed: 333, // It is the time in second to show and hide the content.
     userCollapseText: 'Read Less (-)' // Specify your desired word default is Less.
-  });
+    });
  
   
     
-//	$( "#subs" ).submit(function( event ) {
-//	$("#subs").hide();
-//	$("#subs1").show();
-	
-//});
-    
-    
+
   
 });
 
-    
+$( window ).resize(function() { 
+
+    if ($(window).width() < 1000){
+        $('#ghost').removeClass('hideellogo');
+        $('#ghost').fadeIn(1111);
+    }  
+});   
 
 
-//$(window).on("pageload", function(){
-//    $("#ghost_logo").hide();// hide it initially
-//});
+
 
 $(window).scroll(function(){
-    if ($(window).width() > 900){
-    isOnView = isElementVisible("#tag");
-    imout = $(window).scrollTop();
-    if(isOnView){
-    	//fade out small image once main logo is in view
-    	$('#ghost').fadeOut();
-        console.log(imout)
-    }else{
-	   	//fade in small image once main logo is out of view
-    	$('#ghost').fadeIn();
-        console.log(imout)
-        
+    if ($(window).width() > 1000){
+
+        isOnView = isElementVisible("#tag");
+            
+        if(isOnView){
+        	//fade out small image once main logo is in view
+        	$('#ghost').fadeOut(100);
+            $('#ghost').addClass('hideellogo');
+            console.log(isOnView + "a")
+        }else{
+    	   	//fade in small image once main logo is out of view
+            //$('#ghost').removeClass('hideellogo');
+        	$('#ghost').fadeIn(1111);
+            console.log(isOnView + "b")
+        }
+
     }
+
+    if ($(window).scrollTop() > 5){
+
+        $('#sticky-anchor').css("opacity", ".6");
+
+    }else{
+
+        $('#sticky-anchor').css("opacity", "1");
     }
   });
 
 
 
-function sticky_relocate() {
-   // if ($(window).width() > 865){
-    var window_top = $(document).scrollTop();
-    var div_top = $('#stickit').offset().top;
-    if (window_top < div_top) {
-        $('#sticky-anchor').removeClass('stick');
-        $('#main-stuff').removeClass('pad');
-    } else {
-        
-        $('#sticky-anchor').addClass('stick');
-        $('#main-stuff').addClass('pad');
-    }
-   // } else {
-
-    $('#sticky-anchor').addClass('stick');
-    $('#main-stuff').addClass('pad');
-    //}
-}
-
-if (window.location.pathname != "/chats/demo") {
-$(function () {
-    $(document).scroll(sticky_relocate);
-    sticky_relocate();
-});
-}
 
 
 

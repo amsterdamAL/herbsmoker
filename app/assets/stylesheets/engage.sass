@@ -8,8 +8,11 @@
 body
   //background: url("upfeathers4.png")
   background: tint($green_base, 88%)
-
-
+#ghost.hideellogo
+  display: none
+#tag
+  z-index: 1501
+  position: relative
 .skinny_bar
   width: 100%
   
@@ -21,9 +24,11 @@ body
     .tag_line
       background: #141311
       display: inline-block
-      width: 40%
+      width: 35%
       
-
+#sticky
+  height: 30px
+  //position: relative
 
 
 /*-----------------------------------------------end of upper nav bar ------------------*/  
@@ -45,7 +50,7 @@ body
     +outer-container
     +clearfix
     
-    .ellogo
+    #ghost
       height: 30px
       float: left
       margin-left: 5px 
@@ -64,21 +69,23 @@ body
 /*-----------------------------------------------end of lower nav bar ------------------*/    
         
        
-#sticky-anchor.perm_bar.stick
+#sticky-anchor.perm_bar
   position: fixed
   top: 0px
   z-index: 101
-  height: 30px
+  background: #141311
+  //height: 30px
   .nav  
     
     background: #141311
     +outer-container
     +clearfix
 
-    .ellogo
+    #ghost
       width: 128px     
       float: left
       margin-left: 5px
+      z-index: 11002
       
     ul
       float: right
@@ -93,11 +100,11 @@ body
   
 
 #main-stuff
-  padding-top: 20px
+  //padding-top: 20px
 
   
 #main-stuff.pad
-  padding-top: 30px 
+  //padding-top: 30px 
 
 /*-----------------------------------------------js compensating sticky nav bar ------------------*/ 
 
@@ -346,28 +353,31 @@ form.search-bar
   
   
 #leafymenu
-  +media($tablet)
+  +media($handheld)
     display: inline-block !important  
     float: right
     width: 27px
     height: 19px
+    margin-top: 4px
     margin-right: 8px
     padding: 5px 0 0 0
     
 
 #mnav ul 
 
-  +media($tablet)
+  +media($handheld)
     display: none
     position: absolute
     //padding: 20px
-    background: pink
+    background: black
     //border: 5px solid #444
-    //right: 20px
-    //top: 60px
-    //width: 50%
+    right: 0px
+    top: 0px
+    width: 50%
     //border-radius: 4px 0 4px 4px
     z-index: 420
+    opacity: .9
+
 #mnav ul li
 
   +media($mobile)
@@ -377,8 +387,8 @@ form.search-bar
     margin: 0
 
 #mnav:hover ul
-  +media($mobile)
-    display: block 
+  //media($mobile)
+  display: block 
 .skinny_bar
   +media($tablet)
     display: none
@@ -392,7 +402,7 @@ form.search-bar
   
   +media($mobile)
     +span-columns(4)
-    background: pink  
+    //background: pink  
     .the_rest .block
       +media($mobile)
         +span-columns(4 of 4)
