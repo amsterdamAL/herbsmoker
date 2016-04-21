@@ -40,61 +40,51 @@
 	"buffers":
 	[
 		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
-			"settings":
-			{
-				"buffer_size": 7555,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/views/engages/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 14,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/views/layouts/application.html.erb",
-			"settings":
-			{
-				"buffer_size": 585,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
-			"settings":
-			{
-				"buffer_size": 1614,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
 			"settings":
 			{
-				"buffer_size": 1482,
+				"buffer_size": 1763,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
+			"file": "/home/amsterdam/workspace/florida/Gemfile",
 			"settings":
 			{
-				"buffer_size": 1861,
+				"buffer_size": 1943,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 1371 files for \"ellogo\"\n\n/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass:\n   46      +clearfix\n   47      \n   48:     .ellogo\n   49        height: 30px\n   50        float: left\n   ..\n   76      +clearfix\n   77  \n   78:     .ellogo\n   79        width: 128px     \n   80        float: left\n\n/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb:\n    5  		<div id=\"sticky\" class=\"nav\" >	\n    6  			\n    7: 			<div id=\"ghost\" class=\"ellogo\"><%= render :partial => 'shared/logo2' %></div>\n    8  \n    9  			<div id=\"mnav\">\n\n/home/amsterdam/workspace/florida/public/assets/application-911299239407b2db47fe8ffb7b85ae177990145655e3dd1db30d4a33a9c1fb4b.css:\n  865  }\n  866  /* line 48, /home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass */\n  867: #sticky-anchor.perm_bar .nav .ellogo {\n  868    height: 30px;\n  869    float: left;\n  ...\n  913  }\n  914  /* line 78, /home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass */\n  915: #sticky-anchor.perm_bar.stick .nav .ellogo {\n  916    width: 128px;\n  917    float: left;\n\n/home/amsterdam/workspace/florida/public/assets/application-ed4c9112dffd1cc509a4f6c09ff56b8257a007bd2323a91443a87647fe4e0035.css:\n  866  }\n  867  /* line 48, /home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass */\n  868: #sticky-anchor.perm_bar .nav .ellogo {\n  869    height: 30px;\n  870    float: left;\n  ...\n  913  }\n  914  /* line 77, /home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass */\n  915: #sticky-anchor.perm_bar.stick .nav .ellogo {\n  916    width: 128px;\n  917    float: left;\n\n7 matches across 4 files\n",
+			"file": "/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
 			"settings":
 			{
-				"buffer_size": 1636,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 2887,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
+			"settings":
+			{
+				"buffer_size": 1169,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
+			"settings":
+			{
+				"buffer_size": 759,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
+			"settings":
+			{
+				"buffer_size": 7569,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -132,16 +122,23 @@
 	[
 		"/home/amsterdam/workspace/florida",
 		"/home/amsterdam/workspace/florida/app",
-		"/home/amsterdam/workspace/florida/app/assets",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings",
 		"/home/amsterdam/workspace/florida/app/views",
-		"/home/amsterdam/workspace/florida/app/views/engages"
+		"/home/amsterdam/workspace/florida/tmp/cache",
+		"/home/amsterdam/workspace/florida/tmp/cache/assets"
 	],
 	"file_history":
 	[
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
+		"/home/amsterdam/workspace/florida/app/views/engages/new.html.erb",
+		"/home/amsterdam/workspace/florida/app/views/layouts/application.html.erb",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
+		"/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid-settings.scss",
 		"/home/amsterdam/Documents/slingbox.sh",
 		"/home/amsterdam/Documents/slingbox.htm",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass",
-		"/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
 		"/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
 		"/home/amsterdam/workspace/florida/config/application.rb",
 		"/home/amsterdam/Desktop/Link to autoexec.sh",
@@ -150,13 +147,11 @@
 		"/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
 		"/home/amsterdam/Desktop/_logo3.html.erb",
 		"/home/amsterdam/workspace/florida/tmp/pids/server.pid",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid-settings.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat-helpers.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/functions/_new-breakpoint.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid.scss",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/grid-settings.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
 		"/home/amsterdam/workspace/florida/config/application.yml",
@@ -165,7 +160,6 @@
 		"/home/amsterdam/workspace/florida/app/controllers/letters_controller.rb",
 		"/home/amsterdam/workspace/florida/app/views/lookups/new.html.erb",
 		"/home/amsterdam/workspace/florida/app/assets/javascripts/lookup.js.erb",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/chats.sass.erb",
 		"/home/amsterdam/workspace/florida/config/sitemap.rb",
 		"/home/amsterdam/workspace/florida/app/controllers/sitemaps_controller.rb",
@@ -175,7 +169,6 @@
 		"/home/amsterdam/workspace/florida/app/views/articles/index.html.erb",
 		"/home/amsterdam/workspace/florida/app/views/shared/_sign_left.html.erb",
 		"/home/amsterdam/workspace/florida/neat/settings/_grid-settings.scss",
-		"/home/amsterdam/workspace/florida/app/views/layouts/application.html.erb",
 		"/home/amsterdam/workspace/florida/neat/_neat-helpers.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/grid/_visual-grid.scss",
 		"/home/amsterdam/workspace/florida/Gemfile",
@@ -273,6 +266,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tablet",
 			"ellogo",
 			"#main-stuff",
 			"mobile",
@@ -373,139 +367,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7555,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								477,
-								477
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/amsterdam/workspace/florida/app/views/engages/new.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/amsterdam/workspace/florida/app/views/layouts/application.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 585,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								568,
-								568
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 616.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1614,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1191,
-								1191
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1568.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1482,
+						"buffer_size": 1763,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1340,
-								1340
+								1741,
+								1741
 							]
 						],
 						"settings":
@@ -515,27 +394,55 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 924.0,
+						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
+					"buffer": 1,
+					"file": "/home/amsterdam/workspace/florida/Gemfile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1861,
+						"buffer_size": 1943,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								139,
-								139
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2496,
+								2496
 							]
 						],
 						"settings":
@@ -544,80 +451,96 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2268.0,
+						"translation.y": 3715.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1636,
+						"buffer_size": 1169,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										150,
-										156
-									],
-									[
-										255,
-										261
-									],
-									[
-										471,
-										477
-									],
-									[
-										828,
-										834
-									],
-									[
-										1031,
-										1037
-									],
-									[
-										1353,
-										1359
-									],
-									[
-										1556,
-										1562
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								802,
+								802
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 511.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 759,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								248,
+								248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 924.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7569,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6825,
+								6825
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10272.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -700,7 +623,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 158.0,
+	"side_bar_width": 268.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
