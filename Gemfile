@@ -2,9 +2,10 @@ source 'http://rubygems.org'
 
 #ruby "2.2.1"
 
-gem 'bourbon'
-gem 'neat', '~> 1.7.0'
-gem 'bitters'
+gem 'bourbon', '4.2.7'
+gem 'neat'
+gem 'bitters', '1.2.0'
+gem 'refills'
 gem 'sass'
 gem 'paperclip'
 gem 'aws-sdk', '<2.0'

@@ -10,8 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
- *= require social-share-button
  */
 
 $green_light: tint(#E6F5EB, 95%)
@@ -20,13 +18,11 @@ $green_base: #009933
 $grays: #CACABC
 
 
-@import 'bourbon/bourbon'
+@import 'bourbon'
 @import 'normalize'
-@import 'grid-settings'
+@import "grid-settings"
 @import 'base/base'
-
-@import 'neat/neat'
-
+@import 'neat'
 @import 'engage'
 @import 'articles'
 @import 'lookups'

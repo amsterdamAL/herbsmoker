@@ -9,9 +9,9 @@ function isElementVisible(elementToBeChecked) {
 
 
 $(document).ready(function(){
-    if ($(window).width() < 900){
+    if ($(window).width() < 1000){
         $('#ghost').removeClass('hideellogo');
-        
+        $('#ghost').fadeIn(1111);
     }
     
     $('#content').expander({
@@ -28,7 +28,7 @@ $(document).ready(function(){
     
 
   
-});
+
 
 $( window ).resize(function() { 
 
@@ -49,7 +49,7 @@ $(window).scroll(function(){
         if(isOnView){
         	//fade out small image once main logo is in view
         	$('#ghost').fadeOut(100);
-            $('#ghost').addClass('hideellogo');
+            //$('#ghost').addClass('hideellogo');
             console.log(isOnView + "a")
         }else{
     	   	//fade in small image once main logo is out of view
@@ -60,7 +60,7 @@ $(window).scroll(function(){
 
     }
 
-    if ($(window).scrollTop() > 5){
+    if ($(window).width() < 775 && $(window).scrollTop() > 5){
 
         $('#sticky-anchor').css("opacity", ".6");
 
@@ -73,5 +73,5 @@ $(window).scroll(function(){
 
 
 
-
+});
 

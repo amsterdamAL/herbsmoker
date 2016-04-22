@@ -5,6 +5,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //$green_light: tint(#E6F5EB, 88%)
+
+
 body
   //background: url("upfeathers4.png")
   background: tint($green_base, 88%)
@@ -27,15 +29,11 @@ body
       width: 35%
       
 #sticky
-  height: 30px
+  height: 35px
   //position: relative
 
 
 /*-----------------------------------------------end of upper nav bar ------------------*/  
-
-
-
-
 
 
        
@@ -51,7 +49,7 @@ body
     +clearfix
     
     #ghost
-      height: 30px
+      height: 35px
       float: left
       margin-left: 5px 
          
@@ -74,7 +72,7 @@ body
   top: 0px
   z-index: 101
   background: #141311
-  //height: 30px
+  height: 35px
   .nav  
     
     background: #141311
@@ -89,7 +87,7 @@ body
       
     ul
       float: right
-      line-height: 30px
+      line-height: 35px
       
       li
         display: inline-block
@@ -180,7 +178,7 @@ body
             background: #f2f4f3
             
         .mini_text
-          @include linear-gradient(#f2f4f3, #f9fcfa)
+          +linear-gradient(#f2f4f3, #f9fcfa)
           word-wrap: break-word
           text-align: center
           //background: tint($green_base, 80%)
@@ -274,7 +272,7 @@ form.search-bar
 
   position: relative
   text-align:center
-  padding-bottom: 6px
+  padding-top: 6px
   input[type=search] 
     +appearance(none)
     +box-sizing(border-box)
@@ -362,6 +360,9 @@ form.search-bar
     margin-right: 8px
     padding: 5px 0 0 0
     
+#main-stuff
+  +media($tablet)
+    padding-top: 35px 
 
 #mnav ul 
 
@@ -387,7 +388,7 @@ form.search-bar
     margin: 0
 
 #mnav:hover ul
-  //media($mobile)
+  +media($mobile)
   display: block 
 .skinny_bar
   +media($tablet)
