@@ -30,45 +30,69 @@ $(document).ready(function(){
   
 
 
-$( window ).resize(function() { 
+    $( window ).resize(function() { 
 
-    if ($(window).width() < 1000){
-        $('#ghost').removeClass('hideellogo');
-        $('#ghost').fadeIn(1111);
-    }  
-});   
-
-
+        if ($(window).width() < 1000){
+            $('#ghost').removeClass('hideellogo');
+            $('#ghost').fadeIn(1111);
+        }  
+    });   
 
 
-$(window).scroll(function(){
-    if ($(window).width() > 1000){
 
-        isOnView = isElementVisible("#tag");
-            
-        if(isOnView){
-        	//fade out small image once main logo is in view
-        	$('#ghost').fadeOut(100);
-            //$('#ghost').addClass('hideellogo');
-            console.log(isOnView + "a")
-        }else{
-    	   	//fade in small image once main logo is out of view
-            //$('#ghost').removeClass('hideellogo');
-        	$('#ghost').fadeIn(1111);
-            console.log(isOnView + "b")
+
+    $(window).scroll(function(){
+        if ($(window).width() > 1000){
+
+            isOnView = isElementVisible("#tag");
+                
+            if(isOnView){
+            	//fade out small image once main logo is in view
+            	$('#ghost').fadeOut(100);
+                //$('#ghost').addClass('hideellogo');
+                console.log(isOnView + "a")
+            }else{
+        	   	//fade in small image once main logo is out of view
+                //$('#ghost').removeClass('hideellogo');
+            	$('#ghost').fadeIn(1111);
+                console.log(isOnView + "b")
+            }
+
         }
 
-    }
+        if ($(window).width() < 775 && $('body').scrollTop() > 0){
 
-    if ($(window).width() < 775 && $(window).scrollTop() > 5){
+            //$('#sticky-anchor').fadeTo(300, .6);
+            $('#sticky-anchor').css("opacity", ".6");
 
-        $('#sticky-anchor').css("opacity", ".6");
+        }else{
+            //$('#sticky-anchor').fadeTo(300, 1);
+            $('#sticky-anchor').css("opacity", "1");
+        }
+    });
 
-    }else{
 
-        $('#sticky-anchor').css("opacity", "1");
-    }
-  });
+    $('#leafymenu').click(function() {
+        $('#navbox ul').toggle(300, function(){
+            $('#navbox ul').css('display', '').toggleClass("mnav-expanded");
+
+        
+        });
+
+    });
+
+        
+
+    //$('#leafymenu').click(function() {
+    //    $('#navbox ul').slideToggle(400, function(){
+    //        $('#navbox ul').toggleClass("mnav-expanded").css('display', '');
+
+    //    });
+
+    
+    //});
+
+
 
 
 

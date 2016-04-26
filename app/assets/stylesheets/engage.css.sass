@@ -31,7 +31,7 @@ body
 #sticky
   height: 35px
   //position: relative
-
+  
 
 /*-----------------------------------------------end of upper nav bar ------------------*/  
 
@@ -57,9 +57,10 @@ body
       
       float: right
       
+      
       li
         display: inline-block
-        padding: 0px .75em 0px .75em
+        padding: 0px .50em 0px .75em
         
         a
           font-size: .8em
@@ -78,16 +79,26 @@ body
     background: #141311
     +outer-container
     +clearfix
-
+    a
+      display: block
+      color: rgba(249, 249, 249, .9)
+      text-decoration: none
+      transition: color .5s, background .5s, height .5s
     #ghost
       width: 128px     
       float: left
       margin-left: 5px
-      z-index: 11002
+      //z-index: 11002
       
     ul
       float: right
       line-height: 35px
+      //max-width: 1240px
+      margin: 0
+      padding: 0
+      list-style: none
+      //font-size: 1.5em
+      font-weight: 300
       
       li
         display: inline-block
@@ -284,11 +295,11 @@ form.search-bar
     display: block
     font-size: .6em
     font-style: italic
-    margin: 0
+    margin: 0 auto
     padding: ($base-spacing / 4) ($base-spacing / 4)
     
     position: relative
-    width: 100%
+    width: 90%
   
 
   button[type=submit] 
@@ -338,71 +349,83 @@ form.search-bar
 
 #leafymenu
   display: none
-  
-  
-  
-  //background: url("dummy_avatar.png") no-repeat
-  //background-position: center
-
-
 
   
-    
-  
-  
-#leafymenu
-  +media($handheld)
-    display: inline-block !important  
-    float: right
-    width: 27px
-    height: 19px
-    margin-top: 4px
-    margin-right: 8px
-    padding: 5px 0 0 0
-    
+
 #main-stuff
   +media($tablet)
     padding-top: 35px 
+  
+.skinny_bar
+  +media($tablet)
+    display: none    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+#leafymenu
+//  +media($handheld)
+//    display: inline-block !important  
+//    float: right
+//    width: 27px
+//    height: 19px
+//    margin-top: 4px
+//    margin-right: 8px
+//    padding: 5px 0 0 0
+    
+#mnav
+  
 
 #mnav ul 
 
-  +media($handheld)
-    display: none
-    position: absolute
+  //+media($handheld)
+  //  display: none
+  //  position: absolute
     //padding: 20px
-    background: black
+  //  background: black
     //border: 5px solid #444
-    right: 0px
-    top: 0px
-    width: 50%
+  //  right: 0px
+  //  top: 0px
+  //  width: 50%
     //border-radius: 4px 0 4px 4px
-    z-index: 420
-    opacity: .9
+  //  z-index: 420
+  //  opacity: .9
 
 #mnav ul li
 
-  +media($mobile)
-    text-align: center
-    width: 100%
-    padding: 10px 0
-    margin: 0
+  //+media($handheld)
+  //  text-align: center
+  //  width: 100%
+  //  padding: 10px 0
+  //  margin: 0
 
 #mnav:hover ul
-  +media($mobile)
-  display: block 
   
-  position: absolute
-  
-  //padding: 20px
-  background: #black
-  border: 5px solid #444
-  right: 0px
-  top: 0px
-  width: 50%
-  border-radius: 4px 0 4px 4px
-.skinny_bar
-  +media($tablet)
-    display: none
+  //+media($handheld)
+    
+    //display: block 
+    
+    //position: absolute
+    //overflow: hidden
+    //padding: 20px
+    //background: #black
+    //border: 5px solid #444
+    //right: 0px
+    //top: 35px
+    //width: 50%
+    //height: auto
+    //border-radius: 4px 0 4px 4px
+    //z-index: 500000
 
 #sticky-anchor.perm_bar.stick
   +media($mobile)
@@ -421,3 +444,57 @@ form.search-bar
 
       
 
+
+
+
+
+@media screen and (max-width: 800px)
+
+
+
+  #mnav ul
+    background: #141311
+    display: none
+    position: absolute
+    padding: 20px
+    overflow: auto
+    right: 0px
+    top: 35px
+    width: 33%
+    
+  //  z-index: 420
+  //  opacity: .9
+
+  #mnav ul li
+    //float: none   
+    text-align: center
+    width: 100%
+    padding: 10px 0
+    margin: 0
+    background: #141311
+    border-bottom: .5px solid #0c3511
+
+  
+
+  //#269630
+
+  #mnav ul li:last-child
+    border-bottom: none
+
+  #leafymenu
+    display: block
+    //display: inline-block !important  
+    float: right
+    width: 27px
+    height: 19px
+    margin-top: 4px
+    margin-right: 8px
+    padding: 5px 0 0 0
+
+  .mnav-expanded
+    display: block !important
+
+form.search-bar
+  width: 80%
+  margin: 0 auto
+  padding-bottom: 10px
