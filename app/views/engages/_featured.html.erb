@@ -1,6 +1,6 @@
 <div id="main-stuff" class="featured_wrapper">
 	<div class="featured_main">
-		<div class="featured_content">	
+		<div id="mainsectionbig" class="featured_content">	
 			
 			<% @article = Article.order("created_at").last %>
 			<div class= "featured_title">
@@ -37,10 +37,30 @@
 				<%=raw @article.text %>
 			</div>
 		</div>
+
+		
+
+		<!-- this div comes in at small screens <500px -->
+		<div id="mainsectionsmall"> 
+
+			<li class="block">
+
+
+				<div class="mini_image">
+					<%= link_to image_tag(@article.image.url(:featured)), {:controller => 'articles', :action => 'show', :id => @article.slug } %>
+				</div>
+					<div class="mini_info">
+						<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
+					</div>
+					<div class="mini_text"><strong>
+						<%= link_to @article.title, {:controller => 'articles', :action => 'show', :id => @article.slug } %>
+					</strong></div>
+				</li>
+		</div>
 		
 			
-		<div class="the_rest">
-			<% @rticles = Article.offset(1).order("created_at").reverse_order().first(5).each do |a| %>
+		<div id="secondarysection" class="the_rest">
+			<% @rticles = Article.offset(1).order("created_at").reverse_order().first(6).each do |a| %>
 				<li class="block">
 					<div class="mini_image"><%= link_to image_tag(a.image.url(:regular)), {:controller => 'articles', :action => 'show', :id => a.id } %></div>
 
@@ -84,13 +104,7 @@
 				</li>
 			<% end %>
 
-				<li class="block">
-
-
-				<div class="mini_image"></div>
-					<div class="mini_info"></div>
-					<div class="mini_text"><strong></strong></div>
-				</li>
+				
 
 
 

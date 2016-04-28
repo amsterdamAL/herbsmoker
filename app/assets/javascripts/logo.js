@@ -63,7 +63,7 @@ $(document).ready(function(){
         if ($(window).width() < 775 && $('body').scrollTop() > 0){
 
             //$('#sticky-anchor').fadeTo(300, .6);
-            $('#sticky-anchor').css("opacity", ".6");
+            $('#sticky-anchor').css("opacity", ".9");
 
         }else{
             //$('#sticky-anchor').fadeTo(300, 1);
@@ -75,7 +75,7 @@ $(document).ready(function(){
     $('#leafymenu').click(function() {
         $('#navbox ul').toggle(300, function(){
             $('#navbox ul').css('display', '').toggleClass("mnav-expanded");
-            $('body').toggleClass("freeze");
+            //$('body').toggleClass("freeze");
             
             
         

@@ -66,7 +66,12 @@ body
           font-size: .8em
           color: #e0f2e6
 /*-----------------------------------------------end of lower nav bar ------------------*/    
-        
+
+
+form.search-bar
+  width: 80%
+  margin: 0 auto
+  padding-bottom: 10px      
        
 #sticky-anchor.perm_bar
   position: fixed
@@ -118,117 +123,117 @@ body
 /*-----------------------------------------------js compensating sticky nav bar ------------------*/ 
 
 
-
+.mini_info
+  float: right
+  background: #f2f4f3
 
 
 .featured_wrapper
   +outer-container
   clear: both
   
-  .featured_main
-    +span-columns(9)
-    padding-left: 10px
-    padding-right: 10px
-    background: tint($green_base, 98%)
-    box-shadow: 5px 2px 15px #888888
-    .featured_content
-      +clearfix
-      .featured_title
+.featured_main
+  +span-columns(9)
+  padding-left: 10px
+  padding-right: 10px
+  background: tint($green_base, 98%)
+  box-shadow: 5px 2px 15px #888888
+.featured_content
+  +clearfix
+.featured_title
 
-      .featured_time_stamp_wrapper
-        display: block
-        .featured_share_buttons
-          float: left
-        .featured_time_stamp
-          float: right  
-    
-      .featured_pic
-        float: left
-        margin-right: 20px
-        margin-bottom: 0px
-        box-shadow: 5px 2px 15px #888888
-        height: 217px
-      .readmore-js-section
-        overflow: visible 
-        
-    .the_rest
-      margin-top: 25px
-      +clearfix
-
-      
-      .block
-        +span-columns(2.66666 of 8)
-        +omega(3n) 
-        margin-bottom: 15px
-        border: 1px solid lighten($grays, 10%)
-
-        //box-shadow: 5px 2px 15px #888888
-        .mini_image
-          //background: tint($green_base, 80%)
-          background: #f2f4f3
-          
-          img
-            width: 100%
-            margin: 0px auto
-            
-        .mini_info_wrapper
-          //background: tint($green_base, 80%)
-          
-          font-size: 10px
-          //ovherflow: hidden
-          //padding: 0px 10px
-          background: #f2f4f3
-          overflow: hidden
-          .mini_share_buttons
-            float: left
-            
-            background: #f2f4f3
-          .mini_info
-            float: right
-            background: #f2f4f3
-            
-        .mini_text
-          +linear-gradient(#f2f4f3, #f9fcfa)
-          word-wrap: break-word
-          text-align: center
-          //background: tint($green_base, 80%)
-          padding: 0px 10px 5px 10px
-          font-size: 1.3em
-
-          
-          clear: both
-          height: 130px
-          overflow: hidden
-
-
-  .side
-    +span-columns(3)
-    //box-shadow: 3px 1px 10px #888888
-    #one, #two
-      //border: 1px solid  
-      background: #141311
-      +linear-gradient(#e0f2e6, #d2e5d8)
-      //#2989d8 #e0f2e6 #0C3511
-      margin-bottom: 43px
-      
-      #register_mini, #chat_mini
-        padding: 7px
-        box-shadow: 3px 1px 10px #888888
-
-        h5, p
-          color: #0b3110
-          padding-bottom: 5px
-
-    
-
-      
-
-      #chat_mini
-        
-        img
+.featured_time_stamp_wrapper
+  display: block
+.featured_share_buttons
+  float: left
+.featured_time_stamp
+  float: right  
+   
+.featured_pic
+  float: left
+  margin-right: 20px
+  margin-bottom: 0px
+  box-shadow: 5px 2px 15px #888888
+  height: 217px
+.readmore-js-section
+  overflow: visible 
        
-          width: 100%
-          height: auto
+.the_rest
+  margin-top: 25px
+  +clearfix
+
+      
+.block
+  +span-columns(2.66666 of 8)
+  +omega(3n) 
+  margin-bottom: 15px
+  border: 1px solid lighten($grays, 10%)
+
+  //box-shadow: 5px 2px 15px #888888
+.mini_image
+  //background: tint($green_base, 80%)
+  background: #f2f4f3
+         
+  img
+    width: 100%
+    margin: 0px auto
+            
+.mini_info_wrapper
+  //background: tint($green_base, 80%)
+         
+  font-size: 10px
+  //ovherflow: hidden
+  //padding: 0px 10px
+  background: #f2f4f3
+  overflow: hidden
+.mini_share_buttons
+  float: left
+            
+  background: #f2f4f3
+
+            
+.mini_text
+  +linear-gradient(#f2f4f3, #f9fcfa)
+  word-wrap: break-word
+  text-align: center
+  //background: tint($green_base, 80%)
+  padding: 0px 10px 5px 10px
+  font-size: 1.3em
+
+          
+  clear: both
+  height: 130px
+  overflow: hidden
+
+
+.side
+  +span-columns(3)
+  //box-shadow: 3px 1px 10px #888888
+#one, #two
+  //border: 1px solid  
+  background: #141311
+  +linear-gradient(#e0f2e6, #d2e5d8)
+  //#2989d8 #e0f2e6 #0C3511
+  margin-bottom: 43px
+      
+#register_mini, #chat_mini
+  padding: 7px
+  box-shadow: 3px 1px 10px #888888
+
+  h5, p
+    color: #0b3110
+    padding-bottom: 5px
+
+    
+
+      
+
+#chat_mini
+        
+  img
+       
+    width: 100%
+    height: auto
         
     
       
@@ -426,29 +431,42 @@ form.search-bar
     //border-radius: 4px 0 4px 4px
     //z-index: 500000
 
-#sticky-anchor.perm_bar.stick
-  +media($mobile)
-    //position: absolute
-    height: 30px
+//#sticky-anchor.perm_bar.stick
+//  +media($mobile)
+//    //position: absolute
+//    height: 30px
 
-.featured_wrapper .featured_main
-  
-  +media($mobile)
-    +span-columns(4)
-    //background: pink  
-    .the_rest .block
-      +media($mobile)
-        +span-columns(4 of 4)
-        +omega(1n)
-
+//.featured_wrapper .featured_main
+ 
+//  +media($mobile)
+//    +span-columns(4)
+//    //background: pink  
+//    .the_rest .block
+//      +media($mobile)
+//        +span-columns(4 of 4)
+//        +omega(1n)
+//        //background: red
       
 
+
+
+@media screen and (min-width: 500px)
+  #mainsectionsmall
+    display: none
 
 
 
 
 @media screen and (max-width: 800px)
 
+  #sticky-anchor.perm_bar.stick
+    height: 30px
+
+  .featured_main
+    +media($handheld)
+      +span-columns(8)
+      width: 100% !important
+      
   .freeze
     position: fixed
 
@@ -495,7 +513,63 @@ form.search-bar
   .mnav-expanded
     display: block !important
 
-form.search-bar
-  width: 80%
-  margin: 0 auto
-  padding-bottom: 10px
+  .side
+    +media($handheld)
+      +span-columns(8)
+      
+
+  #one 
+    //float: left
+    +media($handheld)
+      +span-columns(4)
+      
+  #two
+    //float: right
+    +media($handheld)
+      +span-columns(4)
+      
+
+
+@media screen and (max-width: 500px)
+
+  .featured_wrapper .featured_main
+    +media($mobile)
+      +span-columns(4)
+      width: 100% !important
+  //.featured_main
+  //  width: 100% !important
+  
+  #mainsectionbig
+    display: none  
+
+  #mainsectionsmall .block
+    width: 100% !important  
+
+  //.featured_wrapper .featured_main .the_rest .block
+  #secondarysection .block
+    +media($mobile)
+      +span-columns(4 of 4)
+      +omega(1n)
+      width: 100% 
+  
+  div.mini_info
+    font-size: 10px
+  
+  .side
+    +media($mobile)
+      +span-columns(4)
+      width: 100% 
+
+
+
+
+
+  #one 
+    //float: left
+    +media($mobile)
+      +span-columns(4)
+      
+  #two
+    //float: right
+    +media($mobile)
+      +span-columns(4)

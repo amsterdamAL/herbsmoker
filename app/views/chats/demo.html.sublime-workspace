@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"fa",
+				"fadeIn"
+			],
+			[
 				"api",
 				"api_secret"
 			],
@@ -40,10 +44,10 @@
 	"buffers":
 	[
 		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.css.sass",
 			"settings":
 			{
-				"buffer_size": 1769,
+				"buffer_size": 9266,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,41 +55,23 @@
 			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
 			"settings":
 			{
-				"buffer_size": 1126,
+				"buffer_size": 1123,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/amsterdam/workspace/florida/Gemfile",
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat-helpers.scss",
 			"settings":
 			{
-				"buffer_size": 1946,
+				"buffer_size": 185,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
 			"settings":
 			{
-				"buffer_size": 7583,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 799 files for \"@include linear-gradient(#ececec, #f9fcfa)\"\n\n/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass:\n   32    +span-columns(4)\n   33    //background: tint($green_base, 98%)\n   34:   @include linear-gradient(#ececec, #f9fcfa)\n   35    border: 1px solid lighten($grays, 10%)\n   36    +border-top-radius(5px)\n\n1 match in 1 file\n\n\nSearching 800 files for \"+transition-duration(0.5s)\"\n\n/home/amsterdam/workspace/florida/app/assets/stylesheets/chats.sass.erb:\n   92              line-height: 30px\n   93              z-index: 10\n   94:             +transition-duration(0.5s)\n   95              +transition-timing-function(ease-in)\n   96              \n\n1 match in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 703,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass",
-			"settings":
-			{
-				"buffer_size": 3518,
+				"buffer_size": 760,
 				"line_ending": "Unix"
 			}
 		},
@@ -93,9 +79,32 @@
 			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_grid-settings.scss",
 			"settings":
 			{
+				"buffer_size": 386,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid-settings.scss",
+			"settings":
+			{
 				"buffer_size": 381,
-				"line_ending": "Unix",
-				"name": "@import \"bourbon/bourbon\"; // or \"bourbon\" when in"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
+			"settings":
+			{
+				"buffer_size": 1957,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
+			"settings":
+			{
+				"buffer_size": 2516,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -136,17 +145,20 @@
 		"/home/amsterdam/workspace/florida/app/assets",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat",
-		"/home/amsterdam/workspace/florida/app/views",
-		"/home/amsterdam/workspace/florida/tmp/cache",
-		"/home/amsterdam/workspace/florida/tmp/cache/assets",
-		"/home/amsterdam/workspace/florida/tmp/sockets"
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings",
+		"/home/amsterdam/workspace/florida/app/views/shared"
 	],
 	"file_history":
 	[
-		"/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/_grid-settings.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid-settings.scss",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
 		"/home/amsterdam/workspace/florida/Gemfile",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_grid-settings.scss",
+		"/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
+		"/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_disable-warnings.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
 		"/home/amsterdam/workspace/florida/app/views/engages/new.html.erb",
@@ -155,18 +167,15 @@
 		"/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
 		"/home/amsterdam/Documents/slingbox.sh",
 		"/home/amsterdam/Documents/slingbox.htm",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass",
 		"/home/amsterdam/workspace/florida/config/application.rb",
 		"/home/amsterdam/Desktop/Link to autoexec.sh",
 		"/home/amsterdam/Desktop/slingbox.htm",
 		"/home/amsterdam/Desktop/_logo2.html.erb.svg",
-		"/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
 		"/home/amsterdam/Desktop/_logo3.html.erb",
 		"/home/amsterdam/workspace/florida/tmp/pids/server.pid",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat-helpers.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/functions/_new-breakpoint.scss",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/grid-settings.scss",
 		"/home/amsterdam/workspace/florida/config/application.yml",
@@ -280,6 +289,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"  ",
 			"+transition-duration(0.5s)",
 			"@include linear-gradient(#ececec, #f9fcfa)",
 			".mini_text",
@@ -386,110 +396,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.css.sass",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1769,
+						"buffer_size": 9266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1304,
-								1304
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1274.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1126,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								824,
-								824
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 840.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/amsterdam/workspace/florida/Gemfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1946,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								58,
-								58
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7583,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6652,
-								6652
+								8154,
+								8154
 							]
 						],
 						"settings":
@@ -499,54 +423,116 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 840.0,
+						"translation.y": 11310.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								946,
+								946
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 624.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat-helpers.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12,
+								12
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 703,
+						"buffer_size": 760,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										222,
-										264
-									],
-									[
-										581,
-										607
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								367,
-								367
+								709,
+								709
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_grid-settings.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 386,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								386,
+								386
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -557,37 +543,7 @@
 				},
 				{
 					"buffer": 5,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3518,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								569,
-								569
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1008.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_grid-settings.scss",
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid-settings.scss",
 					"semi_transient": false,
 					"settings":
 					{
@@ -598,20 +554,78 @@
 						"selection":
 						[
 							[
-								285,
-								285
+								83,
+								83
 							]
 						],
 						"settings":
 						{
-							"auto_name": "@import \"bourbon/bourbon\"; // or \"bourbon\" when in",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								196,
+								196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2516,
+								2516
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2262.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -694,7 +708,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 268.0,
+	"side_bar_width": 204.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
