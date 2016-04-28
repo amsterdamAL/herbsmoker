@@ -76,10 +76,8 @@ $(document).ready(function(){
         $('#navbox ul').toggle(300, function(){
             $('#navbox ul').css('display', '').toggleClass("mnav-expanded");
             //$('body').toggleClass("freeze");
-            
-            
-        
         });
+        return false;
 
     });
 

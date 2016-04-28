@@ -2,6 +2,7 @@
 	+outer-container
 
 div.login_wrapper
+	+clearfix
 	
 		
 
@@ -18,7 +19,7 @@ div.avatar_wrapper_current,
 div.input.email.optional.user_email,
 div.input.password.optional.user_password
 	+clearfix
-	min-width: 420px
+	//min-width: 420px
 	overflow: none
 	
 	white-space: nowrap
@@ -49,7 +50,7 @@ input#user_email.string.email.optional,
 input#user_password.password.optional
 
 	float: left
-	width: 220px
+	//width: 220px
 	
 input#user_avatar
 	line-height: 36px
@@ -59,7 +60,7 @@ input#user_avatar
 .devise_headline
 	+clearfix
 	white-space: nowrap
-	min-width: 430px
+	//min-width: 430px
 
 #headline
 	float: left
@@ -67,15 +68,29 @@ input#user_avatar
 	width: 50px
 	height: 50px
 	float: left
-	margin-top: 15px
+	//margin-top: 15px
 
 div.subscriber_wrapper,
 div.terms_wrapper,
 div.input.boolean.optional.user_remember_me
 	font-size: .8em
-	padding-left: 200px
+	//padding-left: 200px
 
 input.btn
-	width: 100px
+	//width: 100px
 
-	margin-left: 200px
+	//margin-left: 200px
+
+
+.login_form
+	+span-columns(6)
+	background: pink
+	overflow: hidden
+	//float: left
+	white-space: normal
+	word-wrap:break-word
+	//width: 100%
+#whyregister
+	+span-columns(6)
+	background: red
+	//float: left
