@@ -29,7 +29,7 @@ end
 #READ = index,show
 def index
   articles = Article.search(params[:keyword]).order('created_at DESC')
-  if articles.length > 1
+  if articles.length >= 1
     @articles = articles
   else
     render 'nada'

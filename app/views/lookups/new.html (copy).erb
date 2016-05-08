@@ -26,34 +26,7 @@
 	</div>
 
 	<div id="arrow">
-		 <!-- render :partial => 'shared/sign_left' -->
-		 <div id="why">
-		 	<div id="why_header">
-		 		<h1>Email your Florida Representative for free.</h1>
-		 	</div>
-		 	<div id="why_body">
-		 		<ol>
-		 			<li>
-		 				<p>
-		 					First, enter your address to to find out who represents you! 
-		 				</p>
-		 			</li>
-		 			<li>
-		 				<p>
-		 					Send your representative our default letter regarding marijuana legalization. Or better yet, we'll send them a hand written letter for you.
-		 				</p>
-
-		 			</li>
-		 			<li>
-		 				<p>
-		 					Enter an Address to to find out who represents you! and letum have it!
-		 				</p>
-		 			</li>
-		 		</ol>
-		 	</div>
-
-
-		 </div>
+		<%= render :partial => 'shared/sign_left' %>
 	</div>
 	
 	
@@ -102,7 +75,7 @@
 					
 				
 			
-			<%= button_to "NEXT STEP: review & send letter ", {:action => "review", :controller => "letters"}, :form => {:id => "review_button"}, :method => "get" %>
+			<%= button_to "let'em have it!", {:action => "review", :controller => "letters"}, :form => {:id => "review_button"}, :method => "get" %>
 			<% end %>
 		</div>
 		
@@ -129,5 +102,4 @@
 
 
 </div>
-<div id="flag"></div>
 

@@ -3,6 +3,7 @@ $(document).ready(function(){
 	$('#progressbar').hide();
 	$('#lookup_errors').hide();
 	$('#results_wrap').hide();
+	$('#flag').hide();
 	//do this when user clicks find button. or enter key?
 	var getLookup = function(){
 	
@@ -19,11 +20,15 @@ $(document).ready(function(){
 		var sunlight = "<%= ENV['sunlight_foundation_api_key'] %>";
 		
 		if(zip == "" && addy == "" && city == ""){
-	
-			$('#lookup_errors').show().empty().append("Please enter an address to locate your Representitives.");
-	
+			$('#flag').hide();
+			$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
+		}else if ( $("#lookup_zip").val().replace(/ /g,'').length < 5){	
+		
+			$('#lookup_errors').show().empty().append("zipcode must be 5 digits");
+
+
 		} else {
-	
+			$('#flag').show();
 			$('#lookup_errors').show().empty().append("Retreving info, please wait....");
 			$('#progressbar').show();
 			
@@ -61,13 +66,14 @@ $(document).ready(function(){
 	    	              
 				
 				if (json.results.length > 1){
-					$('#lookup_errors').empty().append("too many results, be more spicific. Ex.. add zipcode or city");
+					$('#lookup_errors').empty().append("too many results, be more spicific.");
 					$('#progressbar').hide();
 				} else {
 				 	//$('#lookup_errors').empty().append("Lat: " + json.results[0].geometry.location.lat + "<br>" + "Lng:" + json.results[0].geometry.location.lng + "<br>" + sunlight + "<br>" + google);
 			 		lat = json.results[0].geometry.location.lat;
 			 		lng = json.results[0].geometry.location.lng;
 			 		$('.progress-bar .meter').css('width', '22%');
+
 			 	}
 			 	
 			 	//STEP TWO:::::   use lat and lng to lookup reps.
@@ -267,19 +273,54 @@ $(document).ready(function(){
 	
 	
 
+	var getLogic = function(){
+
+		// if getlookup finds something it will set flag visible
+		if ( $('#flag').is(":visible") ){
+
+			//only if getlookup finds something, then toggle display
+			$('#results_wrap, #arrow').toggle();
+			
+		}
+
+	};
+
+	var getLogic2 = function(){
+		//if second getlookup found something info was already updated 
+		if ( $('#flag').is(":visible") ){
+
+			// info was already updated 
+			//do additional stuff ?!?
+
+		}else{
+
+			// else if second search failed, display inital arrow div again
+			$('#results_wrap, #arrow').toggle();
+			
+		
+		}
+	};
+
+	var getGuts = function(){
+		// if initial "Arrow" div is showing then run getlookup first and set flag
+		if (  $('#arrow').is(":visible")  ){
+			
+			$.when( getLookup() ).then( getLogic() );
+
+		// on a second search run getlookup and set according flag
+		}else if ( $('#flag').is(":visible") ){
+
+			$.when( getLookup() ).then( getLogic2() );
+		}
+
+
+	};
 	
 	
+	//do this everytime "find" button is pressed
 	$('#lookup_button').click(function () {
 		
-		
-		if ( $('#arrow').is(":visible")  ){
-			
-			$('#results_wrap, #arrow').toggle();
-			getLookup();
-			
-		}else{
-			getLookup();
-		}
+		getGuts();
 
 	});
 	
@@ -287,40 +328,19 @@ $(document).ready(function(){
 
 	$('#lookup_address').keyup(function(event){
 		if(event.keyCode == 13){
-			if ( $('#arrow').is(":visible")  ){
-			
-			$('#results_wrap, #arrow').toggle();
-			getLookup();
-			
-			}else{
-				getLookup();
-			}
+			getGuts();
 		}
 	  
 	});
 	$('#lookup_city').keyup(function(event){
 		if(event.keyCode == 13){
-			if ( $('#arrow').is(":visible")  ){
-			
-			$('#results_wrap, #arrow').toggle();
-			getLookup();
-			
-			}else{
-				getLookup();
-			}
+			getGuts();
 		}
 	  
 	});
 	$('#lookup_zip').keyup(function(event){
 		if(event.keyCode == 13){
-			if ( $('#arrow').is(":visible")  ){
-			
-			$('#results_wrap, #arrow').toggle();
-			getLookup();
-			
-			}else{
-				getLookup();
-			}
+			getGuts();
 		}
 	  
 	});
