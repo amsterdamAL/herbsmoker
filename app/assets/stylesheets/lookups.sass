@@ -18,7 +18,7 @@ h5
 
 .lookup_wrapper
   +outer-container
-  padding-top: 30px
+  padding: 30px 10px
   
   
 
@@ -38,7 +38,8 @@ pre
   +border-bottom-radius(5px)
   +border-left-radius(5px)
   box-shadow: 5px 5px 15px #888888
-  margin: 10px
+  
+  
   
 #lookup_review
   +border-top-radius(5px)
@@ -120,8 +121,7 @@ pre
   +border-left-radius(5px)
   
 #arrow
-  margin: 10px auto
-  margin-left: 15px
+  
   
   +clearfix
   overflow: hidden
@@ -234,16 +234,31 @@ ul
   display: inline-block  
 
 
-#arrow
+  
+
+#lookup_form_inner
+  //padding: 15px
+  //background: tint($green_base, 88%)
   
 
 
 #lookup_form
   +media($mobile)
     +span-columns(4)
+    margin-top: 20px
+    box-shadow: none
+    border: none
+
+    
 #results_wrap, #arrow
   +media($mobile)
     +span-columns(4)
+    margin-top: 15px
+    box-shadow: none
+    border: none
+  h1
+    text-align: center
+    
 
   //width: auto  
 

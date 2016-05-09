@@ -1,14 +1,16 @@
 <div id="feedback_page_wrapper">
 	<div id="feedback_form">
 		<div id="form_container">
-			<h3><strong>Feedback Form</strong></h3>
+			<h1><strong>...send us a message</strong></h1>
 				<%= form_for :feedback, :html => {:id => "feedbackform"}, url: {action: "create"}, remote: true do |f| %>
 				  	<div id="feedbacknameandemail">
 					  	<%= f.text_field :name, :maxlength => "30", :onblur => "if (this.value == '') {this.value = 'Your Name:';}", :onfocus => "if(this.value == 'Your Name:') {this.value = '';}", :size => "30", :value => "Your Name:" %>
 						<%= f.text_field :email, :maxlength => "40", :onblur => "if (this.value == '') {this.value = 'Email Address:';}", :onfocus => "if(this.value == 'Email Address:') {this.value = '';}", :size => "40", :value => "Email Address:" %>
 					</div>
 					<%= f.text_area :body, :maxlength => "300", :onblur => "if (this.value == '') {this.value = 'Message:';}", :onfocus => "if(this.value == 'Message:') {this.value = '';}", :size => "50", :value => "Message:" %>
-					<%= f.submit 'Send Message!', :class => 'feedbackbutton' %>
+					<%= f.submit 'send!', :class => 'feedbackbutton' %>
+
+					<%= f.submit 'cancel', :class => 'cancelbutton' %>
 				<% end %>
 		</div>
 		
