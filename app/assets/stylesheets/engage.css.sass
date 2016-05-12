@@ -209,15 +209,19 @@ form.search-bar
   +span-columns(3)
   //box-shadow: 3px 1px 10px #888888
 #one, #two
-  //border: 1px solid  
+  border: 1px solid rgba(10, 68, 4, .2) 
   background: #141311
   +linear-gradient(#e0f2e6, #d2e5d8)
   //#2989d8 #e0f2e6 #0C3511
-  margin-bottom: 43px
-      
+  margin: 0px 0px 40px 0px
+  box-shadow: 3px 1px 10px #888888
+
+#two
+  margin-top: 0px
+
 #register_mini, #chat_mini
   padding: 7px
-  box-shadow: 3px 1px 10px #888888
+  
 
   h5, p
     color: #0b3110
@@ -469,7 +473,8 @@ form.search-bar
   .freeze
     position: fixed
 
-
+  #one, #two
+    margin-top: 20px
   #mnav ul
     background: #141311
     display: none
@@ -535,8 +540,8 @@ form.search-bar
     +media($mobile)
       +span-columns(4)
       width: 100% !important
-  //.featured_main
-  //  width: 100% !important
+      box-shadow: none
+  
   
   #mainsectionbig
     display: none  
@@ -567,8 +572,14 @@ form.search-bar
     //float: left
     +media($mobile)
       +span-columns(4)
+      box-shadow: none
+      margin-bottom: 20px
+      
       
   #two
     //float: right
     +media($mobile)
       +span-columns(4)
+      box-shadow: none
+      margin-top: 0px
+      

@@ -19,6 +19,7 @@ h5
 .lookup_wrapper
   +outer-container
   padding: 30px 10px
+  white-space:nowrap
   
   
 
@@ -243,6 +244,30 @@ ul
 
 
 #lookup_form
+  +media($tablet)
+    +span-columns(4)
+    margin-top: 20px
+    box-shadow: none
+    border: none
+
+    
+#results_wrap, #arrow
+  +media($tablet)
+    +span-columns(3)
+    margin-top: 15px
+    box-shadow: none
+    border: none
+
+
+
+
+  h1
+    text-align: center
+    
+
+
+
+#lookup_form
   +media($mobile)
     +span-columns(4)
     margin-top: 20px
@@ -256,9 +281,7 @@ ul
     margin-top: 15px
     box-shadow: none
     border: none
-  h1
-    text-align: center
-    
+
 
   //width: auto  
 

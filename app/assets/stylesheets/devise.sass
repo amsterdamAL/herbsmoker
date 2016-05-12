@@ -1,10 +1,19 @@
 .devise_main
 	+outer-container
+	margin: 30px 10px
+	
 
 div.login_wrapper
 	+clearfix
 	
-		
+.devise_main_wrapper
+	//border: 1px solid #e1e1d8
+	border: 1px solid rgba(10, 68, 4, 0.2)
+	background-color: #ececec
+	background-image: linear-gradient(#ececec, #f9fcfa)
+	//background-image: linear-gradient(#e0f2e6, #d2e5d8)
+	+span-columns(6)
+	padding: 20px
 
 div.input.email.required, 
 div.input.password.required,
@@ -19,7 +28,7 @@ div.avatar_wrapper_current,
 div.input.email.optional.user_email,
 div.input.password.optional.user_password
 	+clearfix
-	//min-width: 420px
+	
 	overflow: none
 	
 	white-space: nowrap
@@ -33,10 +42,7 @@ label.email.optional,
 label.password.optional
 
 	float: left
-	width: 200px
-	line-height: 36px
-	text-align: right
-	padding-right: 5px
+	
 
 input#user_email.string.email.required,
 input#user_password.password.required,
@@ -50,47 +56,87 @@ input#user_email.string.email.optional,
 input#user_password.password.optional
 
 	float: left
-	//width: 220px
+	width: 240px
 	
 input#user_avatar
-	line-height: 36px
+	
+
+label
+	display: block
+	clear: both
 
 
 
 .devise_headline
 	+clearfix
 	white-space: nowrap
-	//min-width: 430px
+	
 
 #headline
 	float: left
+	
 #padlock
-	width: 50px
-	height: 50px
+	
 	float: left
-	//margin-top: 15px
+	width: 25px
 
 div.subscriber_wrapper,
 div.terms_wrapper,
 div.input.boolean.optional.user_remember_me
 	font-size: .8em
-	//padding-left: 200px
+
+
+.devise_signup
+	white-space: nowrap
+.devise_links
+	float: left	
 
 input.btn
-	//width: 100px
+	
+	float: left
+	margin-right: 10px
+	width: 100px
 
-	//margin-left: 200px
+a
+	font-size: .8em
 
+	
+
+	
 
 .login_form
-	+span-columns(6)
-	background: pink
 	overflow: hidden
-	//float: left
 	white-space: normal
 	word-wrap:break-word
-	//width: 100%
+	padding-right: 40%
+	
 #whyregister
 	+span-columns(6)
 	background: red
-	//float: left
+	
+
+
+
+@media screen and (max-width: 800px)
+
+	.devise_main_wrapper
+		+media($tablet)
+			+span-columns(5)
+
+	#whyregister
+		+media($tablet)
+			+span-columns(3)
+
+
+
+
+@media screen and (max-width: 500px)
+
+	.devise_main_wrapper
+		+media($mobile)
+			+span-columns(4)
+
+	#whyregister
+		+media($mobile)
+			+span-columns(4)
+	
