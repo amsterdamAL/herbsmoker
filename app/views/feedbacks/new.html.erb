@@ -4,25 +4,32 @@
 			<h1><strong>...send us a message</strong></h1>
 				<%= form_for :feedback, :html => {:id => "feedbackform"}, url: {action: "create"}, remote: true do |f| %>
 				  	<div id="feedbacknameandemail">
-					  	<%= f.text_field :name, :maxlength => "30", :onblur => "if (this.value == '') {this.value = 'Your Name:';}", :onfocus => "if(this.value == 'Your Name:') {this.value = '';}", :size => "30", :value => "Your Name:" %>
-						<%= f.text_field :email, :maxlength => "40", :onblur => "if (this.value == '') {this.value = 'Email Address:';}", :onfocus => "if(this.value == 'Email Address:') {this.value = '';}", :size => "40", :value => "Email Address:" %>
+					  	<%= f.text_field :name, :placeholder => "name"
+
+
+
+
+					  	 %>
+						<%= f.text_field :email, :placeholder => "email" %>
 					</div>
-					<%= f.text_area :body, :maxlength => "300", :onblur => "if (this.value == '') {this.value = 'Message:';}", :onfocus => "if(this.value == 'Message:') {this.value = '';}", :size => "50", :value => "Message:" %>
+					<%= f.text_area :body, :placeholder => "message" %>
 					<%= f.submit 'send!', :class => 'feedbackbutton' %>
 
 					<%= f.submit 'cancel', :class => 'cancelbutton' %>
 				<% end %>
 		</div>
 		
+	
+	<div id="feedback_errors">
+	</div>
 	</div>
 	
-	<% if false %>
-		<div id="feedback_aside">
-			<div id="feedback_aside_contect">
-				<h2>feedbackaside</h2>
-			</div>
+	<div id="feedback_aside">
+		<div id="feedback_aside_contect">
+			<h2>feedbackaside</h2>
 		</div>
-	<% end %>
+	</div>
+	
 	
 
 </div>

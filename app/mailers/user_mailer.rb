@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
     @email = letter.email1
     @letter = letter
     @user = user
-    mail(to: "amsterdamAL@gmail.com", from: "yourmomma@att.com", cc: @raffomail, subject: @letter.subject)
+    #mail(to: "amsterdamAL@gmail.com", from: "yourmomma@att.com", cc: @raffomail, subject: @letter.subject)
     
   end
   
@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     @letter = letter
     @user = user
     
-    mail(to: "amsterdamAL@gmail.com", from: "from@hehe.com", cc: @raffomail, subject: @letter.subject)
+    #mail(to: "amsterdamAL@gmail.com", from: "from@hehe.com", cc: @raffomail, subject: @letter.subject)
     
   end
   
