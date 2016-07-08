@@ -3,15 +3,15 @@ source 'http://rubygems.org'
 #ruby "2.2.1"
 
 gem 'bourbon', '4.2.7'
-gem 'neat'
+gem 'neat', '~> 1.7.4'
 gem 'bitters', '1.2.0'
 gem 'refills'
 gem 'sass'
-gem 'paperclip'
-gem 'aws-sdk', '~> 1.61.0'
+gem 'paperclip', '~> 4.3.6'
+gem 'aws-sdk', '< 2.0'
 gem 'activesupport'
 gem 'readmorejs_rails', '~> 0.0.1'
-gem 'devise'
+gem 'devise', '~> 3.5.10'
 gem 'figaro'
 gem 'opentok', "~> 2.2"
 
