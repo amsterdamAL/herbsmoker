@@ -23,7 +23,7 @@
 		</div>
 		
 		<div class='show_image'>
-			<%= image_tag @article.image.url(:show) %>
+			<%= image_tag @article.image.url(:featured) %>
 		</div>
 		
 		<div class='show_words'>
@@ -32,48 +32,66 @@
 
 		<div class='show_comments'>
 
-			<h2>Comments</h2>
+			<h1>Comments</h1>
+
+			<div class = "add_comment">
 			
-			<% @article.comments.each do |comment| %>
-
-				<p>
-					<strong>Commenter:</strong>
-
-					<%= comment.commenter %>
-				</p>
-				<p>
-					<strong>Comment:</strong>
-					<%= comment.body %>
-				</p>
-				<p>
-					<%= link_to 'distroy comment', [comment.article, comment], method: :delete, data: { confirm: 'u sure??'}%>
+						
+				<%= form_for ([@article, @article.comments.build]) do |f|%>
 					
-				</p>
-			<% end %>
-		</div>
+					
+						
+					<% if user_signed_in? %>
+	      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+	      				<%= f.text_area :picurl, :value => current_user.avatar.url %>
+	  				<% else %>
+	    			
+	      				<%= image_tag("man100px.png") %>
+	      			<% end %>
 
-		<div class = "add_comment">
+
+
+					<%= f.text_area :body, placeholder: "Write comment here" %>
+
+
+					<%= f.submit "Post"%>
+					<% if !user_signed_in? %>
+												
+						<%= f.text_field :commenter, placeholder: "Nickname" %>
+						
+					<% end %>
+					
+					
+					
+				
+				<% end %>
+			</div>
+				
+			<div class="display_comments">
+				<% @article.comments.each do |comment| %>
+
+					<p>
+						<strong>Commenter:</strong>
+
+						<%= comment.commenter %>
+						<%= image_tag(comment.picurl) %>
+
+
+					</p>
+					<p>
+						<strong>Comment:</strong>
+						<%= comment.body %>
+					</p>
+					<p>
+						<%= link_to 'distroy comment', [comment.article, comment], method: :delete, data: { confirm: 'u sure??'}%>
+						
+					</p>
+				<% end %>
 			
-			<h2>Add a comment</h2>
-			
-			
-			<%= form_for ([@article, @article.comments.build]) do |f|%>
-				<p>
-					<%= f.label :commenter %><br>
-					<%= f.text_field :commenter %>
-				</p>
-				<p>
-					<%= f.label :body %><br>
-					<%= f.text_area :body %>
-				</p>
-				<p>
-					<%= f.submit %>
-				</p>
-			<% end %>
+			</div>
+		
 		</div>
-				<%= link_to 'back', articles_path %>
-				<%= link_to 'edit', edit_article_path(@article) %>
-	</div>
+	
 	
 	<div class="show_aside">
 		asfas dfgsdf asdfasdf sdfasdf
@@ -89,3 +107,5 @@
 
 
 
+<%= link_to 'back', articles_path %>
+				<%= link_to 'edit', edit_article_path(@article) %>

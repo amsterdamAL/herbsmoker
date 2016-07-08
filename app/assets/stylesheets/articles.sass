@@ -42,8 +42,9 @@
 					
 					white-space: normal
 					
-					font-size: .5em
+					font-size: .7em
 					width: 70%
+					
 
 				.index_first_line
 					padding: 3px 20px 3px 10px
@@ -69,12 +70,15 @@
 	.show_page_content
 		
 		+span-columns(9)
-		padding-left: 10px
+		padding: 10px
 		
 		background: tint($green_base, 98%)
 		.show_info_bar
 			
-		.show_image img
+		.show_image
+			float: left
+			img
+				padding-right: 10px
 		.show_words
 			
 			margin-top: 15px
