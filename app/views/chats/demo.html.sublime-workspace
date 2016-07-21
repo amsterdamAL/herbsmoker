@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"lev",
+				"level3commentid"
+			],
+			[
+				"leve",
+				"level2commentid"
+			],
+			[
+				"le",
+				"level1commentid"
+			],
+			[
+				"parent",
+				"parent_id"
+			],
+			[
+				"root",
+				"root2_id"
+			],
+			[
+				"roo",
+				"root_id"
+			],
+			[
+				"pa",
+				"parent_id"
+			],
+			[
+				"curr",
+				"currentid"
+			],
+			[
+				"text",
+				"text_field"
+			],
+			[
 				"looku",
 				"lookup_zip"
 			],
@@ -56,76 +92,42 @@
 	"buffers":
 	[
 		{
-			"contents": "Searching 4810 files for \"reach_out_email\"\n\n/home/amsterdam/workspace/florida/app/controllers/letters_controller.rb:\n    8      @user = current_user.email\n    9      if @letter.save\n   10:       UserMailer.reach_out_email(@letter, @user).deliver_now\n   11:       UserMailer.reach_out_email_secondary(@letter, @user).deliver_now\n   12        redirect_to @letter\n   13      end\n\n/home/amsterdam/workspace/florida/app/mailers/user_mailer.rb:\n    9    end\n   10    \n   11:   def reach_out_email(letter, user)\n   12      @email = letter.email1\n   13      @letter = letter\n   ..\n   17    end\n   18    \n   19:   def reach_out_email_secondary(letter, user)\n   20      @email = letter.email1\n   21      @letter = letter\n\n/home/amsterdam/workspace/florida/log/development.log:\n    <binary>\n\n8 matches across 3 files\n",
-			"settings":
-			{
-				"buffer_size": 806,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/mailers/user_mailer.rb",
-			"settings":
-			{
-				"buffer_size": 699,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/views/feedbacks/success.js.erb",
-			"settings":
-			{
-				"buffer_size": 209,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/views/feedbacks/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 789,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/feedbacks.sass",
-			"settings":
-			{
-				"buffer_size": 932,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/home/amsterdam/workspace/florida/app/views/articles/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 1588,
+				"buffer_size": 11175,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
+			"file": "/home/amsterdam/workspace/florida/db/schema.rb",
 			"settings":
 			{
-				"buffer_size": 1698,
+				"buffer_size": 4724,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/amsterdam/workspace/florida/app/views/feedbacks/errors.js.erb",
+			"file": "/home/amsterdam/workspace/florida/app/controllers/comments_controller.rb",
 			"settings":
 			{
-				"buffer_size": 570,
+				"buffer_size": 612,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/amsterdam/workspace/florida/app/models/feedback.rb",
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/comments.sass",
 			"settings":
 			{
-				"buffer_size": 180,
+				"buffer_size": 1449,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
+			"settings":
+			{
+				"buffer_size": 721,
 				"line_ending": "Unix"
 			}
 		}
@@ -165,41 +167,67 @@
 		"/home/amsterdam/workspace/florida",
 		"/home/amsterdam/workspace/florida/app",
 		"/home/amsterdam/workspace/florida/app/assets",
+		"/home/amsterdam/workspace/florida/app/assets/javascripts",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat",
+		"/home/amsterdam/workspace/florida/app/controllers",
+		"/home/amsterdam/workspace/florida/app/controllers/concerns",
+		"/home/amsterdam/workspace/florida/app/models",
 		"/home/amsterdam/workspace/florida/app/views",
 		"/home/amsterdam/workspace/florida/app/views/articles",
+		"/home/amsterdam/workspace/florida/app/views/devise",
+		"/home/amsterdam/workspace/florida/app/views/devise/registrations",
 		"/home/amsterdam/workspace/florida/app/views/feedbacks",
 		"/home/amsterdam/workspace/florida/app/views/layouts",
 		"/home/amsterdam/workspace/florida/app/views/user_mailer",
-		"/home/amsterdam/workspace/florida/config"
+		"/home/amsterdam/workspace/florida/bin",
+		"/home/amsterdam/workspace/florida/config",
+		"/home/amsterdam/workspace/florida/config/environments",
+		"/home/amsterdam/workspace/florida/db",
+		"/home/amsterdam/workspace/florida/db/migrate"
 	],
 	"file_history":
 	[
+		"/home/amsterdam/workspace/florida/app/controllers/comments_controller.rb",
+		"/home/amsterdam/workspace/florida/app/models/comment.rb",
+		"/home/amsterdam/workspace/florida/Gemfile",
+		"/home/amsterdam/workspace/florida/db/migrate/20160716153035_add_ancestry_to_comments.rb",
+		"/home/amsterdam/workspace/florida/app/views/articles/temp code.rhtml",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/comments.sass",
+		"/home/amsterdam/workspace/florida/app/views/devise/registrations/new.html.erb",
+		"/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
+		"/home/amsterdam/workspace/florida/db/schema.rb",
+		"/home/amsterdam/workspace/florida/db/migrate/20160708071858_add_hidden_url.rb",
+		"/home/amsterdam/workspace/florida/config/environments/production.rb",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/letters.sass",
+		"/home/amsterdam/workspace/florida/app/models/feedback.rb",
+		"/home/amsterdam/workspace/florida/app/views/feedbacks/errors.js.erb",
+		"/home/amsterdam/workspace/florida/app/views/articles/show.html.erb",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/feedbacks.sass",
+		"/home/amsterdam/workspace/florida/app/views/feedbacks/new.html.erb",
+		"/home/amsterdam/workspace/florida/app/views/feedbacks/success.js.erb",
+		"/home/amsterdam/workspace/florida/app/mailers/user_mailer.rb",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/lookups.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/devise.sass",
 		"/home/amsterdam/workspace/florida/app/views/lookups/new.html.erb",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
 		"/home/amsterdam/workspace/florida/app/views/devise/passwords/new.html.erb",
 		"/home/amsterdam/workspace/florida/app/views/devise/sessions/new.html.erb",
-		"/home/amsterdam/workspace/florida/app/views/devise/registrations/new.html.erb",
 		"/home/amsterdam/workspace/florida/app/views/devise/unlocks/new.html.erb",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.css.sass",
-		"/home/amsterdam/workspace/florida/app/views/feedbacks/new.html.erb",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/feedbacks.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/chats.sass.erb",
 		"/home/amsterdam/workspace/florida/app/views/articles/index.html.erb",
 		"/home/amsterdam/workspace/florida/app/assets/javascripts/logo.js",
 		"/home/amsterdam/workspace/florida/app/assets/javascripts/lookup.js.erb",
 		"/home/amsterdam/workspace/florida/app/controllers/articles_controller.rb",
 		"/home/amsterdam/workspace/florida/app/views/engages/_featured.html.erb",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_neat-helpers.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_visual-grid.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/_grid-settings.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_grid-settings.scss",
 		"/home/amsterdam/workspace/florida/app/views/shared/_nav2.html.erb",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/_grid-settings.scss",
-		"/home/amsterdam/workspace/florida/Gemfile",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/engage.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat/settings/_disable-warnings.scss",
 		"/home/amsterdam/workspace/florida/app/views/engages/new.html.erb",
@@ -259,7 +287,6 @@
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/base/_typography.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/base/_variables.scss",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/normalize.css",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/letters.sass",
 		"/home/amsterdam/workspace/florida/app/views/letters/review.html.erb",
 		"/home/amsterdam/workspace/florida/app/assets/javascripts/lookup.js",
 		"/home/amsterdam/workspace/florida/app/controllers/engages_controller.rb",
@@ -282,20 +309,13 @@
 		"/home/amsterdam/workspace/florida/app/views/shared/_padlock.html.erb",
 		"/home/amsterdam/workspace/florida/app/models/subscriber.rb",
 		"/home/amsterdam/workspace/florida/db/migrate/20150823164125_drop_subscribers_table.rb",
-		"/home/amsterdam/workspace/florida/db/schema.rb",
 		"/home/amsterdam/workspace/florida/db/migrate/20150823171219_add_nickname_to_users_table.rb",
 		"/home/amsterdam/workspace/florida/db/migrate/20150821201733_add_avatars_to_users.rb",
 		"/home/amsterdam/workspace/florida/app/models/user.rb",
 		"/home/amsterdam/workspace/florida/config/initializers/devise.rb",
-		"/home/amsterdam/workspace/florida/app/views/articles/show.html.erb",
 		"/home/amsterdam/workspace/florida/config/initializers/social_share_button.rb",
 		"/home/amsterdam/workspace/florida/app/views/articles/list.html.erb",
-		"/home/amsterdam/workspace/florida/app/views/articles/nada.html.erb",
-		"/home/amsterdam/workspace/florida/app/views/devise/passwords/edit.html.erb",
-		"/home/amsterdam/workspace/florida/app/views/engages/index.hrml.erb",
-		"/home/amsterdam/workspace/florida/app/views/devise/confirmations/new.html.erb",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/progress.scss",
-		"/home/amsterdam/Desktop/calc.desktop"
+		"/home/amsterdam/workspace/florida/app/views/articles/nada.html.erb"
 	],
 	"find":
 	{
@@ -316,6 +336,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".build",
+			"avatar_wrapper_current",
+			"featured",
+			"@article.image.url",
 			"reach_out_email",
 			"clear",
 			"both",
@@ -434,41 +458,47 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "/home/amsterdam/workspace/florida/app/views/articles/show.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 806,
+						"buffer_size": 11175,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										206,
-										221
-									],
-									[
-										274,
-										289
-									],
-									[
-										475,
-										490
-									],
-									[
-										609,
-										624
-									]
-								],
-								"scope": ""
-							}
+						},
+						"selection":
+						[
+							[
+								8642,
+								8642
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 15372.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/amsterdam/workspace/florida/db/schema.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4724,
+						"regions":
+						{
 						},
 						"selection":
 						[
@@ -479,37 +509,32 @@
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 84.0,
+						"translation.y": 672.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/home/amsterdam/workspace/florida/app/mailers/user_mailer.rb",
+					"buffer": 2,
+					"file": "/home/amsterdam/workspace/florida/app/controllers/comments_controller.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 699,
+						"buffer_size": 612,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								582,
-								582
+								578,
+								578
 							]
 						],
 						"settings":
@@ -518,65 +543,37 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 252.0,
+						"translation.x": 848.0,
+						"translation.y": 336.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/amsterdam/workspace/florida/app/views/feedbacks/success.js.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 209,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								183,
-								183
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/JavaScript (Rails).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/home/amsterdam/workspace/florida/app/views/feedbacks/new.html.erb",
+					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/comments.sass",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 789,
+						"buffer_size": 1449,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								669,
-								669
+								1401,
+								1401
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
+							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 2352.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -584,146 +581,30 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/feedbacks.sass",
+					"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 932,
+						"buffer_size": 721,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								781,
-								781
+								516,
+								516
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1176.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/amsterdam/workspace/florida/app/views/articles/show.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1588,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								167,
-								167
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1698,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1184,
-								1184
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/Ruby Haml.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1680.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/amsterdam/workspace/florida/app/views/feedbacks/errors.js.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 570,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								30,
-								30
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/JavaScript (Rails).sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/home/amsterdam/workspace/florida/app/models/feedback.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 180,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								157,
-								157
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -806,7 +687,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 279.0,
+	"side_bar_width": 321.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

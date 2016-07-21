@@ -14,6 +14,7 @@ gem 'readmorejs_rails', '~> 0.0.1'
 gem 'devise', '~> 3.5.10'
 gem 'figaro'
 gem 'opentok', "~> 2.2"
+gem 'ancestry'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

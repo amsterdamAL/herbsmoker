@@ -32,67 +32,445 @@
 
 		<div class='show_comments'>
 
-			<h1>Comments</h1>
+			<h1>Comments!!</h1>
 
 			<div class = "add_comment">
 			
 						
 				<%= form_for ([@article, @article.comments.build]) do |f|%>
 					
-					
-						
+					<%= f.hidden_field :level_id, :value => "1" %>
+	      				
 					<% if user_signed_in? %>
 	      				<%= image_tag(current_user.avatar.url(:thumb)) %>
-	      				<%= f.text_area :picurl, :value => current_user.avatar.url %>
+	      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
 	  				<% else %>
 	    			
 	      				<%= image_tag("man100px.png") %>
+	      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
 	      			<% end %>
 
 
 
-					<%= f.text_area :body, placeholder: "Write comment here" %>
+					<%= f.text_area :body, placeholder: "what is your comment ..." %>
 
 
 					<%= f.submit "Post"%>
 					<% if !user_signed_in? %>
 												
 						<%= f.text_field :commenter, placeholder: "Nickname" %>
-						
+					<% else %>
+
+						<%= f.hidden_field :commenter, :value => current_user.nickname %>
 					<% end %>
 					
-					
-					
-				
 				<% end %>
 			</div>
 				
-			<div class="display_comments">
-				<% @article.comments.each do |comment| %>
-
-					<p>
-						<strong>Commenter:</strong>
-
-						<%= comment.commenter %>
-						<%= image_tag(comment.picurl) %>
-
-
-					</p>
-					<p>
-						<strong>Comment:</strong>
-						<%= comment.body %>
-					</p>
-					<p>
-						<%= link_to 'distroy comment', [comment.article, comment], method: :delete, data: { confirm: 'u sure??'}%>
-						
-					</p>
-				<% end %>
 			
-			</div>
+
+
+
+
+
+			<div class="display_comments">
+				
+			<!-- OUTER loop, loop thru all posts -->
+				<% @article.comments.each_with_index do |comment, index| %>
+
+					
+					<% if comment.level_id == 1 %>
+						
+						<% @level1commentid = comment.id %>
+
+						
+						
+						
+						
+						<div class="commentbox" >
+						
+							<div class="avatarpic">
+								<%= image_tag(comment.picurl) %>
+
+							</div>
+
+
+							<div class="commentsection">
+								<h3><%= comment.commenter %></h3>
+								said:
+								<p> <%= comment.body %>
+									outerloop
+									commentID:<%= comment.id %>
+									articelID:<%= comment.article_id %>
+									index: <%= index %>
+									parentid: <%= comment.parent_id %>
+									levelid: <%= comment.level_id %>
+									rootid: <%= comment.root_id %>
+									root2id: <%= comment.root2_id %>
+									root3id: <%= comment.root3_id %>
+									prntIDoflvl1: <%= comment.parent_id %>
+
+									<%= link_to 'E', [comment.article, comment], method: :delete, data: { confirm: 'WHAT DO YOU THINK YOUR DOING!!!'}%>
+								<a href="#!" class="rep" id='<%= comment.id %>'>Reply</a>
+								</p>
+							
+							
+
+								<div class="replybox" id='<%= comment.id %>' >
+
+
+									<div class = "add_comment">
+
 		
-		</div>
-	
-	
+										<%= form_for ([@article, @article.comments.build]) do |f|%>
+											
+										<%= f.text_field :parent_id, :value => comment.id %> 
+										
+										<%= f.hidden_field :level_id, :value => "2" %>
+											
+										<% if user_signed_in? %>
+						      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+						      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+						  				<% else %>
+							    			
+						      				<%= image_tag("man100px.png") %>
+						      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
+
+						      			<% end %>
+
+
+
+										<%= f.text_area :body, placeholder: "Write comment here" %>
+
+
+										<%= f.submit "Post"%>
+										<% if !user_signed_in? %>
+																	
+											<%= f.text_field :commenter, placeholder: "Nickname" %>
+										<% else %>
+
+										<%= f.hidden_field :commenter, :value => current_user.nickname %>
+										<% end %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+
+
+
+
+
+
+					<!-- inner loop, check each of the above and display reply for each -->
+					<% @article.comments.each_with_index do |comment, index| %>
+
+					
+					
+					<!-- if currentid of parent is equal to the comment.parentid it means its a reply for origianl comment -->
+					<% if comment.level_id == 2 && @level1commentid == comment.parent_id %>
+						
+
+						
+						<% @level2commentid = comment.id %>
+						
+
+						<div class="reply_commentbox">
+						
+							<div class="avatarpic">
+								<%= image_tag(comment.picurl) %>
+
+							</div>
+
+
+							<div class="commentsection">
+								<h3><%= comment.commenter %></h3>
+								said:
+								<p> <%= comment.body %>
+									innerloop
+									commentID:<%= comment.id %>
+									articelID:<%= comment.article_id %>
+									index: <%= index %>
+									parentid: <%= comment.parent_id %>
+									levelid: <%= comment.level_id %>
+									rootid: <%= comment.root_id %>
+									root2id: <%= comment.root2_id %>
+									prntIDoflvl2: <%= comment.parent_id %>
+
+									<%= link_to 'E', [comment.article, comment], method: :delete, data: { confirm: 'WHAT DO YOU THINK YOUR DOING!!!'}%>
+								<a href="#!" class="rep" id='<%= comment.id %>' data-id='<%= comment.parent_id %>'>Reply
+								
+								</a>
+								</p>
+							
+							
+
+								<div class="replybox" id='<%= comment.id %>'>
+
+
+									<div class = "add_comment">
+
+		
+										<%= form_for ([@article, @article.comments.build]), :html => {:id => "destform" + comment.id.to_s} do |f|%>
+											
+										<%= f.text_field :parent_id, :value => comment.id %>
+										
+										
+										<%= f.hidden_field :level_id, :value => "3" %>
+
+
+										
+												
+										<% if user_signed_in? %>
+						      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+						      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+						  				<% else %>
+							    			
+						      				<%= image_tag("man100px.png") %>
+						      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
+
+						      			<% end %>
+
+
+
+										<%= f.text_area :body, id: 'sourceaddress' +comment.id.to_s, placeholder: "Write comment here" %>
+
+
+										<%= f.submit "Post", id: 'destsubmit' + comment.id.to_s %>
+										<% if !user_signed_in? %>
+																	
+											<%= f.text_field :commenter, placeholder: "Nickname" %>
+										<% else %>
+
+										<%= f.hidden_field :commenter, :value => current_user.nickname %>
+										<% end %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- 3rd itteration -->
+					<% @article.comments.each_with_index do |comment, index| %>
+
+					
+					
+					<% if comment.level_id == 3 && @level2commentid == comment.parent_id %>
+						
+
+					<% @level3commentid = comment.id %>
+
+						
+
+						<div class="reply_reply_commentbox">
+						
+							<div class="avatarpic">
+								<%= image_tag(comment.picurl) %>
+
+							</div>
+
+
+							<div class="commentsection">
+								<h3><%= comment.commenter %></h3>
+								said:
+								<p> <%= comment.body %>
+									inner-innerloop
+									commentID:<%= comment.id %>
+									articelID:<%= comment.article_id %>
+									index: <%= index %>
+									parentid: <%= comment.parent_id %>
+									levelid: <%= comment.level_id %>
+									rootid: <%= comment.root_id %>
+									root2id: <%= comment.root2_id %>
+									prntIDoflvl3: <%= comment.parent_id %>
+
+									<%= link_to 'E', [comment.article, comment], method: :delete, data: { confirm: 'WHAT DO YOU THINK YOUR DOING!!!'}%>
+								<a href="#!" class="rep" id='<%= comment.id %>' data-id='<%= comment.parent_id %>'>Reply
+								
+								</a>
+								</p>
+							
+							
+
+								<div class="replybox" id='<%= comment.id %>'>
+
+
+									<div class = "add_comment">
+
+		
+										<%= form_for ([@article, @article.comments.build]), :html => {:class => "sourceform"} do |f|%>
+											
+										<%= f.text_field :parent_id, :value => comment.id %>
+										
+										
+
+
+										<%= f.hidden_field :level_id, :value => "4" %>
+										
+												
+										<% if user_signed_in? %>
+						      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+						      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+						  				<% else %>
+							    			
+						      				<%= image_tag("man100px.png") %>
+						      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
+
+						      			<% end %>
+
+
+
+										<%= f.text_area :body, id: 'sourcebody' + comment.id.to_s , placeholder: "Write comment here" %>
+
+
+										<%= f.button "Pppost", :data => {:sourceaddy => comment.id, :destaddy => comment.parent_id}, id: 'sourcesubmit' +comment.parent_id.to_s, disable_with: "Submitting..."%>
+										 
+										<% if !user_signed_in? %>
+																	
+											<%= f.text_field :commenter, id: 'sourcenick', placeholder: "Nickname" %>
+										<% else %>
+
+										<%= f.hidden_field :commenter, :value => current_user.nickname %>
+										<% end %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<% end %>
+
+
+					<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<% end %>
+				
+
+					
+
+
+
+
+
+
+				<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<% end %>
+				
+
+
+
+
+
+
+
+
+				<% end %>
+			</div>
+
+
 	<div class="show_aside">
 		asfas dfgsdf asdfasdf sdfasdf
 		asdfasdf asdfas f
@@ -100,12 +478,9 @@
 		asdfasdfasdf
 		asdfasdf
 		asdfasdf
-
+		<%= link_to 'back', articles_path %>
+		<%= link_to 'edit', edit_article_path(@article) %>
 	</div>
-
+	
 </div>
 
-
-
-<%= link_to 'back', articles_path %>
-				<%= link_to 'edit', edit_article_path(@article) %>
