@@ -5,6 +5,12 @@
 .show_comments
 	padding-top: 10px
 	width: 70%
+.show_comments
+	+media($mobile)
+		width: 100%
+.show_comments
+	+media($handheld)
+		width: 100%
 	
 .add_comment
 	overflow: hidden
@@ -90,6 +96,7 @@ textarea#comment_body
 
 .commentbox
 	overflow: hidden
+	padding-top: 38px
 
 .reply_commentbox
 	overflow: hidden

@@ -99,6 +99,8 @@
 								<h3><%= comment.commenter %></h3>
 								said:
 								<p> <%= comment.body %>
+								<%= comment.created_at.strftime("%m/%-d/%Y") %>
+
 									outerloop
 									commentID:<%= comment.id %>
 									articelID:<%= comment.article_id %>
@@ -469,8 +471,10 @@
 
 				<% end %>
 			</div>
-
-
+		</div>
+	
+		
+	</div>
 	<div class="show_aside">
 		asfas dfgsdf asdfasdf sdfasdf
 		asdfasdf asdfas f
@@ -481,6 +485,7 @@
 		<%= link_to 'back', articles_path %>
 		<%= link_to 'edit', edit_article_path(@article) %>
 	</div>
+	
 	
 </div>
 
