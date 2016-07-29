@@ -262,7 +262,7 @@
 								<%= f.submit "Post", class: 'destsubmit', id: 'destsubmit' + comment.id.to_s %>
 								<% if !user_signed_in? %>
 															
-									<%= f.text_field :commenter, placeholder: "Nickname", class: 'destnick' %>
+									<%= f.text_field :commenter, placeholder: "Nickname", class: 'destnick', id: 'destnick' +comment.id.to_s %>
 								<% else %>
 
 								<%= f.hidden_field :commenter, :value => current_user.nickname %>

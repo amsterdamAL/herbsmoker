@@ -47,6 +47,7 @@ $(document).ready(function(){
         $('#submit0').click(function (event) { 
 
         	event.preventDefault(); 
+            console.log('submit0');
 
         	
         	var csrnickname = $('#nickname0').val();
@@ -74,6 +75,7 @@ $(document).ready(function(){
         $('.submit1').click(function (event) { 
 
             event.preventDefault(); 
+            console.log('submit1');
 
             //$(this).parent().find('.nickname').eq(0).val("fffdf") ;
             var csrnickname = $(this).parent().find('.nickname').eq(0).val();
@@ -99,6 +101,7 @@ $(document).ready(function(){
         $('.destsubmit').click(function (event) { 
 
             event.preventDefault(); 
+            console.log('.destsubmit');
 
             
             var csrnickname = $(this).parent().find('.destnick').eq(0).val();
@@ -111,7 +114,7 @@ $(document).ready(function(){
                 
                 $(this).parent().find('.destnick').eq(0).val(nickname);
                 
-                console.log("was blank, loaded default");
+                console.log("was bblank, loaded default");
             }else{
 
                 console.log("it was added");
@@ -125,11 +128,11 @@ $(document).ready(function(){
         $('.sourcesubmit').click(function (event) { 
 
             event.preventDefault(); 
-
+            console.log('.sourcesubmit');
             
             var csrnickname = $(this).parent().find('.sourcenick').eq(0).val();
 
-            console.log(csrnickname);
+            console.log('2nd 2 last: ' +csrnickname);
 
 
             if (csrnickname == "") {
@@ -137,63 +140,81 @@ $(document).ready(function(){
                 
                 $(this).parent().find('.sourcenick').eq(0).val(nickname);
                 
-                console.log("was blank, loaded default");
+                console.log("was blankk, loaded default");
             }else{
 
-                console.log("it was added");
+                console.log("it was addedd");
             }
             //$(this).parent().submit();
-
-        });
-
-    
+            //console.log( $(this).parent() );
+            //$('#destform' + destaddress).submit();
 
 
-    
-        $('.sourceform button').click(function (event) {
-            event.preventDefault(); 
-        	
+
+
+
+            console.log('start');
+
+
+
+
+
+
+            var csrnickname = $(this).parent().find('.sourcenick').eq(0).val();
+            console.log('finish: ' + csrnickname);
+
+            
+            
+            
+
+
             //get parent id from the submit button click
-        	var destaddress = $(this).attr('data-destaddy');
+            var destaddress = $(this).attr('data-destaddy');
 
-			//get comment id from the submit button click
-        	var sourceaddress = $(this).attr('data-sourceaddy');
-        	
-        	//use comment id from above to get comment body
-            var fulldestaddy = '#sourceaddress' + destaddress;        	
-        	var sourcebody = $('#sourcebody' + sourceaddress).val();
-        	
+            //get comment id from the submit button click
+            var sourceaddress = $(this).attr('data-sourceaddy');
+            
+            //use comment id from above to get comment body
+            var fulldestaddy = '#sourceaddress' + destaddress;  
+            var fullnickaddy = '#destnick' + destaddress;       
+            var sourcebody = $('#sourcebody' + sourceaddress).val();
+            
 
-        	console.log('destaddress:' + destaddress);
+            console.log('destaddress:' + destaddress);
             console.log('sourceddress:' + sourceaddress);
             console.log('sourcebody:' + sourcebody);
             console.log(fulldestaddy);
-        	
+            console.log(fullnickaddy);
+            
 
-        	$(fulldestaddy).val(sourcebody);
+            $(fulldestaddy).val(sourcebody);
+            $(fullnickaddy).val(csrnickname);
+            
 
-            var csrnickname = $(this).parent().find('.sourcenick').eq(0).val();
+            
 
-            console.log(csrnickname);
+            //console.log('name: ' + csrnickname);
 
-            console.log('last');
-            if (csrnickname == "") {
-
-                
-               $(this).parent().find('.sourcenick').eq(0).val(nickname);
-                
-                console.log("was blank, loaded default");
-            }else{
-
-                console.log("it was added");
-            }
+           
 
             //$(this).parent().parent().submit();
 
-        	$('#destform' + destaddress).submit();
+            $('#destform' + destaddress).submit();
             //console.log('sourcebody:' + sourcebody);
-            
+
+
         });
+
+    
+
+
+    
+        //$('.sourceform button').click(function (event) {
+            
+        //    event.preventDefault(); 
+        	
+            
+        //});
 
          
 
