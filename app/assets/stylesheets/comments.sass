@@ -65,16 +65,49 @@ textarea#comment_body
 	float: left
 	width: calc(100% - 66px)
 	background-color: #fff
-	border: 1px solid #ddd
-	border-radius: 3px
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06)
+	//border: 1px solid #ddd
+	//border-radius: 3px
+	//box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06)
+	+clearfix
 
-	h3
-		display: inline-block
+	.topinfobar
+		+clearfix
+		
+		
+		
+		
+		width: 100%
+
+		h2 
+			
+			font-size: 1.2em
+			color: green
+			margin: 0
+			
+			float: left
+			
+		
+			
+		h4
+			
+			margin: 0
+			line-height: 23px
+			font-size: .7em
+			float: left
+			padding-top: 3px
+	.middlebodybar
+		
+	.bottominfobar
+
+		
+		float: right
+	
+
+			
 
 .replycommentsection
 	float: left
-	width: calc(100% - 66px)
+	width: calc(100% - 30px)
 	background-color: #fff
 	border: 1px solid #ddd
 	border-radius: 3px
@@ -91,12 +124,21 @@ textarea#comment_body
 	overflow: hidden
 	
 .replybox
-	margin-left: 61px
+	//margin-left: 30px
 	display: none
+	clear: both
+.comment:after  
+	content: " " 
+	display: block
+	clear: both
+
+
+comment
 
 .commentbox
 	overflow: hidden
 	padding-top: 38px
+	+clearfix
 
 .reply_commentbox
 	overflow: hidden
@@ -105,3 +147,12 @@ textarea#comment_body
 .reply_reply_commentbox
 	overflow: hidden
 	margin-left: 60px
+
+#nickname0, #nickname1, #nickname2
+	width: 110px
+	float: right
+	padding-bottom: 12px
+
+#submit0
+	width: 100px
+	float: right

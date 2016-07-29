@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"random",
+				"randomguestnumer"
+			],
+			[
+				"source",
+				"sourceaddress"
+			],
+			[
+				"to",
+				"to_s"
+			],
+			[
+				"text",
+				"text_area"
+			],
+			[
+				"if",
+				"if	if … end"
+			],
+			[
 				"lev",
 				"level3commentid"
 			],
@@ -34,10 +54,6 @@
 			[
 				"curr",
 				"currentid"
-			],
-			[
-				"text",
-				"text_field"
 			],
 			[
 				"looku",
@@ -95,31 +111,7 @@
 			"file": "/home/amsterdam/workspace/florida/app/views/articles/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 11175,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/db/schema.rb",
-			"settings":
-			{
-				"buffer_size": 4724,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/controllers/comments_controller.rb",
-			"settings":
-			{
-				"buffer_size": 612,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/comments.sass",
-			"settings":
-			{
-				"buffer_size": 1449,
+				"buffer_size": 9808,
 				"line_ending": "Unix"
 			}
 		},
@@ -127,7 +119,23 @@
 			"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
 			"settings":
 			{
-				"buffer_size": 721,
+				"buffer_size": 2799,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/views/articles/temmp.rhtml",
+			"settings":
+			{
+				"buffer_size": 8356,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/amsterdam/workspace/florida/app/assets/stylesheets/comments.sass",
+			"settings":
+			{
+				"buffer_size": 2071,
 				"line_ending": "Unix"
 			}
 		}
@@ -169,6 +177,7 @@
 		"/home/amsterdam/workspace/florida/app/assets",
 		"/home/amsterdam/workspace/florida/app/assets/javascripts",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/bourbon",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/neat",
 		"/home/amsterdam/workspace/florida/app/controllers",
 		"/home/amsterdam/workspace/florida/app/controllers/concerns",
@@ -188,7 +197,10 @@
 	],
 	"file_history":
 	[
+		"/home/amsterdam/workspace/florida/db/schema.rb",
+		"/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
 		"/home/amsterdam/workspace/florida/app/controllers/comments_controller.rb",
+		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
 		"/home/amsterdam/workspace/florida/app/models/comment.rb",
 		"/home/amsterdam/workspace/florida/Gemfile",
 		"/home/amsterdam/workspace/florida/db/migrate/20160716153035_add_ancestry_to_comments.rb",
@@ -196,9 +208,6 @@
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/articles.sass",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/comments.sass",
 		"/home/amsterdam/workspace/florida/app/views/devise/registrations/new.html.erb",
-		"/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
-		"/home/amsterdam/workspace/florida/app/assets/stylesheets/application.css.sass",
-		"/home/amsterdam/workspace/florida/db/schema.rb",
 		"/home/amsterdam/workspace/florida/db/migrate/20160708071858_add_hidden_url.rb",
 		"/home/amsterdam/workspace/florida/config/environments/production.rb",
 		"/home/amsterdam/workspace/florida/app/assets/stylesheets/letters.sass",
@@ -319,7 +328,7 @@
 	],
 	"find":
 	{
-		"height": 44.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -336,6 +345,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"this",
+			"text_area",
+			"textarea",
+			"new_comment",
+			"nickname0",
+			"data",
+			"nickname3",
 			".build",
 			"avatar_wrapper_current",
 			"featured",
@@ -458,7 +474,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -467,15 +483,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11175,
+						"buffer_size": 9808,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8642,
-								8642
+								7634,
+								7634
 							]
 						],
 						"settings":
@@ -484,70 +500,69 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 15372.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/amsterdam/workspace/florida/db/schema.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4724,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 672.0,
+						"translation.y": 4464.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/home/amsterdam/workspace/florida/app/controllers/comments_controller.rb",
+					"buffer": 1,
+					"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 612,
+						"buffer_size": 2799,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								578,
-								578
+								107,
+								107
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 848.0,
-						"translation.y": 336.0,
+						"translation.x": 0.0,
+						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/amsterdam/workspace/florida/app/views/articles/temmp.rhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8356,
+								8356
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 472.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -556,15 +571,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1449,
+						"buffer_size": 2071,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1401,
-								1401
+								1944,
+								1944
 							]
 						],
 						"settings":
@@ -573,38 +588,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2352.0,
+						"translation.y": 242.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/amsterdam/workspace/florida/app/assets/javascripts/comments.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 721,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								516,
-								516
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -612,7 +599,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -645,11 +632,15 @@
 	{
 		"height": 0.0
 	},
+	"output.unsaved_changes":
+	{
+		"height": 124.0
+	},
 	"pinned_build_system": "",
 	"project": "demo.html.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -687,7 +678,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 321.0,
+	"side_bar_width": 270.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
