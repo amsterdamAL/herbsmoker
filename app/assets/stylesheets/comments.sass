@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#leveloneform
+	+clearfix
+	overflow: hidden
+
 .show_comments
 	padding-top: 10px
-	width: 70%
+	width: 85%
 .show_comments
 	+media($mobile)
 		width: 100%
@@ -14,35 +18,56 @@
 	
 .add_comment
 	overflow: hidden
+	+clearfix
+	.mainpicture
+		float: left
+		img
+			width: 66px
+			padding-top: 5px
+	.mainbody
+		float: left
+		width: calc(100% - 88px)
+
+.textarea1, .textarea
+	
+	float: left
+	//width: calc(100% - 88px)
+	background-color: #fff
+	height: 88px
+	//border: 1px solid #ddd
+	//border-radius: 3px
+	//box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06)
+	
+
+#comment_body
+	
+	
 #new_comment label
 	float: left
 
 #new_comment p
 	float: left
 
-input#comment_commenter
-	width: 100px
+.nickname, .destnick, .sourcenick
+	width: 100px !important
 	float: right
 	clear: left
 	height: 40px
 	margin-right: 2px
 
 
-#new_comment img
-	width: 66px
-	height: 66px
+.replypicture img
+	width: 88px
+	
 	float: left
 	padding-right: 5px
+	padding-top: 5px
 
-textarea#comment_body
-	
-	width: calc(100% - 66px)
-	overflow: hidden
 
 .new_comment input[type=submit]
 	
-	width: 85px
-	float: right
+	
+	//float: right
 
 	
 
@@ -50,9 +75,10 @@ textarea#comment_body
 .avatarpic
 
 	float: left
-	width: 66px
-	height: 66px
+	width: 88px
+	
 	padding-right: 5px
+	padding-top: 5px
 
 .replyavatarpic
 	float: left
@@ -63,11 +89,11 @@ textarea#comment_body
 
 .commentsection
 	float: left
-	width: calc(100% - 66px)
+	width: calc(100% - 88px)
 	background-color: #fff
-	//border: 1px solid #ddd
-	//border-radius: 3px
-	//box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06)
+	border: 1px solid #ddd
+	border-radius: 3px
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06)
 	+clearfix
 
 	.topinfobar
@@ -101,6 +127,7 @@ textarea#comment_body
 
 		
 		float: right
+		padding-right: 20px
 	
 
 			
@@ -133,7 +160,6 @@ textarea#comment_body
 	clear: both
 
 
-comment
 
 .commentbox
 	overflow: hidden
@@ -144,15 +170,18 @@ comment
 	overflow: hidden
 	margin-left: 30px
 
+.replybox
+	margin-left: 30px
+
 .reply_reply_commentbox
 	overflow: hidden
 	margin-left: 60px
 
-#nickname0, #nickname1, #nickname2
+#nickname0, #nickname1, #nickname2, .nickname, .destnick
 	width: 110px
 	float: right
 	padding-bottom: 12px
 
-#submit0
+#submit0, .submit1, .destsubmit, .sourcesubmit
 	width: 100px
 	float: right

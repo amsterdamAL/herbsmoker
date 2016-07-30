@@ -44,29 +44,34 @@
 					
 					<%= f.hidden_field :level_id, :value => "1" %>
 	      				
-					<% if user_signed_in? %>
-	      				<%= image_tag(current_user.avatar.url(:thumb)) %>
-	      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
-	  				<% else %>
-	    			
-	      				<%= image_tag("man100px.png") %>
-	      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
-	      			<% end %>
+					
+					<div class = 'mainpicture'>
+						<% if user_signed_in? %>
+		      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+		      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+		  				<% else %>
+		    			
+		      				<%= image_tag("man100px.png") %>
+		      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
+		      			<% end %>
+	      			</div>
+	      			<div class='mainbody'>
 
+						<%= f.text_area :body,  placeholder: "what is your comment ..." %>
+					</div>
 
+					<div class='mainbottom'>
+						<%= f.submit "Post", id: 'submit0'%>
+						<% if !user_signed_in? %>
+													
+							<%= f.text_field :commenter, placeholder: "Nickname", id: 'nickname0' %>
+						<% else %>
 
-					<%= f.text_area :body,  placeholder: "what is your comment ..." %>
-
-
-					<%= f.submit "Post", id: 'submit0'%>
-
-					<% if !user_signed_in? %>
-												
-						<%= f.text_field :commenter, placeholder: "Nickname", id: 'nickname0' %>
-					<% else %>
-
-						<%= f.hidden_field :commenter, :value => current_user.nickname %>
-					<% end %>
+							<%= f.hidden_field :commenter, :value => current_user.nickname %>
+						<% end %>
+					</div>
+					<div class='testscroll'>
+					</div>
 					
 				<% end %>
 			</div>
@@ -146,30 +151,38 @@
 									<%= f.hidden_field :level_id, :value => "2" %>
 									<%= f.hidden_field :parent_id, :value => @level1commentid %>
 										
-									<% if user_signed_in? %>
-					      				<%= image_tag(current_user.avatar.url(:thumb)) %>
-					      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
-					  				<% else %>
-						    			
-					      				<%= image_tag("man100px.png") %>
-					      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
-
-					      			<% end %>
-
-
-
-									<%= f.text_area :body, class: "textarea1", placeholder: "Write reply here" %>
-
-
-									<%= f.submit "Post", class: 'submit1'%>
 									
-									<% if !user_signed_in? %>
-																
-										<%= f.text_field :commenter, placeholder: "Nickname", class: 'nickname' %>
-									<% else %>
+									<div class = 'replypicture'>
+										<% if user_signed_in? %>
+						      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+						      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+						  				<% else %>
+							    			
+						      				<%= image_tag("man100px.png") %>
+						      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
 
-										<%= f.hidden_field :commenter, :value => current_user.nickname %>
-									<% end %>
+						      			<% end %>
+					      			</div>
+
+					      			<div class='mainbody'>
+										<%= f.text_area :body, class: "textarea1", placeholder: "Write reply here" %>
+									</div>
+
+
+									<div class='mainbottom'>
+										<%= f.submit "Post", class: 'submit1'%>
+										
+										<% if !user_signed_in? %>
+																	
+											<%= f.text_field :commenter, placeholder: "Nickname", class: 'nickname', id: 'nickname' + comment.id.to_s %>
+										<% else %>
+
+											<%= f.hidden_field :commenter, :value => current_user.nickname %>
+										<% end %>
+									</div>
+									<div class='testscroll'>
+									sdfsdfsdf
+									</div>
 								<% end %>
 							</div>
 						</div>
@@ -244,29 +257,36 @@
 								<%= f.hidden_field :level_id, :value => "3" %>
 								<%= f.hidden_field :parent_id, :value => @level2commentid %>
 
-								<% if user_signed_in? %>
-				      				<%= image_tag(current_user.avatar.url(:thumb)) %>
-				      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
-				  				<% else %>
-					    			
-				      				<%= image_tag("man100px.png") %>
-				      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
+								<div class = 'replypicture'>
+									<% if user_signed_in? %>
+					      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+					      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+					  				<% else %>
+						    			
+					      				<%= image_tag("man100px.png") %>
+					      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
 
-				      			<% end %>
+					      			<% end %>
+				      			</div>
 
+				      			<div class='mainbody'>
+									<%= f.text_area :body, class: "textarea", id: 'sourceaddress' +comment.id.to_s, placeholder: "Write comment here" %>
+								</div>
 
+								
 
-								<%= f.text_area :body, class: "textarea", id: 'sourceaddress' +comment.id.to_s, placeholder: "Write comment here" %>
+								<div class='mainbottom'>
+									<%= f.submit "Post", class: 'destsubmit', id: 'destsubmit' + comment.id.to_s %>
+									<% if !user_signed_in? %>
+																
+										<%= f.text_field :commenter, placeholder: "Nickname", class: 'destnick', id: 'destnick' +comment.id.to_s %>
+									<% else %>
 
-
-								<%= f.submit "Post", class: 'destsubmit', id: 'destsubmit' + comment.id.to_s %>
-								<% if !user_signed_in? %>
-															
-									<%= f.text_field :commenter, placeholder: "Nickname", class: 'destnick', id: 'destnick' +comment.id.to_s %>
-								<% else %>
-
-								<%= f.hidden_field :commenter, :value => current_user.nickname %>
-								<% end %>
+									<%= f.hidden_field :commenter, :value => current_user.nickname %>
+									<% end %>
+								</div>
+								<div class='testscroll'>
+								</div>
 							<% end %>
 						</div>
 					</div>
@@ -340,30 +360,37 @@
 									<%= f.hidden_field :parent_id, :value => @level3commentid %>
 									
 											
-									<% if user_signed_in? %>
-					      				<%= image_tag(current_user.avatar.url(:thumb)) %>
-					      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
-					  				<% else %>
-						    			
-					      				<%= image_tag("man100px.png") %>
-					      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
+									<div class = 'replypicture'>
+										<% if user_signed_in? %>
+						      				<%= image_tag(current_user.avatar.url(:thumb)) %>
+						      				<%= f.hidden_field :picurl, :value => current_user.avatar.url(:thumb) %>
+						  				<% else %>
+							    			
+						      				<%= image_tag("man100px.png") %>
+						      				<%= f.hidden_field :picurl, :value => "man100px.png" %>
 
-					      			<% end %>
-
-
-
-									<%= f.text_area :body, class: "textarea", id: 'sourcebody' + comment.id.to_s , placeholder: "Write comment here" %>
+						      			<% end %>
+					      			</div>
 
 
-									<%= f.button "post", :data => {:sourceaddy => comment.id, :destaddy => comment.parent_id}, id: 'sourcesubmit' +comment.parent_id.to_s, class: 'sourcesubmit'%>
-									 
-									<% if !user_signed_in? %>
-																
-										<%= f.text_field :commenter, placeholder: "Nickname", class: 'sourcenick'%>
-									<% else %>
+					      			<div class = 'mainbody'>
+										<%= f.text_area :body, class: "textarea", id: 'sourcebody' + comment.id.to_s , placeholder: "Write comment here" %>
+									</div>
 
-									<%= f.hidden_field :commenter, :value => current_user.nickname %>
-									<% end %>
+									
+									<div class = 'mainbottom'>
+										<%= f.button "post", :data => {:sourceaddy => comment.id, :destaddy => comment.parent_id}, id: 'sourcesubmit' +comment.parent_id.to_s, class: 'sourcesubmit'%>
+										 
+										<% if !user_signed_in? %>
+																	
+											<%= f.text_field :commenter, placeholder: "Nickname", class: 'sourcenick'%>
+										<% else %>
+
+										<%= f.hidden_field :commenter, :value => current_user.nickname %>
+										<% end %>
+									</div>
+									<div class='testscroll'>
+									</div>
 								<% end %>
 							</div>
 						</div>

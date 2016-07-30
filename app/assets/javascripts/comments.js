@@ -41,6 +41,9 @@ $(document).ready(function(){
 
             //	$("#" + CommentId + ".replybox").toggle(400);
         	//}
+            checkIfInView(  $(this).parent().parent().parent().next().find('.testscroll').eq(0)  );
+            console.log($(this).parent().parent().parent().next().find('.testscroll').eq(0) );
+            
             
       	}); 
 
@@ -92,7 +95,7 @@ $(document).ready(function(){
 
                 console.log("it was added");
             }
-            $(this).parent().submit();
+            $(this).parent().parent().submit();
 
         });
 
@@ -119,7 +122,7 @@ $(document).ready(function(){
 
                 console.log("it was added");
             }
-            $(this).parent().submit();
+            $(this).parent().parent().submit();
 
         });
 
@@ -128,45 +131,20 @@ $(document).ready(function(){
         $('.sourcesubmit').click(function (event) { 
 
             event.preventDefault(); 
-            console.log('.sourcesubmit');
             
             var csrnickname = $(this).parent().find('.sourcenick').eq(0).val();
 
-            console.log('2nd 2 last: ' +csrnickname);
-
-
             if (csrnickname == "") {
 
-                
                 $(this).parent().find('.sourcenick').eq(0).val(nickname);
                 
-                console.log("was blankk, loaded default");
             }else{
 
                 console.log("it was addedd");
             }
-            //$(this).parent().submit();
-            //console.log( $(this).parent() );
-            //$('#destform' + destaddress).submit();
-
-
-
-
-
-            console.log('start');
-
-
-
-
-
-
+            
             var csrnickname = $(this).parent().find('.sourcenick').eq(0).val();
             console.log('finish: ' + csrnickname);
-
-            
-            
-            
-
 
             //get parent id from the submit button click
             var destaddress = $(this).attr('data-destaddy');
@@ -179,28 +157,12 @@ $(document).ready(function(){
             var fullnickaddy = '#destnick' + destaddress;       
             var sourcebody = $('#sourcebody' + sourceaddress).val();
             
-
-            console.log('destaddress:' + destaddress);
-            console.log('sourceddress:' + sourceaddress);
-            console.log('sourcebody:' + sourcebody);
-            console.log(fulldestaddy);
-            console.log(fullnickaddy);
-            
-
             $(fulldestaddy).val(sourcebody);
             $(fullnickaddy).val(csrnickname);
             
 
-            
-
-            //console.log('name: ' + csrnickname);
-
-           
-
-            //$(this).parent().parent().submit();
-
             $('#destform' + destaddress).submit();
-            //console.log('sourcebody:' + sourcebody);
+            
 
 
         });
@@ -209,13 +171,17 @@ $(document).ready(function(){
 
 
     
-        //$('.sourceform button').click(function (event) {
-            
-        //    event.preventDefault(); 
-        	
-            
-        //});
-
+    function checkIfInView(element){
+    var offset = element.offset().top - $(window).scrollTop();
+    
+    console.log('offdet: ' + offset + '  windowht: ' + window.innerHeight );
+    if(offset > window.innerHeight){
+        // Not in view so scroll to it
+        $('html,body').animate({scrollTop: 100}, 1000);
+        return false;
+    }
+   return true;
+}
          
 
 });
