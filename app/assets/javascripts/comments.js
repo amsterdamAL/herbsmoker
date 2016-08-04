@@ -1,52 +1,136 @@
-$(document).ready(function(){
+function isThere(elementToBeChecked) {
+    var TopView = $(window).scrollTop();
+    console.log('topview: ' + TopView);
+    
+    var BotView = TopView + $(window).height();
+    console.log('botview: ' + BotView);
+    
+    var TopElement = $(elementToBeChecked).offset().top;
+    console.log('topelement: ' + TopElement);
+    
+    var BotElement = TopElement + $(elementToBeChecked).height() + 20;
+    console.log('botelement: ' + BotElement);
 
-    //var items = Array("sativa","indica","kush","ganja","dime", "dank",
-    //                              "BuD", "sack");
-    //var item = items[Math.floor(Math.random()*items.length)];
+    var lowerOffset = (BotElement - BotView) + TopView;
+
+    return [(BotElement < BotView), lowerOffset];
+
+}
+
+$(document).ready(function(){
 
     var randomguestnumer = Math.floor(Math.random() * 9876) + 1234;
 
     var nickname = ("guest-" + randomguestnumer);
-    //$('#nickname0').val();
+    
+    //lastclicked anchor used for reply section toggle
+    var lastClicked = "thc";
+    
+
+    
+
+
+
+    $("a").unbind("click").click(function (event) {
+            
+        
+        
+        //if lastclicked is "thc", then no anchor has been clicked yet.
+        if (lastClicked == "thc"){
+
+            //get nessesary variables based on clicked 
+            var CommentId = $(this).attr('id')
+            var parentId = $(this).attr("data-id");
+            var myElement = $(this).parent().parent().parent().next().find('.testscroll').eq(0);
+
+            // set global lastclicked var...
+            lastClicked = "#" + CommentId + ".replybox";
+
+                       
+            $("#" + CommentId + ".replybox").toggle('slow', function() {
+                // Animation complete.
+                var resultz = isThere( myElement );
+                //console.log($("#" + CommentId + ".replybox").is(':visible') );
+                console.log('newone: ' + resultz[0] + " " + resultz[1]);
+
+                $("a" + "#" + CommentId).text('Cancel');
+                if (!resultz[0]){
+
+                    $('html,body').animate({scrollTop: resultz[1]}, 1000);
+                }
+
+            });
                 
-    //$("#nickname0").attr('placeholder', 'anonymous');
 
-
-
+          
+            $(this).parent().parent().parent().next().find('textarea').eq(0).focus();  
+           
         
-    $("a").click(function (event) {
-        
-        
-        var CommentId = $(this).attr('id')
-        var parentId = $(this).attr("data-id");
-        var myElement = $(this).parent().parent().parent().next().find('.testscroll').eq(0);
+        }else if (lastClicked == "#" + $(this).attr('id') + ".replybox"){
 
-        console.log("commentID: " + CommentId)
-        console.log("parentid: " + parentId)
+            //get nessesary variables based on clicked 
+            var CommentId = $(this).attr('id');
+            var parentId = $(this).attr("data-id");
+            var myElement = $(this).parent().parent().parent().next().find('.testscroll').eq(0);
 
-        $("#" + CommentId + ".replybox").slideToggle("slow");
-        InOrOut( myElement );
-        
-
-        $(this).parent().parent().parent().next().find('textarea').eq(0).focus();
-        //console.log ( $(this).parent().parent().parent().next().find('textarea').eq(0));
-        //////$('body').animate({scrollTop:$(this).parent().next('.textarea').offset().top},500)
-
-        //if replying to a reply do this
-        //aka.. if in inner loop
-        //if (parentId != undefined){
-        //console.log($(this).parent().parent().parent().next().find('textarea'))
+            // reset global lastclicked var...
+            lastClicked = "thc";
+            $("a#" + CommentId).text('Reply');
             
-        //  $("#" + CommentId + ".replybox").toggle(400);
-            
-        //}else{
-        //              console.log("false")
+            $("#" + CommentId + ".replybox").toggle("slow", function () {
+                
+               // Animation complete.
+                var resultz = isThere( myElement );
+                //console.log($("#" + CommentId + ".replybox").is(':visible') );
+                console.log('newone: ' + resultz[0] + " " + resultz[1]);
 
-        //  $("#" + CommentId + ".replybox").toggle(400);
-        //}
-        //console.log($(this).parent().parent().parent().next().find('.testscroll').eq(0).length);
-        
-        
+                if (!resultz[0]){
+
+                    $('html,body').animate({scrollTop: resultz[1]}, 1000);
+                }
+            });
+            
+            $(this).parent().parent().parent().next().find('textarea').eq(0).focus(); 
+           
+            
+        }else{    
+            
+            var CommentId = $(this).attr('id')
+            var parentId = $(this).attr("data-id");
+            var myElement = $(this).parent().parent().parent().next().find('.testscroll').eq(0);
+            var intro = "a#";
+            console.log('fuck: ' + "a#" + parentId)
+            //$(intro + parentId).text('Reply');
+            // toggle back last clicked
+            $(lastClicked).toggle("slow");
+
+            lastClicked = "#" + CommentId + ".replybox";
+
+
+               
+                //InOrOut( myElement );
+                
+
+                //$(this).parent().parent().parent().next().find('textarea').eq(0).focus();
+                //console.log($("#" + CommentId + ".replybox").is(':visible') );
+            $("#" + CommentId + ".replybox").toggle("slow", function () {
+                
+               
+                
+               // Animation complete.
+                var resultz = isThere( myElement );
+                //console.log($("#" + CommentId + ".replybox").is(':visible') );
+                console.log('newone: ' + resultz[0] + " " + resultz[1]);
+                $("a#" + CommentId).text('Cancel');
+                if (!resultz[0]){
+
+                    $('html,body').animate({scrollTop: resultz[1]}, 1000);
+                }
+            });
+            
+            
+            $(this).parent().parent().parent().next().find('textarea').eq(0).focus(); 
+        }
     }); 
 
     $('#submit0').click(function (event) { 
@@ -195,6 +279,24 @@ $(document).ready(function(){
         }else{
             console.log('no no no');
         }
+    };
+    
+
+    var IsIt = function(element){
+
+        var top_of_element = $(element).offset().top;
+        var bottom_of_element = $(element).offset().top + $(element).outerHeight;
+        var bottom_of_screen = $(window).scrollTop() + $(window).height();
+
+        if((bottom_of_screen > top_of_element) && (bottom_of_screen < bottom_of_element)){
+            console.log('is');
+        }
+        else {
+            // The element is not visible, do something else
+            console.log('isNOT');
+        }
+
+
     };
     
 });

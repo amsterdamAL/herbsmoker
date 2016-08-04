@@ -129,7 +129,7 @@
 								
 								<div class="bottominfobar">
 									
-									<a href="#!" class="rep" id='<%= comment.id %>'>Reply to <%= comment.commenter %> </a>
+									<a href="#!" class="rep" id='<%= comment.id %>' data-id='<%= comment.parent_id %>' >Reply</a>
 
 									<% if current_user.try(:admin?) %> 
 									<%= link_to 'E', [comment.article, comment], method: :delete, data: { confirm: 'WHAT DO YOU THINK YOUR DOING!!!'}%>
@@ -181,7 +181,7 @@
 										<% end %>
 									</div>
 									<div class='testscroll'>
-									sdfsdfsdf
+									666
 									</div>
 								<% end %>
 							</div>
@@ -236,7 +236,7 @@
 							
 							<div class="bottominfobar">
 								
-								<a href="#!" class="rep" id='<%= comment.id %>'>Reply to <%= comment.commenter %> </a>
+								<a href="#!" class="rep" id='<%= comment.id %>' data-id='<%= comment.parent_id %>'>Reply</a>
 
 								<% if current_user.try(:admin?) %> 
 								<%= link_to 'E', [comment.article, comment], method: :delete, data: { confirm: 'WHAT DO YOU THINK YOUR DOING!!!'}%>
@@ -286,6 +286,7 @@
 									<% end %>
 								</div>
 								<div class='testscroll'>
+								666
 								</div>
 							<% end %>
 						</div>
@@ -333,7 +334,7 @@
 								
 								<div class="bottominfobar">
 									
-									<a href="#!" class="rep" id='<%= comment.id %>'>Reply to <%= comment.commenter %> </a>
+									<a href="#!" class="rep" id='<%= comment.id %>' data-id='<%= comment.parent_id %>' >Reply</a>
 
 									<% if current_user.try(:admin?) %> 
 									<%= link_to 'E', [comment.article, comment], method: :delete, data: { confirm: 'WHAT DO YOU THINK YOUR DOING!!!'}%>
@@ -390,6 +391,7 @@
 										<% end %>
 									</div>
 									<div class='testscroll'>
+									666
 									</div>
 								<% end %>
 							</div>

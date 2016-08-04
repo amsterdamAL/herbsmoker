@@ -1,9 +1,12 @@
 function isElementVisible(elementToBeChecked) {
 	var TopView = $(window).scrollTop();
+    
 	var BotView = TopView + $(window).height();
 	var TopElement = $(elementToBeChecked).offset().top + 105;
 	var BotElement = TopElement + $(elementToBeChecked).height();
+
 	return ((BotElement < BotView) && (TopElement > TopView));
+
 }
 
 
