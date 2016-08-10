@@ -67,7 +67,7 @@ $(document).ready(function(){
 
                 //if resultz[0] is not true ...aka(not in VIEWport)
                 //then scrolltop to new value to show replysection in viewport
-                if (!resultz[0]){
+                if (!resultz[0] && $( window ).width() > 1000){
 
                     $('html,body').animate({scrollTop: resultz[1]}, 1000);
 
@@ -133,7 +133,7 @@ $(document).ready(function(){
                
                 //if resultz[0] is not true ...aka(not in VIEWport)
                 //then scrolltop to new value to show replysection in viewport
-                if (!resultz[0]){
+                if (!resultz[0] && $( window ).width() > 1000){
 
                     $('html,body').animate({scrollTop: resultz[1]}, 1000);
                 }
