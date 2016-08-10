@@ -22,9 +22,13 @@ $(document).ready(function(){
 		if(zip == "" && addy == "" && city == ""){
 			$('#flag').hide();
 			$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
-		}else if ( $("#lookup_zip").val().replace(/ /g,'').length < 5){	
+		}else if ( $("#lookup_zip").val().replace(/ /g,'').length != 5){	
 		
 			$('#lookup_errors').show().empty().append("zipcode must be 5 digits");
+
+		}else if(!$.isNumeric($("#lookup_zip").val())){
+
+			$('#lookup_errors').show().empty().append("zipcode must be numbers");
 
 
 		} else {

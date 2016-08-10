@@ -1,3 +1,8 @@
+
+//Checks if element is in viewport Boolean
+//and also gets offset (how far under the viewport the replysection is
+//after getting toggled into view) that offset is added to current scrolltop
+//to get new scrolltop value scrolls up.
 function isThere(elementToBeChecked) {
     var TopView = $(window).scrollTop();
     console.log('topview: ' + TopView);
@@ -25,47 +30,58 @@ $(document).ready(function(){
     
     //lastclicked anchor used for reply section toggle
     var lastClicked = "thc";
+    var lastId = 'thc';
     
 
     
 
 
-
+    // every time a reply link is clicked
     $("a").unbind("click").click(function (event) {
             
         
         
-        //if lastclicked is "thc", then no anchor has been clicked yet.
+        
+        //checks global variable to see if this is first
+        // time a "reply was clicked. thc is initial value.
         if (lastClicked == "thc"){
 
-            //get nessesary variables based on clicked 
-            var CommentId = $(this).attr('id')
+            //get nessesary variables based on anchor that was clicked 
+            var CommentId = $(this).attr('id');
             var parentId = $(this).attr("data-id");
             var myElement = $(this).parent().parent().parent().next().find('.testscroll').eq(0);
 
-            // set global lastclicked var...
+            // set global lastclicked var to ID of the last anchor that was clicked
             lastClicked = "#" + CommentId + ".replybox";
+            lastId = "#" + CommentId;
+            //changes text value of "reply" anchor to "cancel"
+            $("a" + "#" + CommentId).text('Cancel');
 
-                       
+            //show the hidden reply section of anchor that was clicked
             $("#" + CommentId + ".replybox").toggle('slow', function() {
-                // Animation complete.
+                
+                //gets array from function
                 var resultz = isThere( myElement );
-                //console.log($("#" + CommentId + ".replybox").is(':visible') );
-                console.log('newone: ' + resultz[0] + " " + resultz[1]);
+                
 
-                $("a" + "#" + CommentId).text('Cancel');
+
+                //if resultz[0] is not true ...aka(not in VIEWport)
+                //then scrolltop to new value to show replysection in viewport
                 if (!resultz[0]){
 
                     $('html,body').animate({scrollTop: resultz[1]}, 1000);
+
                 }
 
             });
                 
 
+            //apply focus to newly toggled replysection
+            //$(this).parent().parent().parent().next().find('.commenterrors').show().empty().append("<h2>Please enter a comment> </h2").delay(1000).fadeOut(4278);
+            $(this).parent().parent().parent().next().find('textarea').eq(0).focus();
           
-            $(this).parent().parent().parent().next().find('textarea').eq(0).focus();  
-           
         
+        //if the same anchor was clicked aka..(reply was cancled)
         }else if (lastClicked == "#" + $(this).attr('id') + ".replybox"){
 
             //get nessesary variables based on clicked 
@@ -75,68 +91,76 @@ $(document).ready(function(){
 
             // reset global lastclicked var...
             lastClicked = "thc";
+            lastId = "#" + CommentId;
+
+            //resets the anchor text back to "reply" from "cancel"
             $("a#" + CommentId).text('Reply');
             
-            $("#" + CommentId + ".replybox").toggle("slow", function () {
-                
-               // Animation complete.
-                var resultz = isThere( myElement );
-                //console.log($("#" + CommentId + ".replybox").is(':visible') );
-                console.log('newone: ' + resultz[0] + " " + resultz[1]);
-
-                if (!resultz[0]){
-
-                    $('html,body').animate({scrollTop: resultz[1]}, 1000);
-                }
-            });
+            //toggles the reply section back closed
+            $("#" + CommentId + ".replybox").toggle("slow");
             
-            $(this).parent().parent().parent().next().find('textarea').eq(0).focus(); 
-           
-            
+                      
+        //if multiple "reply" anchors of different comments are clicked  
         }else{    
             
+            //get nessesary variables based on clicked
             var CommentId = $(this).attr('id')
             var parentId = $(this).attr("data-id");
             var myElement = $(this).parent().parent().parent().next().find('.testscroll').eq(0);
-            var intro = "a#";
-            console.log('fuck: ' + "a#" + parentId)
-            //$(intro + parentId).text('Reply');
-            // toggle back last clicked
+            
+            
+            //resets the anchor text back to "reply" from "cancel"
+            $(lastId).text('Reply');
+            
+            //sets lastId to this anchor that was clicked
+            lastId = "#" + CommentId;
+
+            //changes text value of "reply" anchor to "cancel"
+            $("a#" + CommentId).text('Cancel');
+            
+            // toggle back the last clicked anchor
             $(lastClicked).toggle("slow");
 
+            // set global lastclicked var to ID of the last anchor that was clicked
             lastClicked = "#" + CommentId + ".replybox";
 
-
-               
-                //InOrOut( myElement );
-                
-
-                //$(this).parent().parent().parent().next().find('textarea').eq(0).focus();
-                //console.log($("#" + CommentId + ".replybox").is(':visible') );
+            //show the hidden reply section of anchor that was clicked
             $("#" + CommentId + ".replybox").toggle("slow", function () {
                 
-               
-                
-               // Animation complete.
+                //gets array from function
                 var resultz = isThere( myElement );
-                //console.log($("#" + CommentId + ".replybox").is(':visible') );
-                console.log('newone: ' + resultz[0] + " " + resultz[1]);
-                $("a#" + CommentId).text('Cancel');
+                
+               
+                //if resultz[0] is not true ...aka(not in VIEWport)
+                //then scrolltop to new value to show replysection in viewport
                 if (!resultz[0]){
 
                     $('html,body').animate({scrollTop: resultz[1]}, 1000);
                 }
             });
             
-            
+           
+            //apply focus to newly toggled replysection
             $(this).parent().parent().parent().next().find('textarea').eq(0).focus(); 
         }
     }); 
 
+    
     $('#submit0').click(function (event) { 
 
         event.preventDefault(); 
         console.log('submit0');
+
+        var comment = $(this).parent().parent().find('.textarea0').val();
+
+
+        if(comment == "" ){
+            console.log('insideIT');
+            $(this).parent().find('.commenterrors').show().empty().append("<h2>Please enter a comment.</h2").delay(1000).fadeOut(4278);
+            //$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
+            return;
+        }
+
 
         
         var csrnickname = $('#nickname0').val();
@@ -161,12 +185,37 @@ $(document).ready(function(){
 
 
 
-    $('.submit1').click(function (event) { 
+    $('.submit1').on('click', function (event) { 
 
         event.preventDefault(); 
         console.log('submit1');
+        
+        //get commentid attribute
+        //var commentId = $(this).parent().parent().parent().parent().parent().find('.rep').attr('id');
+        
+        //use commentid to build full address of error box
+        //var commentErrorsAddy = 'comment_errors' + commentId;
+        var comment = $(this).parent().parent().find('.textarea1').val();
 
-        //$(this).parent().find('.nickname').eq(0).val("fffdf") ;
+
+        if(comment == "" ){
+            console.log('insideIT');
+            $(this).parent().find('.commenterrors').show().empty().append("<h2>Please enter a comment.</h2").delay(1000).fadeOut(4278);
+            //$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
+            return;
+        }
+
+
+
+
+
+
+
+        //$(this).parent().parent().parent().parent().find('.commenterrors').text('testerrors');
+
+        
+        
+
         var csrnickname = $(this).parent().find('.nickname').eq(0).val();
         //console.log(csrnickname);
 
@@ -187,12 +236,24 @@ $(document).ready(function(){
 
     
 
-    $('.destsubmit').click(function (event) { 
+    $('.destsubmit').on('click', function (event) { 
 
         event.preventDefault(); 
-        //console.log('.destsubmit');
+        console.log('.destsubmit');
 
+        var comment = $(this).parent().parent().find('.textarea').val();
+        console.log(comment);
+
+        if(comment == "" ){
+            console.log('insideIT2');
+            $(this).parent().find('.commenterrors').show().empty().append("<h2>Please enter a comment.</h2").delay(1000).fadeOut(4278);
+            //$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
+            return;
+        }
         
+
+
+
         var csrnickname = $(this).parent().find('.destnick').eq(0).val();
 
         //console.log(csrnickname);
@@ -214,10 +275,24 @@ $(document).ready(function(){
 
     
 
-    $('.sourcesubmit').click(function (event) { 
+    $('.sourcesubmit').on('click', function (event) { 
 
         event.preventDefault(); 
         
+        
+        var comment = $(this).parent().parent().find('.textarea').val();
+
+
+        if(comment == "" ){
+            console.log('insideIT');
+            $(this).parent().find('.commenterrors').show().empty().append("<h2>Please enter a comment.</h2").delay(1000).fadeOut(4278);
+            //$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
+            return;
+        }
+
+
+
+
         var csrnickname = $(this).parent().find('.sourcenick').eq(0).val();
 
         if (csrnickname == "") {
