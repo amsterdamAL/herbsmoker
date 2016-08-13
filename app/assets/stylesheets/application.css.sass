@@ -33,17 +33,31 @@ $grays: #CACABC
 @import 'progress'
 @import 'devise'
 
+html, body
+	height: 100%
 
+#mainwrapper
+	min-height: 100%
 
 h1 h2 h3
   
   
-  text-shadow: 2px 2px 5px #888888
+	text-shadow: 2px 2px 5px #888888
 h1
-  //font-weight: bold
-  //font-size: 2.25em  
+	//font-weight: bold
+	//font-size: 2.25em  
 h2
-  //font-size: 1.1em
-  clear:both
+	//font-size: 1.1em
+	clear:both
+
+
+/*opera and IE fix for sticky footer*/
+body:before
+	content: ""
+	height: 100%
+	float: left
+	width: 0
+	margin-top: -32767px
+
 
 

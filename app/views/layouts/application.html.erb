@@ -15,15 +15,24 @@
 
 </head>
 <body>
+	<!--[if !IE7]>
+		<style type="text/css">
+			#mainwrapper {display:table;height:100%}
+		</style>
+	<![endif]-->
 
- 
+	<div id='mainwrapper'> 
 
-<%= render :partial => "shared/nav2" %>
+		<%= render :partial => "shared/nav2" %>
 
 
-<%= yield %>
+		<%= yield %>
 
-<%= render :partial => "shared/footer" %>
+
+	</div>
+
+	<%= render :partial => "shared/footer" %>
 
 </body>
+
 </html>

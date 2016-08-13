@@ -120,8 +120,9 @@
 	
 	
 	<div class="side">
-		<div id="one">
-			<% if !user_signed_in? %>
+		<% if !user_signed_in? %>
+			<div id="one">
+				
 				<div id="register_mini">
 					<h5>GET OUR UPDATES</h5>
 					<p>join our community and stay informed.  
@@ -132,9 +133,9 @@
 					
 					<input type="submit" value="subscribe" id="go_mini" />
 				</div>
-			<% end %>
-		</div>
-
+				
+			</div>
+		<% end %>
 		<div id="two">
 
 			<div id="chat_mini">		
@@ -147,5 +148,6 @@
 			
 		</div>
 	</div>
+	
 
 </div>	
