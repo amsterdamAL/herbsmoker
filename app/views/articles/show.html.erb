@@ -19,13 +19,22 @@
 		</div>
 
 		<div class='show_info_bar'>
-			<%= social_share_button_tag("my site") %>
+			
 		</div>
 		
 		<div class='show_image'>
-			<%= image_tag @article.image.url(:featured) %>
+			<%= image_tag @article.image.url(:show) %>
+			<div class='caption'>
+				<%= @article.caption %>
+			</div>
 		</div>
+
+		<%= social_share_button_tag(@article.title) %>
+
 		
+		<div class='show_dateinfo'>
+			By FloridaToker Staff <%= time_ago_in_words(@article.created_at) %> ago:
+		</div>
 		<div class='show_words'>
 			<%= @article.text.html_safe %>
 		</div>
