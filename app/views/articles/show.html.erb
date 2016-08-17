@@ -29,14 +29,11 @@
 			</div>
 		</div>
 
-		<div class='sharebuttons'>
-			<%= social_share_button_tag(@article.title) %>
-		</div>
-
-		
+				
 		<div class='show_dateinfo'>
 			By FloridaToker Staff <%= time_ago_in_words(@article.created_at) %> ago:
 		</div>
+		<%= social_share_button_tag(@article.title) %>
 		<div class='show_words'>
 			<%= @article.text.html_safe %>
 		</div>
