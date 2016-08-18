@@ -17,9 +17,7 @@
 			</div>
 			
 			<div class="featured_time_stamp_wrapper">
-				<!--<div class="featured_share_buttons">
-					<%= social_share_button_tag("FloridaToker.com") %>
-				</div>-->
+				
 				<div class="featured_time_stamp">
 				posted on
 					<%= @article.created_at.strftime('%B' + ' ' + @article.created_at.day.ordinalize + ' ' + '%Y') %>
@@ -66,7 +64,7 @@
 
 					<div class="mini_info_wrapper">
 						<div class="mini_share_buttons">
-							<%= social_share_button_tag("FloridaToker.com") %>
+							share but was here
 						</div>
 						<div class="mini_info">
 							<%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %>
@@ -91,14 +89,7 @@
 
 
 
-					<!--<div class="mini_info_wrapper">
-						<div class="mini_share_buttons">
-							<%= social_share_button_tag("FloridaToker.com") %>
-						</div>
-						<div class="mini_info">
-							<%= a.created_at.strftime('%B' + ' ' + a.created_at.day.ordinalize + ' ' + '%Y') %>
-						</div>
-					</div>-->
+					
 					
 					<div class="mini_text"><strong><%= link_to a.title, {:controller => 'articles', :action => 'show', :id => a.slug }  %></strong></div>
 				</li>

@@ -12,41 +12,30 @@
  *
  */
 
-$size: 40px
-
-.social-share-button
-  .ssb-icon
-    background-size: $size $size
-    height: $size
-    width: $size
-  
-
-
-
-
-
-
 $green_light: tint(#E6F5EB, 95%)
 $green_dark: tint(#19A347, 14%)
 $green_base: #009933
 $grays: #CACABC
 
 
-@import 'bourbon'
+@import 'bourbon/bourbon'
 @import 'normalize'
-@import "grid-settings"
+
+@import 'grid-settings'
+@import 'neat'
 @import 'base/base'
-@import 'neat/neat'
 @import 'engage'
 @import 'articles'
 @import 'lookups'
 @import 'comments'
 @import 'footer'
-@import 'social-share-button'
 @import 'chats'
 @import 'feedbacks'
 @import 'progress'
 @import 'devise'
+
+
+
 
 html, body
 	height: 100%
@@ -67,12 +56,12 @@ h2
 
 
 /*opera and IE fix for sticky footer*/
-body:before
-	content: ""
-	height: 100%
-	float: left
-	width: 0
-	margin-top: -32767px
+//body:before
+//	content: ""
+//	height: 100%
+//	float: left
+//	width: 0
+//	margin-top: -32767px
 
 
 

@@ -1,9 +1,8 @@
 source 'http://rubygems.org'
 
 #ruby "2.2.1"
-
 gem 'bourbon', '4.2.7'
-gem 'neat', '~> 1.7.4'
+gem 'neat', '~> 1.8.0'
 gem 'bitters', '1.2.0'
 gem 'refills'
 gem 'sass'
@@ -15,6 +14,7 @@ gem 'devise', '~> 3.5.10'
 gem 'figaro'
 gem 'opentok', "~> 2.2"
 gem 'ancestry'
+gem 'shareable'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
