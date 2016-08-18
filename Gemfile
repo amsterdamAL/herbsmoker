@@ -58,7 +58,7 @@ gem 'fog-aws'
 gem 'sitemap_generator'
 gem 'friendly_id', '~> 5.1'
 group :production do 
-  	 
+  	 gem 'rails_12factor'
 end
 
 group :development, :test do
