@@ -4,7 +4,7 @@
      title: @article.title,
      image: @article.image.url(:show),
      url: request.original_url,
-     description: @article.text.html_safe
+     description: raw @article.text.html_safe
 
    }%>
 
