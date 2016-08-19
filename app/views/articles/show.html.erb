@@ -4,7 +4,7 @@
      title: @article.title,
      image: @article.image.url(:show),
      url: request.original_url,
-     description: @article.text
+     description: @article.text.html_safe
 
    }%>
 
@@ -18,7 +18,7 @@
 			<h1><%= @article.title %></h1>
 		</div>
 
-		<
+		
 		<div class='show_image'>
 			<%= image_tag @article.image.url(:show) %>
 			<div class='caption'>
