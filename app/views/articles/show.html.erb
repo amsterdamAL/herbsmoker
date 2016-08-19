@@ -4,9 +4,9 @@
      title: @article.title,
      image: @article.image.url(:show),
      url: request.original_url,
-     description: raw @article.text %>
+     description: @article.text.html_safe
 
-}%>
+   }%>
 
 
 
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div class='shareable'>
-<%= facebook_button :facebook=> {:title=> @article.title, :send=> 'true', :url=> 'http://agile-stream-2304.herokuapp.com/articles/what-s-the-1-threat-to-florida-s-medical-marijuana-initiative-2016'} %>
+<%= facebook_button :facebook=> {:send=> 'true'} %>
 		</div>
 				
 		<div class='show_dateinfo'>
