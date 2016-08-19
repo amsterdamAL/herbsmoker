@@ -2,7 +2,7 @@
 <% meta og: {
      type: "article",
      title: @article.title,
-     image: @article.image.url(:show),
+     image: @article.image.url(:featured),
      url: request.original_url,
      description: @article.text.html_safe
 
@@ -39,7 +39,7 @@
 
 		<div class='show_comments' nicknametag="BLANKNAME">
 
-			<h1>(  (  ((comment))  )   )</h1>
+			<h1>Comment</h1>
 
 			
 
