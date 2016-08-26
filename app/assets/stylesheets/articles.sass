@@ -17,12 +17,15 @@
 		.index_stick
 			+clearfix
 			width: 100%
-			padding: 10px
-			overflow: none
-			margin-right: 10px
+			padding: 10px 150px 10px 10px
+			overflow: hidden
+			
 			margin-top: 2px
 			background: tint($green_base, 98%)
 			white-space: nowrap
+			+media($tablet)
+				padding: 10px 100px 10px 10px
+				
 			
 			.index_thumb
 				
@@ -38,13 +41,18 @@
 				vertical-align: top
 				
 
+				.top_info_bar
+					white-space: normal
+					padding: 3px 0px 3px 20px
+					font-size: .6em
+
 				.subject_line
 					padding: 3px 0px 3px 20px
 					
 					white-space: normal
 					
 					font-size: .7em
-					width: 70%
+					
 					
 
 				.index_first_line
@@ -97,8 +105,13 @@
 			font-style: italic
 			
 		.show_words
-			
+			padding: 20px 110px 20px 10px 
 			margin-top: 15px
+			text-indent: 50px
+			line-height: 190%
+			+media($tablet)
+				padding: 20px 10px 20px 10px
+		
 	.show_aside
 		+span-columns(3)
 		background: gray
@@ -129,6 +142,15 @@
 		+span-columns(4)
 		padding-right: 25px
 
+	.show_title_bar
+		H1
+			font-size: 1.5em
+
 .show_page_wrapper
 	+media($mobile)
 		padding-top: 30px
+
+
+
+.private
+	margin-bottom: 50px

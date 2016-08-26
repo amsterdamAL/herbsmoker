@@ -16,7 +16,9 @@
         </div>
 
         <div class="index_subject">
-          
+          <div class="top_info_bar">
+            <%= art.created_at.strftime('%B' + ' ' + art.created_at.day.ordinalize + ' ' + '%Y') %> | by FloridaToker staff
+          </div>
           
           <div class='subject_line'><h1><%= link_to art.title, {:controller => 'articles', :action => 'show', :id => art.slug } %></h1>
           </div>  

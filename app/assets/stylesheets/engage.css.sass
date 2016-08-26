@@ -6,10 +6,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //$green_light: tint(#E6F5EB, 88%)
 
+$green1: #2fd13e
+$green2: #269630
+$green3: #407132
+$offgreen: #e0f2e6
+$offwhite: #fafdfb
+
+//#fafdfb
+#path27, #path29, #path31, #path33, #path35
+  fill: #fafdfb !important
+
+#path11, #path13, #path15, #path17, #path19, #path21, #path23
+  fill: #fafdfb !important
 
 body
   //background: url("upfeathers4.png")
-  background: tint($green_base, 88%)
+  //background: tint($green_base, 88%)
+  background: #fafdfb
 #ghost.hideellogo
   display: none
 #tag
@@ -18,13 +31,13 @@ body
 .skinny_bar
   width: 100%
   
-  background: #141311
+  background: $myblack
    
   .skinny_bar_content
     +outer-container
     
     .tag_line
-      background: #141311
+      background: $myblack
       display: inline-block
       width: 35%
       
@@ -40,11 +53,11 @@ body
 #sticky-anchor.perm_bar
   width: 100%
   positon: relative
-  background: #141311
+  background: $myblack
   
   .nav  
     
-    background: #141311
+    background: $myblack
     +outer-container
     +clearfix
     
@@ -77,11 +90,12 @@ form.search-bar
   position: fixed
   top: 0px
   z-index: 101
-  background: #141311
+  background: $myblack
   height: 35px
   .nav  
     
-    background: #141311
+    //background: #141311
+    background: $myblack
     +outer-container
     +clearfix
     a
@@ -136,8 +150,8 @@ form.search-bar
 .featured_main
   +span-columns(9)
   padding: 10px
-  background: tint($green_base, 98%)
-  box-shadow: 5px 2px 15px #888888
+  //background: tint($green_base, 98%)
+  //box-shadow: 5px 2px 15px #888888
 .featured_content
   +clearfix
 .featured_title
@@ -153,7 +167,7 @@ form.search-bar
   float: left
   margin-right: 20px
   margin-bottom: 0px
-  box-shadow: 5px 2px 15px #888888
+  box-shadow: 2px 2px 15px #888888
   height: 217px
 .readmore-js-section
   overflow: visible 
@@ -193,7 +207,8 @@ form.search-bar
 
             
 .mini_text
-  +linear-gradient(#f2f4f3, #f9fcfa)
+  //+linear-gradient(#f2f4f3, #f9fcfa)
+  +linear-gradient(#EDF5EE, $offwhite)
   word-wrap: break-word
   text-align: center
   //background: tint($green_base, 80%)
@@ -211,9 +226,10 @@ form.search-bar
   //box-shadow: 3px 1px 10px #888888
 #one, #two
   border: 1px solid rgba(10, 68, 4, .2) 
-  background: #141311
-  +linear-gradient(#e0f2e6, #d2e5d8)
+  //background: $myblack
+  //+linear-gradient(#e0f2e6, #d2e5d8)
   //#2989d8 #e0f2e6 #0C3511
+  +linear-gradient(#DCF2DF, $offwhite)
   margin: 0px 0px 40px 0px
   box-shadow: 3px 1px 10px #888888
 
@@ -230,6 +246,10 @@ form.search-bar
 
   #go_mini
     width: 100%
+    background-color: $green3
+
+  #go_mini:hover
+    background-color: $green2
 
     
 
@@ -299,7 +319,8 @@ form.search-bar
     +appearance(none)
     +box-sizing(border-box)
     +transition(border-color)
-    background-color: white
+    background-color: $offwhite
+    color: $green3
     border-radius: $base-border-radius
     
     border: 1px solid $base-border-color
@@ -480,7 +501,7 @@ form.search-bar
   #one, #two
     margin-top: 20px
   #mnav ul
-    background: #141311
+    background: $myblack
     display: none
     position: absolute
     padding: 20px
@@ -498,7 +519,7 @@ form.search-bar
     width: 100%
     padding: 10px 0
     margin: 0
-    background: #141311
+    background: $myblack
     border-bottom: .5px solid #0c3511
 
   
@@ -587,3 +608,4 @@ form.search-bar
       box-shadow: none
       margin-top: 0px
       
+

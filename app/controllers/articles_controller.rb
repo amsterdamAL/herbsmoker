@@ -74,7 +74,7 @@ end
 
 private
   def article_params
-    params.require(:article).permit(:title, :text, :image, :caption)
+    params.require(:article).permit(:title, :text, :image, :caption, :description)
   end
 
 end
