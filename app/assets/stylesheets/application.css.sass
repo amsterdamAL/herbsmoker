@@ -24,17 +24,31 @@ $green_light: tint(#E6F5EB, 95%)
 $green_dark: tint(#19A347, 14%)
 $green_base: #009933
 $grays: #CACABC
-a:link
-	color: #093B0D
-a:visited 
-	color: $green3 !important
-a:hover 
-	color: $green2 !important
-//a:active
-//	color: #C43088
+#navbox
+	a:link
+		color: #39D447
+	a:visited 
+		color: #39D447 !important
+	a:hover 
+		color: $offwhite!important
+	//a:active
+	//	color: #C43088
 
+
+a:focus, a:active, a:link, a:visited
+	color: #407132 !important
+a:hover
+	color: #5BAD44 !important
 @import 'bourbon/bourbon'
 @import 'normalize'
+
+input[type=submit], button
+	background-color: $green3 !important
+	color: $offwhite !important
+
+#email_mini:focus, #feedback_name:focus, #feedback_email:focus, #feedback_body:focus, input#message:focus, #lookup_address:focus, #lookup_city:focus, #lookup_zip:focus
+	border-color: $green2
+
 
 @import 'grid-settings'
 @import 'neat'
