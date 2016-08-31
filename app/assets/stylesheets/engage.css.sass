@@ -111,7 +111,7 @@ form.search-bar
       
     ul
       float: right
-      line-height: 35px
+      line-height: em(35) !important
       //max-width: 1240px
       margin: 0
       padding: 0
@@ -121,6 +121,7 @@ form.search-bar
       
       li
         display: inline-block
+        vertical-align: top
 /*-----------------------------------------------end of lower nav bar sticky ------------------*/      
                
           
@@ -140,7 +141,8 @@ form.search-bar
 
 .mini_info
   float: right
-  background: #f2f4f3
+  background: #E8FAEB
+  font-size: 10px
 
 
 .featured_wrapper
@@ -186,7 +188,7 @@ form.search-bar
   //box-shadow: 5px 2px 15px #888888
 .mini_image
   //background: tint($green_base, 80%)
-  background: #f2f4f3
+  background: #E8FAEB
          
   img
     width: 100%
@@ -198,17 +200,17 @@ form.search-bar
   font-size: 10px
   //ovherflow: hidden
   //padding: 0px 10px
-  background: #f2f4f3
+  background: #E8FAEB
   overflow: hidden
 .mini_share_buttons
   float: left
             
-  background: #f2f4f3
+  background: #E8FAEB
 
             
 .mini_text
   //+linear-gradient(#f2f4f3, #f9fcfa)
-  +linear-gradient(#EDF5EE, $offwhite)
+  +linear-gradient(#E8FAEB, $offwhite)
   word-wrap: break-word
   text-align: center
   //background: tint($green_base, 80%)
@@ -229,7 +231,7 @@ form.search-bar
   //background: $myblack
   //+linear-gradient(#e0f2e6, #d2e5d8)
   //#2989d8 #e0f2e6 #0C3511
-  +linear-gradient(#DCF2DF, $offwhite)
+  +linear-gradient(#E8FAEB, $offwhite)
   margin: 0px 0px 40px 0px
   box-shadow: 3px 1px 10px #888888
 
@@ -416,6 +418,7 @@ form.search-bar
 //    padding: 5px 0 0 0
     
 #mnav
+  +clearfix
   
 
 #mnav ul 
@@ -581,8 +584,7 @@ form.search-bar
       +omega(1n)
       width: 100% 
   
-  div.mini_info
-    font-size: 10px
+
   
   .side
     +media($mobile)

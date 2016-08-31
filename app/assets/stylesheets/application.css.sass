@@ -25,20 +25,20 @@ $green_dark: tint(#19A347, 14%)
 $green_base: #009933
 $grays: #CACABC
 #navbox
-	a:link
-		color: #39D447
-	a:visited 
-		color: #39D447 !important
-	a:hover 
-		color: $offwhite!important
-	//a:active
-	//	color: #C43088
+//	a:link
+//		color: $offwhite !important
+//	a:visited 
+//		color: $offwhite !important
+//	a:hover 
+//		color: #39D447 !important
+//	//a:active
+//	//	color: #C43088
 
 
-a:focus, a:active, a:link, a:visited
-	color: #407132 !important
-a:hover
-	color: #5BAD44 !important
+//a:focus, a:active, a:link, a:visited
+//	color: #004508 !important
+//a:hover
+//	color: #07B01B !important
 @import 'bourbon/bourbon'
 @import 'normalize'
 
@@ -46,7 +46,13 @@ input[type=submit], button
 	background-color: $green3 !important
 	color: $offwhite !important
 
-#email_mini:focus, #feedback_name:focus, #feedback_email:focus, #feedback_body:focus, input#message:focus, #lookup_address:focus, #lookup_city:focus, #lookup_zip:focus
+
+	
+
+#go_mini:hover, input[type=submit]:hover
+	background-color: #479630 !important
+
+#email_mini:focus, #feedback_name:focus, #feedback_email:focus, #feedback_body:focus, input#message:focus, #lookup_address:focus, #lookup_city:focus, #lookup_zip:focus, input:focus
 	border-color: $green2
 
 
@@ -93,4 +99,8 @@ h2
 //	margin-top: -32767px
 
 
+#path42:hover
+	fill: $green1 !important
 
+#path38:hover
+	fill: $green2 !important

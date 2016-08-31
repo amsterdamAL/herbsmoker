@@ -76,22 +76,24 @@ pre
   width: 100%
   
   
-  background: #141311
-  color: white
+  background: #1A1B20
+  color: $offwhite
   font-weight: 400
   padding: 5px
   margin-bottom: 8px
   +border-top-radius(5px)
   
-  
+#lookup_address_div
+  padding-left: 10px
+  padding-right: 10px
  
 
 #lookup_steptwo  
   width: 100%
   
   
-  background: #141311
-  color: white
+  background: #1A1B20
+  color: $offwhite
   font-weight: 400
   padding: 5px
   margin-bottom: 8px
@@ -100,6 +102,7 @@ pre
   
   width: 100% !important
   height: 40px
+
   
 
   
@@ -158,7 +161,8 @@ pre
   
 #smoosh,
   +clearfix
-
+  padding-left: 10px
+  padding-right: 10px
 
 #lookup_city
   width: 54%
@@ -247,6 +251,7 @@ ul
 
 
 #lookup_form
+  +linear-gradient(#E8FAEB, $offwhite)
   +media($tablet)
     +span-columns(4)
     margin-top: 20px

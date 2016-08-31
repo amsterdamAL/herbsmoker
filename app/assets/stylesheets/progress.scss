@@ -2,7 +2,7 @@
   $base-border-color: gainsboro !default;
   $base-background-color: white !default;
   $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
+  $action-color: #36B541 !default;
   $progress-border-color: $base-border-color;
   $progress-border: 1px solid $progress-border-color;
   $progress-meter-border-color: $action-color;
@@ -24,7 +24,7 @@
   > span.meter {
     @include animation(progress $progress-animation-duration linear infinite);
     @include box-sizing(border-box);
-    background-color: $progress-meter-color;
+    background-color: #479630;
     @include background-image(linear-gradient(-45deg, rgba(255,255,255, 0.15) 25%,
                                                       transparent 25%,
                                                       transparent 50%,
