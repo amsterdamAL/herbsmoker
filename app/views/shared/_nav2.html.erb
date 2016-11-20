@@ -21,7 +21,7 @@
 						</li>
 						<li>
 							
-							<%= link_to 'whos my Rep?', {:controller=>"/lookups", :action=>"new"} %>
+							<%= link_to 'find-my-Rep-tool', {:controller=>"/lookups", :action=>"new"} %>
 							
 						</li>
 						<li>
@@ -80,7 +80,8 @@
 
 <div class="skinny_bar">
 	<div class="skinny_bar_content">
-		
+		<%= link_to(root_path) do %>
 		<span id="tag" class="tag_line"><%= render :partial => 'shared/logo3' %></span>
+		<% end %>
 	</div>	
 </div>

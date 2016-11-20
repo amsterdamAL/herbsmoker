@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 
     // every time a reply link is clicked
-    $("a").unbind("click").click(function (event) {
+    $(".rep").unbind("click").click(function (event) {
             
         
         
@@ -55,8 +55,8 @@ $(document).ready(function(){
             lastClicked = "#" + CommentId + ".replybox";
             lastId = "#" + CommentId;
             //changes text value of "reply" anchor to "cancel"
-            $("a" + "#" + CommentId).text('Cancel');
-
+            $("#" + CommentId).text('Cancel');
+            console.log("#" + CommentId);
             //show the hidden reply section of anchor that was clicked
             $("#" + CommentId + ".replybox").toggle('slow', function() {
                 
@@ -94,7 +94,7 @@ $(document).ready(function(){
             lastId = "#" + CommentId;
 
             //resets the anchor text back to "reply" from "cancel"
-            $("a#" + CommentId).text('Reply');
+            $("#" + CommentId).text('Reply');
             
             //toggles the reply section back closed
             $("#" + CommentId + ".replybox").toggle("slow");

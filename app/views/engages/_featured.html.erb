@@ -59,6 +59,7 @@
 			
 		<div id="secondarysection" class="the_rest">
 			<% @rticles = Article.offset(1).order("created_at").reverse_order().first(6).each do |a| %>
+				
 				<li class="block">
 					<div class="mini_image"><%= link_to image_tag(a.image.url(:regular)), {:controller => 'articles', :action => 'show', :id => a.id } %></div>
 
@@ -127,17 +128,18 @@
 				
 			</div>
 		<% end %>
-		<div id="two">
+		<%= link_to(chats_demo_path) do %>
+			<div id="two">
 
-			<div id="chat_mini">		
-				<h5>Live camera feeds</h5>
-				<p>see whos online live.</p>
+				<div id="chat_mini">		
+					<h5>Live camera feeds</h5>
+					<p>see whos online live.</p>
 
-			
-				<%= image_tag("small_chat.png") %>
+				
+					<%= image_tag("small_chat.png") %>
+				</div>
+		<% end %>		
 			</div>
-			
-		</div>
 	</div>
 	
 

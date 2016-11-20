@@ -56,9 +56,11 @@ pre
 #lookup_results
   
   float: left
+  padding-right: 5px
   
 #lookup_results2
   float: right
+
   
   
 #lookup_aside
@@ -101,7 +103,7 @@ pre
 #lookup_button, #review_button
   
   width: 100% !important
-  height: 40px
+  //height: 40px
 
   
 
@@ -111,6 +113,8 @@ pre
  
 .buttontwo
   width: 100%
+  white-space: normal !important
+  overflow: hidden
 #results_wrap
   margin: 0 auto
   box-shadow: 5px 5px 15px #888888
@@ -129,11 +133,11 @@ pre
   
 #arrow
   
-  
+  +span-columns(5)
   +clearfix
-  overflow: hidden
   
-  +span-columns(6)
+  white-space: normal !important
+  
   
 
 
@@ -259,15 +263,19 @@ ul
     border: none
 
     
-#arrow, #results_wrap
+#arrow
   +media($tablet)
     +span-columns(3)
-    margin-top: 15px
+    margin-top: 20px
     box-shadow: none
     border: none
 
-  
-
+#results_wrap
+  +media($tablet)
+    +span-columns(4)
+    margin-top: 20px
+    box-shadow: none
+    border: none
 
   h1
     text-align: center
