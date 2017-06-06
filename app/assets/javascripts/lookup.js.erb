@@ -10,7 +10,7 @@ $(document).ready(function(){
 		//user input stored
 		var addy = $('#lookup_address').val();
 		var city = $('#lookup_city').val();
-		var zip = $('#lookup_zip').val();
+		//var zip = $('#lookup_zip').val();
 		var lat;
 		var lng;
 		var leg_id0;
@@ -19,16 +19,16 @@ $(document).ready(function(){
 		var google = "<% ENV['google_api_key'] %>";
 		var sunlight = "<%= ENV['sunlight_foundation_api_key'] %>";
 		
-		if(zip == "" && addy == "" && city == ""){
+		if(addy == "" || city == ""){
 			$('#flag').hide();
-			$('#lookup_errors').show().empty().append("Please enter at least a zipcode.");
-		}else if ( $("#lookup_zip").val().replace(/ /g,'').length != 5){	
+			$('#lookup_errors').show().empty().append("Please enter address and city.");
+		//}else if ( $("#lookup_zip").val().replace(/ /g,'').length != 5){	
 		
-			$('#lookup_errors').show().empty().append("zipcode must be 5 digits");
+		//	$('#lookup_errors').show().empty().append("zipcode must be 5 digits");
 
-		}else if(!$.isNumeric($("#lookup_zip").val())){
+		//}else if(!$.isNumeric($("#lookup_zip").val())){
 
-			$('#lookup_errors').show().empty().append("zipcode must be numbers");
+		//	$('#lookup_errors').show().empty().append("zipcode must be numbers");
 
 
 		} else {
@@ -66,7 +66,7 @@ $(document).ready(function(){
 			
 			
 			//STEP ONE;;;;   get lat and lng info based on user input
-			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + city + zip + "&components=administrative_area:FL|country:US&key=" + google, function(json){
+			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + addy + city + "&components=administrative_area:FL|country:US&key=" + google, function(json){
 	    	              
 				
 				if (json.results.length > 1){
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			 	}
 			 	
 			 	//STEP TWO:::::   use lat and lng to lookup reps.
-			 	$.getJSON("http://openstates.org/api/v1/legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=" + sunlight, function(results) {
+			 	$.getJSON("https://openstates.org/api/v1/legislators/geo/?lat=" + lat + "&long=" + lng + "&apikey=" + sunlight, function(results) {
 					$("#headshot").attr("src", results[0].photo_url);
 					$('.progress-bar .meter').css('width', '41%');	
 					
@@ -217,7 +217,7 @@ $(document).ready(function(){
 					//$('#lookup_errors').append(results[1].full_name + ": " + results[1].leg_id + "<br>");
 					
 					//get additional info based on legislative id 1of2
-					$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=" + sunlight, function(data) {
+					$.getJSON("https://openstates.org/api/v1//legislators/"+ leg_id0 +"/?apikey=" + sunlight, function(data) {
 						
 						
 						//$("#results_work").empty().append( data.offices[0].name + ":");
@@ -240,7 +240,7 @@ $(document).ready(function(){
 					
 					
 					//get additional info based on legislative id 2of2
-					$.getJSON("http://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=" + sunlight, function(lore) {
+					$.getJSON("https://openstates.org/api/v1//legislators/"+ leg_id1 +"/?apikey=" + sunlight, function(lore) {
 						
 						
 						//$("#results_work2").empty().append( lore.offices[0].name + ":");
@@ -342,10 +342,10 @@ $(document).ready(function(){
 		}
 	  
 	});
-	$('#lookup_zip').keyup(function(event){
-		if(event.keyCode == 13){
-			getGuts();
-		}
+	//$('#lookup_zip').keyup(function(event){
+	//	if(event.keyCode == 13){
+	//		getGuts();
+	//	}
 	  
-	});
+	//});
 });
